@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1c2b3a">
+<title>Meus Estudos</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+<style>
+  :root{
+    --bg:#f3f4f1; --surface:#ffffff; --ink:#1b2420; --muted:#5c665d;
+    --border:#dcdfd6; --primary:#1c2b3a; --accent:#b4872c; --accent-soft:#f3e7cc;
+    --shadow:0 1px 2px rgba(20,26,20,.06),0 10px 24px -16px rgba(20,26,20,.3);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12161a; --surface:#1a2025; --ink:#e9ece5; --muted:#a7b1a5;
+      --border:#2c332f; --primary:#e9ece5; --accent:#d6ac50; --accent-soft:#3a3120;
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12161a; --surface:#1a2025; --ink:#e9ece5; --muted:#a7b1a5;
+    --border:#2c332f; --primary:#e9ece5; --accent:#d6ac50; --accent-soft:#3a3120;
+    --shadow:none;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:40px 16px 56px}
+  header{margin-bottom:28px}
+  .kicker{
+    font-size:.78rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--accent); font-weight:700; margin:0 0 6px;
+  }
+  h1{
+    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+    font-size:clamp(1.9rem,5vw,2.6rem); line-height:1.15; margin:0 0 8px; color:var(--primary);
+  }
+  .sub{margin:0; color:var(--muted); font-size:1rem}
+  .search{
+    margin-top:20px; width:100%; font:inherit; font-size:1rem;
+    padding:12px 14px; border-radius:10px; border:1px solid var(--border);
+    background:var(--surface); color:var(--ink);
+  }
+  .search:focus{outline:2px solid var(--accent); outline-offset:1px}
+  .grid{
+    list-style:none; padding:0; margin:0;
+    display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  }
+  .card{
+    display:flex; flex-direction:column; gap:10px; height:100%;
+    padding:20px; border-radius:14px; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--border); box-shadow:var(--shadow);
+    transition:transform .15s ease,border-color .15s ease;
+  }
+  .card:hover,.card:focus-visible{transform:translateY(-2px); border-color:var(--accent); outline:none}
+  .tag{
+    align-self:flex-start; font-size:.72rem; font-weight:700; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--accent); background:var(--accent-soft);
+    padding:3px 9px; border-radius:999px;
+  }
+  .card h2{font-size:1.15rem; margin:0; line-height:1.3}
+  .card p{margin:0; color:var(--muted); font-size:.93rem; flex:1}
+  .go{font-weight:600; font-size:.9rem; color:var(--primary)}
+  .empty{color:var(--muted); display:none; padding:20px 0}
+  footer{margin-top:40px; color:var(--muted); font-size:.82rem; text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">Concursos · TJ-SP</p>
+    <h1>Meus Estudos</h1>
+    <p class="sub">Materiais de revisão e bancos de questões. O progresso das questões fica salvo em cada aparelho.</p>
+    <input class="search" id="q" type="search" placeholder="Buscar página…" aria-label="Buscar página">
+  </header>
+
+  <ul class="grid" id="lista">
+    <li>
+      <a class="card" href="lei-10261.html">
+        <span class="tag">Legislação estadual</span>
+        <h2>Lei 10.261/68</h2>
+        <p>Estatuto dos Servidores Públicos Civis do Estado de São Paulo — questões NEAF e QConcursos.</p>
+        <span class="go">Abrir →</span>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="lei-13146.html">
+        <span class="tag">Legislação federal</span>
+        <h2>Lei 13.146/15</h2>
+        <p>Estatuto da Pessoa com Deficiência — estudo direcionado ao TJ-SP.</p>
+        <span class="go">Abrir →</span>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="improbidade-administrativa.html">
+        <span class="tag">Direito administrativo</span>
+        <h2>Improbidade Administrativa</h2>
+        <p>Lei 8.429/92 — estudo completo, questões com fundamentação e NEAF.</p>
+        <span class="go">Abrir →</span>
+      </a>
+    </li>
+  </ul>
+  <p class="empty" id="vazio">Nenhuma página encontrada.</p>
+
+  <footer>Bons estudos!</footer>
+</div>
+<script>
+  (function(){
+    var q=document.getElementById('q'), itens=[].slice.call(document.querySelectorAll('#lista li')), vazio=document.getElementById('vazio');
+    function norm(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();}
+    q.addEventListener('input',function(){
+      var t=norm(q.value.trim()), n=0;
+      itens.forEach(function(li){var ok=!t||norm(li.textContent).indexOf(t)>-1; li.style.display=ok?'':'none'; if(ok)n++;});
+      vazio.style.display=n?'none':'block';
+    });
+  })();
+</script>
+</body>
+</html>
