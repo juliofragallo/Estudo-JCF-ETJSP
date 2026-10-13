@@ -1,4 +1,9 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Revisão TJ-SP</title><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revisão TJ-SP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -359,6 +364,12 @@
   .dica-list > li{ font-weight: 600; font-size: 0.92rem; color: var(--ink); }
   .dica-list ul{ list-style: disc; margin: 6px 0 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: 4px; }
   .dica-list ul li{ font-weight: 400; font-size: 0.88rem; color: var(--ink-soft); }
+  .q-src{
+    display: inline-block; padding: 0 7px; border-radius: 999px;
+    font-family: var(--font-mono); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.6;
+    background: var(--accent-soft); color: var(--accent-ink); white-space: nowrap; vertical-align: 1px;
+  }
+  .q-src.sim{ background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line); line-height: 1.45; }
 
 
   /* ---------- Item media (imagens e tabela) ---------- */
@@ -485,8 +496,181 @@
   @media (max-width: 899px){
     .app{ flex-direction: column; }
   }
-</style>
 
+  /* ---------- Matriz comparativa (type: "matrix") — aspecto x lei ---------- */
+  :root{
+    --law-cpp: #2D5B87;  --law-cpp-soft: #E2EBF4;
+    --law-jec: #3A6D4A;  --law-jec-soft: #E0EEE3;
+    --law-jefp: #72507B; --law-jefp-soft: #EFE5F1;
+    --law-cpc: #7A5B22;  --law-cpc-soft: #EFE6D2;
+    --ok: #2B6E40;  --ok-soft: #DCEEE0;
+    --bad: #A2352D; --bad-soft: #F5E0DC;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --law-cpp: #9DC0E8;  --law-cpp-soft: #1C2B3C;
+      --law-jec: #97D1A7;  --law-jec-soft: #1B2F22;
+      --law-jefp: #D5B0DF; --law-jefp-soft: #2E2234;
+      --law-cpc: #E3C47E;  --law-cpc-soft: #362C18;
+      --ok: #8FD3A2;  --ok-soft: #1B3224;
+      --bad: #F2A49B; --bad-soft: #3B201D;
+    }
+  }
+  :root[data-theme="dark"]{
+    --law-cpp: #9DC0E8;  --law-cpp-soft: #1C2B3C;
+    --law-jec: #97D1A7;  --law-jec-soft: #1B2F22;
+    --law-jefp: #D5B0DF; --law-jefp-soft: #2E2234;
+    --law-cpc: #E3C47E;  --law-cpc-soft: #362C18;
+    --ok: #8FD3A2;  --ok-soft: #1B3224;
+    --bad: #F2A49B; --bad-soft: #3B201D;
+  }
+  .law-cpp{  --tone: var(--law-cpp);  --tone-soft: var(--law-cpp-soft); }
+  .law-jec{  --tone: var(--law-jec);  --tone-soft: var(--law-jec-soft); }
+  .law-jefp{ --tone: var(--law-jefp); --tone-soft: var(--law-jefp-soft); }
+  .law-cpc{  --tone: var(--law-cpc);  --tone-soft: var(--law-cpc-soft); }
+
+  .mx{ margin-top: 4px; min-width: 0; }
+  .mx [hidden]{ display: none !important; }
+  .mx-intro{ font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; margin: 0 0 10px; }
+  .mx-intro strong{ color: var(--ink); font-weight: 600; }
+
+  .mx-bar{ display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 10px; }
+  .mx-bar-label{
+    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--ink-faint); margin-right: 2px;
+  }
+  .mx-toggle{
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-faint);
+    border-radius: 999px; padding: 6px 11px 6px 9px;
+    font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; line-height: 1.2;
+    cursor: pointer; white-space: nowrap;
+  }
+  .mx-toggle::before{ content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid currentColor; flex: none; }
+  .mx-toggle[aria-pressed="true"]{ background: var(--tone-soft); color: var(--tone); border-color: transparent; }
+  .mx-toggle[aria-pressed="true"]::before{ background: currentColor; }
+  .mx-expand{
+    margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-soft);
+    border-radius: 8px; padding: 6px 10px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+  }
+  .mx-expand:hover{ color: var(--ink); background: var(--surface-2); }
+
+  .mx-law{
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    background: var(--tone-soft); color: var(--tone);
+    font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; white-space: nowrap;
+  }
+
+  /* tabela (tablet/desktop) */
+  .mx-scroll{ overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+  table.mx-table{
+    width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed;
+    font-size: 0.8rem; line-height: 1.45; color: var(--ink-soft);
+  }
+  .mx-table th, .mx-table td{
+    padding: 10px 12px; text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--line); border-left: 1px solid var(--line);
+  }
+  .mx-table thead th{ background: var(--surface-2); border-top: 3px solid var(--tone, var(--line-strong)); }
+  .mx-table thead th.mx-aspect{
+    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 600;
+  }
+  .mx-h-label{ display: block; font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600; color: var(--tone); }
+  .mx-h-sub{ display: block; font-size: 0.7rem; font-weight: 400; color: var(--ink-faint); margin-top: 2px; }
+  .mx-table .mx-aspect{
+    position: sticky; left: 0; z-index: 1; width: 136px;
+    background: var(--surface-2); border-left: none; color: var(--ink); font-weight: 600; font-size: 0.8rem;
+  }
+  .mx-table tr.mx-section th{
+    background: var(--bg); color: var(--accent-ink); border-left: none;
+    font-family: var(--font-mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 7px 12px;
+  }
+  .mx-table tr.mx-section th span{ position: sticky; left: 12px; }
+  .mx-table tbody tr:last-child > *{ border-bottom: none; }
+  .mx-table td strong, .mx-card-text strong{ color: var(--ink); font-weight: 600; }
+
+  .mx-ul{ margin: 4px 0 0; padding-left: 1.05em; }
+  .mx-ul:first-child{ margin-top: 0; }
+  .mx-ul li{ margin: 3px 0; }
+  .mx-ul + *{ margin-top: 4px; }
+  .art{ font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-faint); white-space: nowrap; }
+  .mx-tag{
+    display: inline-block; font-family: var(--font-mono); font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase; padding: 1px 6px; border-radius: 4px;
+    border: 1px solid var(--line-strong); color: var(--ink-soft); vertical-align: 1px;
+  }
+  .mx-part + .mx-part{ margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
+  .mx-badge{
+    display: inline-block; font-family: var(--font-mono); font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase; padding: 1px 7px; border-radius: 999px; vertical-align: 1px;
+    margin-bottom: 3px;
+  }
+  .mx-badge.ok{ background: var(--ok-soft); color: var(--ok); }
+  .mx-badge.no{ background: var(--bad-soft); color: var(--bad); }
+  .mx-muted{ color: var(--ink-faint); font-style: italic; }
+  .mx-muted .art{ font-style: normal; }
+  .mx-ext{ font-size: 0.7rem; color: var(--ink-faint); font-style: italic; }
+
+  /* cartões (celular) */
+  .mx-cards{ display: flex; flex-direction: column; gap: 8px; }
+  .mx-cards-sec{
+    font-family: var(--font-mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-ink); margin: 10px 0 0;
+  }
+  .mx-cards-sec:first-child{ margin-top: 0; }
+  .mx-card{ border: 1px solid var(--line); border-radius: 10px; background: var(--surface); min-width: 0; }
+  summary.mx-card-sum{
+    display: flex; align-items: center; gap: 10px; padding: 12px; cursor: pointer; list-style: none;
+    font-weight: 600; font-size: 0.9rem; color: var(--ink);
+  }
+  summary.mx-card-sum::-webkit-details-marker{ display: none; }
+  .mx-card-sum > span{ flex: 1 1 auto; min-width: 0; }
+  details.mx-card[open] > summary.mx-card-sum .chev{ transform: rotate(90deg); }
+  .mx-card-body{ padding: 0 12px 14px; display: flex; flex-direction: column; gap: 12px; }
+  .mx-card-cell{ border-left: 3px solid var(--tone); padding: 1px 0 1px 10px; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; min-width: 0; overflow-wrap: break-word; }
+  .mx-card-text{ margin-top: 5px; }
+
+  /* no computador, a coluna de conteúdo alarga enquanto uma tabela comparativa estiver aberta */
+  @media (min-width: 900px){
+    .main:has(details.tema-acc[open] details.item-acc[open] .mx){ max-width: 1280px; }
+  }
+  @media (max-width: 719px){
+    .mx-scroll, .mx-expand{ display: none; }
+  }
+  @media (min-width: 720px){
+    .mx-cards{ display: none; }
+  }
+
+  /* tela cheia */
+  .mx-overlay{
+    position: fixed; inset: 0; z-index: 70; background: var(--bg);
+    display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 160ms ease, visibility 160ms;
+  }
+  .mx-overlay.is-open{ opacity: 1; visibility: visible; pointer-events: auto; }
+  .mx-overlay-head{
+    flex: none; display: flex; align-items: center; gap: 12px; padding: 12px 20px;
+    border-bottom: 1px solid var(--line); background: var(--surface);
+  }
+  .mx-overlay-title{ font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; flex: 1 1 auto; min-width: 0; }
+  .mx-overlay-close{
+    flex: none; width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink);
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+  }
+  .mx-overlay-body{ flex: 1 1 auto; overflow: auto; padding: 14px 20px 32px; }
+  .mx.mx-full{ margin: 0; }
+  .mx.mx-full .mx-scroll{ display: block; overflow: visible; }
+  .mx.mx-full .mx-cards, .mx.mx-full .mx-expand, .mx.mx-full .mx-intro{ display: none; }
+  .mx.mx-full table.mx-table{ font-size: 0.86rem; }
+  .mx.mx-full .mx-table thead th{ position: sticky; top: -14px; z-index: 2; }
+  .mx.mx-full .mx-table thead th.mx-aspect{ z-index: 3; }
+</style>
+</head>
+<body>
 <div class="app">
   <div class="scrim" id="scrim"></div>
 
@@ -535,6 +719,16 @@
   <div class="lightbox-caption" id="lightboxCaption"></div>
 </div>
 
+<div class="mx-overlay" id="mxOverlay" role="dialog" aria-modal="true" aria-labelledby="mxOverlayTitle" aria-hidden="true">
+  <div class="mx-overlay-head">
+    <div class="mx-overlay-title" id="mxOverlayTitle"></div>
+    <button type="button" class="mx-overlay-close" id="mxOverlayClose" aria-label="Fechar tela cheia">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="mx-overlay-body" id="mxOverlayBody"></div>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -545,6 +739,153 @@
       { name: "Tema 2", items: [] }
     ];
   }
+
+  /* ---------- Tema compartilhado: Citação (aparece em Processo Penal e em Processo Civil) ---------- */
+  function mxA(t){ return '<span class="art">' + t + '</span>'; }
+  function mxUl(arr){ return '<ul class="mx-ul">' + arr.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>'; }
+  function mxDuo(jec, jecrim){
+    return '<div class="mx-part"><span class="mx-tag">JEC</span> ' + jec + '</div>' +
+           '<div class="mx-part"><span class="mx-tag">JECrim</span> ' + jecrim + '</div>';
+  }
+  function mxSim(){ return '<span class="mx-badge ok">Cabe</span> '; }
+  function mxNao(){ return '<span class="mx-badge no">Não cabe</span> '; }
+  function mxExt(){ return ' <span class="mx-ext">(fora da apostila)</span>'; }
+  var MX_CPC = '<span class="mx-muted">→ Segue o CPC ' + mxA('art. 6º') + '</span>';
+  /* selo de origem da dica: prova VUNESP (órgão/ano) ou simulado NEAF */
+  function qS(){
+    return Array.prototype.map.call(arguments, function(t){
+      return t === 'NEAF'
+        ? '<span class="q-src sim">Simulado NEAF</span>'
+        : '<span class="q-src">' + t + '</span>';
+    }).join(' ');
+  }
+
+  var TEMA_CITACAO = {
+    name: "Citação — CPP x CPC x Leis 9.099 e 12.153",
+    items: [
+      {
+        type: "list",
+        title: "DICAS — Pegadinhas de citação (CPP x 9.099 x 12.153 x CPC)",
+        intro: "O que mais cai na comparação (os selos mostram em que prova a pegadinha apareceu):",
+        caption: "Selos: questão VUNESP (órgão e ano; “TJ-SP” sem cargo = Escrevente) ou Simulado NEAF de onde a dica saiu. Fontes: apostilas NEAF TJ-SP 2026 e os bancos de questões “Estudo CPC VUNESP TJ-SP” e “Lei Seca CPP”.",
+        groups: [
+          { label: "Edital", points: [
+            "CPP: prazo fixo de 15 dias (art. 361) — a banca troca por 5 ou 120 dias " + qS("TJ-SP 2025", "TJ-SP 2023"),
+            "CPC: o juiz fixa entre 20 e 60 dias (art. 257, III)",
+            "Lei 9.099: NÃO cabe — no JEC é proibido sem exceção, nem “em casos excepcionais” (art. 18, §2º); no JECrim o caso vai para o Juízo comum (art. 66, p.ú.) " + qS("TJ-SP 2021", "NEAF"),
+            "CPP: o edital indica o nome do JUIZ que a determinar, não do promotor (art. 365, I); a publicação se prova por exemplar do JORNAL (não revista) ou certidão do escrivão (art. 365, p.ú.) " + qS("NEAF"),
+            "CPP, rito sumário: réu não localizado → edital normalmente; não existe “conversão para o ordinário” para citar por edital " + qS("TJ-SP 2024")
+          ] },
+          { label: "Não encontrado x se oculta (CPP)", points: [
+            "Não encontrado → EDITAL (art. 361) | Se oculta → HORA CERTA (art. 362). A banca inverte as duas " + qS("TJ-SP 2023", "PC-SP 2022"),
+            "Precatória: certificado que o réu se oculta, ela volta para HORA CERTA, não para edital (art. 355, §2º) " + qS("NEAF"),
+            "Não existe “citação por carta-convite” nem “por correio” no CPP " + qS("TJ-SP 2025", "NEAF")
+          ] },
+          { label: "Réu revel citado por edital", points: [
+            "CPP: suspende o processo E a prescrição (art. 366) " + qS("TJ-SP 2024"),
+            "CPC: o processo segue, com curador especial (art. 257, IV)",
+            "CPP: suspender processo e prescrição = consequência LEGAL; antecipar provas urgentes e decretar prisão PREVENTIVA (não temporária) = o juiz PODE (art. 366) " + qS("TJ-RJ Juiz 2025", "NEAF"),
+            "É SUSPENSÃO da prescrição, não interrupção " + qS("TJ-RJ Juiz 2025", "NEAF"),
+            "Só suspende se ele NÃO comparecer NEM constituir advogado: citado por edital que constituiu advogado → o processo segue à revelia " + qS("TJ-SP Juiz 2024")
+          ] },
+          { label: "Hora certa", points: [
+            "O CPP não tem rito próprio: manda aplicar os arts. 252 a 254 do CPC (art. 362) — é exemplo de aplicação EXPRESSA (não só subsidiária) do CPC no processo penal " + qS("TJ-SP Juiz 2021"),
+            "Revel → CPP: defensor dativo, e o processo SEGUE — não suspende nem nomeia curador (art. 362, p.ú.) | CPC: curador especial (art. 253, §4º) " + qS("TJ-SP 2024", "TJ-SP Oficial 2023"),
+            "Hora certa é citação FICTA, como o edital; real é a pessoal " + qS("TJ-SP 2024"),
+            "CPC: porteiro que se recusa a receber → segue-se o procedimento da hora certa; a recusa não torna o local “inacessível” para edital (arts. 252, p.ú., e 253, §2º) " + qS("TJ-RJ Juiz Leigo 2026")
+          ] },
+          { label: "Militar, preso e funcionário público", points: [
+            "CPP: militar por intermédio do chefe do respectivo serviço (art. 358) — não “general”, nem pessoalmente em casa " + qS("TJ-SP 2025", "TJ-SP 2024"),
+            "CPC: militar na residência; na unidade só se a residência for desconhecida ou ele não for encontrado (art. 243, p.ú.)",
+            "CPP: réu preso é citado PESSOALMENTE — não basta requisitar ao diretor do presídio; nem precatória, nem via postal (art. 360) " + qS("TJ-SP 2025", "NEAF"),
+            "CPP: funcionário público acusado — o dia é notificado a ELE e ao chefe da repartição, não só ao chefe (art. 359) " + qS("TJ-SP 2025")
+          ] },
+          { label: "Mandado — quem assina e quem cumpre", points: [
+            "CPP: subscrição do escrivão + rubrica do juiz (art. 352, VII) — a banca inverte " + qS("NEAF"),
+            "CPC: assinatura do escrivão + declaração de que subscreve por ordem do juiz (art. 250, VI)",
+            "CPP: é o OFICIAL (não o escrivão) que lê o mandado e entrega a contrafé; a certidão registra a aceitação OU a recusa (art. 357) " + qS("NEAF"),
+            "CPP: mandado é a regra quando o réu está no território do juiz (art. 351); fora dele → precatória (art. 353), não edital nem mandado do próprio juiz " + qS("TJ-SP 2024", "PC-SP 2022"),
+            "CPC: o escrivão/chefe de secretaria realiza citações e intimações, não penhoras (art. 152, II); o oficial cita pessoalmente, sempre que possível na presença de 2 testemunhas (art. 154, I) " + qS("NEAF")
+          ] },
+          { label: "Réu em outra comarca ou no exterior", points: [
+            "CPP: carta rogatória suspende a prescrição até o cumprimento (art. 368) — só a prescrição, não o processo; e exige lugar SABIDO (lugar incerto → edital) " + qS("TJ-SP 2024", "TJ-SP 2023"),
+            "CPC: país que recusa a rogatória = lugar inacessível → edital (art. 256, §1º)",
+            "CPP: réu fora da comarca, no Brasil → carta PRECATÓRIA, não rogatória (art. 353); precatória não suspende processo nem prescrição " + qS("TJ-SP 2024", "TJ-SP 2023"),
+            "CPP: precatória itinerante — réu em território de outro juiz → o deprecado REMETE a ele, desde que haja tempo; não devolve sem cumprimento (art. 355, §1º) " + qS("TJ-SP 2023", "NEAF"),
+            "CPP: a precatória volta ao deprecante INDEPENDENTEMENTE de traslado (art. 355) e indica o fim da citação “com todas as especificações” (art. 354, III); legações estrangeiras → rogatória (art. 369) " + qS("NEAF")
+          ] },
+          { label: "Citação eletrônica (CPC)", points: [
+            "Feita em até 2 dias úteis da decisão — a banca põe 5 (art. 246) " + qS("NEAF"),
+            "Sem confirmação em 3 dias úteis → correio, oficial, escrivão ou edital; NÃO gera revelia, nulidade nem “presunção” de citação (art. 246, §1º-A) " + qS("Câmara S. Roque 2026", "NEAF"),
+            "Na 1ª oportunidade de falar nos autos, o réu justifica a falta de confirmação; multa de até 5% (ato atentatório) só se for SEM justa causa (§§1º-B e 1º-C) " + qS("Câmara S. Roque 2026", "NEAF"),
+            "Empresas públicas e privadas são obrigadas a manter cadastro (§1º); incapaz não é citado por correio nem por meio eletrônico (art. 247, II) " + qS("Câmara S. Roque 2026", "NEAF"),
+            "Citação efetivada em até 45 dias da propositura (art. 238, p.ú.) " + qS("NEAF")
+          ] },
+          { label: "Quando NÃO se faz a citação (CPC, art. 244)", points: [
+            "Noivos: nos 3 primeiros dias após o casamento — a banca põe 5 " + qS("TJ-SP 2021"),
+            "Parente do morto: até o 2º grau (a banca põe 3º), no dia do falecimento e nos 7 dias seguintes " + qS("TJ-SP 2021"),
+            "Culto religioso: durante qualquer ato de culto — não só “aos domingos” " + qS("TJ-SP 2021"),
+            "Doente, enquanto grave o estado ✔ | Mentalmente incapaz NÃO está no art. 244 — é o art. 245 (médico e curador) " + qS("TJ-SP 2021"),
+            "Exceção a todas: cita-se para evitar o perecimento do direito"
+          ] },
+          { label: "Dias e horários", points: [
+            "CPC: citações, intimações e penhoras podem ocorrer em férias forenses, feriados e fora das 6h–20h INDEPENDENTEMENTE de autorização judicial (art. 212, §2º) " + qS("TJ-SP 2025", "NEAF"),
+            "CPP: não há vedação a domingo nem horário “6h às 17h”; os atos podem ser praticados em domingos e feriados, salvo sessões de julgamento (art. 797) " + qS("TJ-SP 2023"),
+            "Lei 9.099: atos em horário noturno no JEC (art. 12) e, no JECrim, também em qualquer dia da semana (art. 64) " + qS("TJ-SP 2021", "NEAF")
+          ] },
+          { label: "Antecedência para a audiência", points: [
+            "CPC: audiência com no mínimo 30 dias; citação com pelo menos 20 dias (art. 334) — a banca põe 15 " + qS("TJ-SP 2024"),
+            "Lei 12.153: citação com antecedência mínima de 30 dias (art. 7º) — a banca põe 15 " + qS("TJ-SP 2021", "NEAF"),
+            "JEC: sessão de conciliação em 15 dias do registro do pedido (art. 16) " + qS("TJ-SP 2025"),
+            "JEC: se as duas partes comparecem juntas, a conciliação começa DESDE LOGO, dispensados o registro do pedido e a citação — não “em até 30 dias” (art. 17) " + qS("TJ-SP 2025")
+          ] },
+          { label: "Fazenda no Juizado da Fazenda Pública", points: [
+            "Não tem prazo diferenciado, nem para recorrer (Lei 12.153, art. 7º) — não vale o prazo em dobro do CPC (art. 183, fora da apostila)",
+            "A banca escreve “exceto para recursos” ou “prazo em dobro só para recursos” — errado: é INCLUSIVE para recursos " + qS("TJ-SP 2025", "TJ-SP 2024", "TJ-SP 2021"),
+            "Pagamento: até 60 dias (não 30) da entrega da requisição à “autoridade citada para a causa”, sem precatório (art. 13, I) " + qS("TJ-SP 2025", "NEAF")
+          ] },
+          { label: "JEC — citação (Lei 9.099)", points: [
+            "Por correspondência com AR em mão própria, ou por oficial independentemente de mandado ou precatória ✔ | por edital ✘ (art. 18) " + qS("TJ-SP 2021"),
+            "A citação leva cópia do pedido inicial, dia e hora para comparecer e a advertência da revelia (art. 18, §1º) " + qS("NEAF"),
+            "Intimações: na forma da citação ou por qualquer meio idôneo (art. 19); mudança de endereço não comunicada → valem as intimações no endereço antigo (art. 19, §2º) " + qS("NEAF")
+          ] },
+          { label: "JECrim — citação (Lei 9.099)", points: [
+            "Pessoal, no próprio Juizado sempre que possível, ou por mandado (art. 66) — sem citação ficta: nem edital, nem hora certa " + qS("PC-RR 2022", "NEAF"),
+            "Acusado presente: recebe a cópia da denúncia/queixa e fica citado — não precisa de mandado (art. 78) " + qS("NEAF"),
+            "Do mandado consta a NECESSIDADE (não mera recomendação) de vir com advogado; na falta, defensor público (art. 68) " + qS("NEAF"),
+            "Não encontrado (ou caso complexo) → Juízo comum, rito SUMÁRIO (arts. 66, p.ú., e 77, §2º; CPP, art. 538) " + qS("TJ-SP 2023", "PC-RR 2022")
+          ] },
+          { label: "Comparecimento espontâneo supre a citação", points: [
+            "CPC: art. 239, §1º (prazo corre do comparecimento) | JEC: art. 18, §3º | CPP: art. 570 (fora da apostila)"
+          ] },
+          { label: "Contagem do prazo", points: [
+            "CPC: em regra da juntada do AR ou do mandado (art. 231, I e II)",
+            "CPP: da data do ato, não da juntada (Súmula 710 STF, fora da apostila); no edital, do comparecimento (art. 396, p.ú.)",
+            "CPP: resposta à acusação em 10 dias (não 15) — no ordinário E no sumário (art. 396) e no júri (art. 406) " + qS("TJ-SP 2024", "PC-SP 2022"),
+            "Júri: o prazo conta do EFETIVO CUMPRIMENTO do mandado, não da juntada (art. 406, §1º) " + qS("TJ-SP Oficial 2023"),
+            "CPP, edital: conta do comparecimento pessoal do acusado ou do defensor constituído — não da publicação, nem da “ciência” (art. 396, p.ú.) " + qS("PC-SP 2022", "NEAF"),
+            "CPP: sem resposta no prazo → o juiz nomeia defensor, com vista por 10 dias, não 5 (arts. 396-A, §2º, e 408) " + qS("NEAF"),
+            "CPC (art. 231): edital → dia útil seguinte ao FIM da dilação (não ao começo); oficial → juntada do MANDADO (o AR é do correio); eletrônica → dia útil seguinte à consulta ou ao fim do prazo para consultar; vários intimados → prazo INDIVIDUAL " + qS("NEAF")
+          ] },
+          { label: "Citação nos procedimentos do CPC", points: [
+            "Até a citação, o autor muda pedido ou causa de pedir SEM consentimento do réu; depois, até o saneamento, só COM consentimento e prazo de 15 dias para o réu (art. 329) " + qS("TJ-SP 2021", "NEAF"),
+            "Improcedência liminar: o juiz julga SEM citar o réu (art. 332) " + qS("NEAF"),
+            "Indeferida a inicial e não havendo retratação, o réu é CITADO para responder à apelação (art. 331, §1º) " + qS("NEAF"),
+            "Tutela antecipada antecedente concedida: réu citado e intimado para a audiência de conciliação (art. 303, §1º, II) " + qS("TJ-RJ Juiz Leigo 2026", "NEAF"),
+            "Tutela cautelar antecedente: apresentado o pedido principal, as partes são INTIMADAS para a audiência, sem nova citação (art. 308, §3º) " + qS("TJ-SP 2021", "NEAF"),
+            "Produção antecipada de prova: citam-se os interessados, salvo se INEXISTENTE caráter contencioso (art. 382, §1º) " + qS("TJ-SP 2023", "TJ-SP Juiz 2025", "NEAF"),
+            "Reconvenção: o autor é INTIMADO na pessoa do advogado, não citado (art. 343, §1º) " + qS("NEAF"),
+            "Cumprimento de sentença: réu citado por edital e revel na fase de conhecimento → intimado por edital (art. 513, §2º, IV) " + qS("NEAF"),
+            "O despacho “cite-se” é irrecorrível (art. 1.001) " + qS("NEAF")
+          ] },
+          { label: "Efeitos da citação", points: [
+            "CPC — citação por juiz incompetente: mesmo assim induz litispendência, torna litigiosa a coisa e constitui em mora (art. 240); a interrupção da prescrição retroage à propositura (§1º)",
+            "CPP: o processo completa sua formação com a citação REALIZADA — não com o recebimento da denúncia nem com a juntada do mandado (art. 363) " + qS("NEAF")
+          ] }
+        ]
+      }
+    ]
+  };
 
   var SUBJECTS = [
     { id: "portugues", num: "01", name: "Língua Portuguesa", note: "", temas: twoTemas().concat([{ name: "Concordância", items: [
@@ -636,9 +977,10 @@
             detail: "<p style=\"color: var(--ink-faint); font-style: italic; margin: 0;\">Conteúdo ainda não cadastrado — será adicionado em breve.</p>"
           }
         ]
-      }
+      },
+      TEMA_CITACAO
     ] },
-    { id: "processo-penal", num: "05", name: "Processo Penal", note: "Código de Processo Penal — Decreto-Lei nº 3.689/1941", temas: twoTemas() },
+    { id: "processo-penal", num: "05", name: "Processo Penal", note: "Código de Processo Penal — Decreto-Lei nº 3.689/1941", temas: twoTemas().concat([TEMA_CITACAO]) },
     { id: "direito-penal", num: "06", name: "Direito Penal", note: "Código Penal — Decreto-Lei nº 2.848/1940", temas: twoTemas() },
     { id: "constitucional", num: "07", name: "Direito Constitucional", note: "Constituição da República Federativa do Brasil de 1988", temas: twoTemas() },
     { id: "estatuto-10261", num: "08", name: "Estatuto 10.261", note: "Estatuto dos Funcionários Públicos Civis do Estado de São Paulo — Lei nº 10.261/1968", temas: twoTemas() },
@@ -753,8 +1095,66 @@
     );
   }
 
+
+  /* ---------- Matriz comparativa (type: "matrix") ---------- */
+  var MX_EXPAND_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 4H20V10M10 20H4V14M20 4L13 11M4 20L11 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function mxMinWidth(n){ return 136 + n * 180; }
+
+  function matrixItemMarkup(it){
+    var cols = it.columns;
+    var head = '<thead><tr><th scope="col" class="mx-aspect">Aspecto</th>' + cols.map(function(c){
+      return '<th scope="col" class="' + c.tone + '" data-col="' + c.key + '">' +
+        '<span class="mx-h-label">' + c.label + '</span><span class="mx-h-sub">' + c.sub + '</span></th>';
+    }).join('') + '</tr></thead>';
+
+    var rowsHtml = [], cardsHtml = [], lastSec = null;
+    it.rows.forEach(function(r){
+      if (r.section && r.section !== lastSec){
+        lastSec = r.section;
+        rowsHtml.push('<tr class="mx-section"><th colspan="' + (cols.length + 1) + '"><span>' + r.section + '</span></th></tr>');
+        cardsHtml.push('<p class="mx-cards-sec">' + r.section + '</p>');
+      }
+      rowsHtml.push('<tr><th scope="row" class="mx-aspect">' + r.aspect + '</th>' + cols.map(function(c){
+        return '<td data-col="' + c.key + '">' + (r.cells[c.key] || '—') + '</td>';
+      }).join('') + '</tr>');
+      cardsHtml.push(
+        '<details class="mx-card"><summary class="mx-card-sum"><span>' + r.aspect + '</span>' + CHEV_SVG + '</summary>' +
+        '<div class="mx-card-body">' + cols.map(function(c){
+          return '<div class="mx-card-cell ' + c.tone + '" data-col="' + c.key + '"><span class="mx-law">' + c.label + '</span>' +
+            '<div class="mx-card-text">' + (r.cells[c.key] || '—') + '</div></div>';
+        }).join('') + '</div></details>'
+      );
+    });
+
+    var bar = '<div class="mx-bar" role="group" aria-label="Leis exibidas"><span class="mx-bar-label">Mostrar</span>' + cols.map(function(c){
+      return '<button type="button" class="mx-toggle ' + c.tone + '" data-toggle="' + c.key + '" aria-pressed="true">' + c.label + '</button>';
+    }).join('') + '<button type="button" class="mx-expand">' + MX_EXPAND_SVG + 'Tela cheia</button></div>';
+
+    return (
+      '<div class="mx">' +
+        (it.intro ? '<p class="mx-intro">' + it.intro + '</p>' : '') +
+        bar +
+        '<div class="mx-scroll"><table class="mx-table" style="min-width:' + mxMinWidth(cols.length) + 'px">' +
+          head + '<tbody>' + rowsHtml.join('') + '</tbody></table></div>' +
+        '<div class="mx-cards">' + cardsHtml.join('') + '</div>' +
+        (it.caption ? '<div class="item-caption">' + it.caption + '</div>' : '') +
+      '</div>'
+    );
+  }
+
+  function mxSetCol(mx, key, on){
+    Array.prototype.forEach.call(mx.querySelectorAll('[data-col="' + key + '"]'), function(el){ el.hidden = !on; });
+    var btn = mx.querySelector('[data-toggle="' + key + '"]');
+    if (btn) btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    var n = mx.querySelectorAll('.mx-toggle[aria-pressed="true"]').length;
+    var table = mx.querySelector('.mx-table');
+    if (table) table.style.minWidth = mxMinWidth(n) + 'px';
+  }
+
   function itemBodyMarkup(it){
     if (it.type === 'image') return imageItemMarkup(it);
+    if (it.type === 'matrix') return matrixItemMarkup(it);
     if (it.type === 'table') return tableItemMarkup(it);
     if (it.type === 'list') return listItemMarkup(it);
     return textItemMarkup(it);
@@ -763,6 +1163,7 @@
   var CHEV_SVG = '<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   var ITEM_ICONS = {
+    matrix: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M3 9.5H21M8.5 4V20M12.7 9.5V20M16.9 9.5V20" stroke="currentColor" stroke-width="1.4"/></svg>',
     image: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/><circle cx="8.5" cy="9.5" r="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M21 16L15 10L5 20" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>',
     table: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M3 10H21M9 4V20" stroke="currentColor" stroke-width="1.2"/></svg>',
     text: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7H20M4 12H20M4 17H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
@@ -882,8 +1283,62 @@
     if (e.target === lightbox) closeLightbox();
   });
 
+  var mxOverlay = document.getElementById("mxOverlay");
+  var mxOverlayBody = document.getElementById("mxOverlayBody");
+  var mxOverlayTitle = document.getElementById("mxOverlayTitle");
+  var mxOverlayClose = document.getElementById("mxOverlayClose");
+  var mxSource = null;
+
+  function openMatrix(mx){
+    mxSource = mx;
+    var clone = mx.cloneNode(true);
+    clone.classList.add("mx-full");
+    mxOverlayBody.innerHTML = "";
+    mxOverlayBody.appendChild(clone);
+    var acc = mx.closest(".item-acc");
+    var titleEl = acc ? acc.querySelector(".item-row-title") : null;
+    mxOverlayTitle.textContent = titleEl ? titleEl.textContent : "";
+    mxOverlay.classList.add("is-open");
+    mxOverlay.setAttribute("aria-hidden", "false");
+    document.documentElement.style.overflow = "hidden";
+    mxOverlayBody.scrollTop = 0;
+    mxOverlayClose.focus();
+  }
+  function closeMatrix(){
+    if (!mxOverlay.classList.contains("is-open")) return;
+    var full = mxOverlayBody.querySelector(".mx");
+    if (full && mxSource){
+      Array.prototype.forEach.call(full.querySelectorAll(".mx-toggle"), function(b){
+        mxSetCol(mxSource, b.getAttribute("data-toggle"), b.getAttribute("aria-pressed") === "true");
+      });
+    }
+    mxOverlay.classList.remove("is-open");
+    mxOverlay.setAttribute("aria-hidden", "true");
+    document.documentElement.style.overflow = "";
+    mxOverlayBody.innerHTML = "";
+    var opener = mxSource ? mxSource.querySelector(".mx-expand") : null;
+    mxSource = null;
+    if (opener) opener.focus();
+  }
+  mxOverlayClose.addEventListener("click", closeMatrix);
+
+  document.addEventListener("click", function(e){
+    if (!e.target.closest) return;
+    var toggle = e.target.closest(".mx-toggle");
+    if (toggle){
+      var mx = toggle.closest(".mx");
+      var turnOn = toggle.getAttribute("aria-pressed") !== "true";
+      if (!turnOn && mx.querySelectorAll('.mx-toggle[aria-pressed="true"]').length <= 1) return;
+      mxSetCol(mx, toggle.getAttribute("data-toggle"), turnOn);
+      return;
+    }
+    var expand = e.target.closest(".mx-expand");
+    if (expand) openMatrix(expand.closest(".mx"));
+  });
+
   document.addEventListener("keydown", function(e){
     if (e.key === "Escape"){
+      if (mxOverlay.classList.contains("is-open")){ closeMatrix(); return; }
       closeLightbox();
       closeDrawer();
     }
@@ -912,4 +1367,5 @@
 })();
 </script>
 
-</body></html>
+</body>
+</html>
