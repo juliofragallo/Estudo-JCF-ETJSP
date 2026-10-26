@@ -509,6 +509,41 @@ table.qt-ds td:nth-child(2),table.qt-ds td:nth-child(3){width:22%}
 .pg.pairs .pr{font-weight:700;color:var(--warn)}
 #dicas-body.peg-only .qt-card:not(.peg){display:none}
 .qnav .switch{margin-left:auto;font-size:.84rem;flex:0 0 auto;align-self:center;white-space:nowrap}
+/* quadros › Alterações 2024–2026 */
+table.ec-t col.ec-w1{width:19%}table.ec-t col.ec-w2,table.ec-t col.ec-w3{width:40.5%}
+table.ec-t td{font-size:.86rem;line-height:1.45}
+table.ec-t tr.ec-g td{background:var(--brand-soft);color:var(--ink);font-size:.86rem}
+table.ec-t tr.ec-g td b{color:var(--brand);margin-right:4px}
+.ec-dt{font-size:.76rem;font-weight:700;color:var(--muted);margin-right:6px}
+.ec-arts{display:block;font-size:.76rem;color:var(--muted);margin-top:2px}
+.ec-c-art b{display:block;color:var(--brand)}
+.ec-c-art .tagnew{margin-left:0}
+.ec-tps{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.ec-tp{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.3px;border-radius:6px;padding:1px 7px;background:var(--chip);color:var(--muted)}
+.ec-tp.t-red{background:var(--warn-soft);color:var(--warn)}
+.ec-tp.t-inc{background:var(--ok-soft);color:var(--ok)}
+.ec-tp.t-vig{background:var(--bad-soft);color:var(--bad)}
+.ec-tp.t-ren{background:var(--brand-soft);color:var(--brand)}
+.qt-card p.ec-ln{margin:0 0 5px;font-size:.86rem}
+.qt-card p.ec-ln.inc{padding-left:1em}.qt-card p.ec-ln.ali{padding-left:2em}
+.qt-card p.ec-ln.ec-new{border-left:3px solid var(--ok);padding-left:7px}
+.qt-card p.ec-ln.ec-new.inc{margin-left:1em}.qt-card p.ec-ln.ec-new.ali{margin-left:2em}
+.qt-card p.ec-src{font-size:.76rem;color:var(--muted);margin:4px 0 0}
+.qt-card p.ec-src b{color:var(--ink)}
+.qt-card p.ec-none{font-size:.84rem;color:var(--muted);font-style:italic;margin:0}
+del.ec-d{background:var(--bad-soft);color:var(--bad);text-decoration:line-through;text-decoration-thickness:1.5px;border-radius:3px;padding:0 2px}
+ins.ec-i{background:var(--ok-soft);color:var(--ok);text-decoration:none;font-weight:700;border-radius:3px;padding:0 2px}
+.ec-newk{border-left:3px solid var(--ok);padding-left:6px}
+table.ec-sum td:last-child,.qt-card table.ec-sum tbody th,.qt-card table.ec-tl tbody th{white-space:nowrap}
+@media (max-width:640px){
+  table.ec-t,table.ec-t tbody{display:block}
+  table.ec-t thead,table.ec-t colgroup{display:none}
+  table.ec-t tr{display:block;border:1px solid var(--line);border-radius:9px;margin:0 0 8px;overflow:hidden}
+  table.ec-t td{display:block;border:none;border-top:1px solid var(--line)}
+  table.ec-t tr td:first-child{border-top:none}
+  table.ec-t td[data-l]::before{content:attr(data-l);display:block;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:3px}
+  table.ec-t tr.ec-g{border:none;margin-top:12px}
+}
 /* questões: complementos */
 #tabs .tab .count{font-weight:500;opacity:.75;margin-left:5px;font-size:.86em}
 .tag.srctag{background:var(--brand-soft);color:var(--brand)}
@@ -572,7 +607,7 @@ table.qt-ds td:nth-child(2),table.qt-ds td:nth-child(3){width:22%}
       <p class="eyebrow">Escrevente Técnico Judiciário · TJ-SP</p>
       <h1>Direito Constitucional</h1>
       <p>Constituição da República Federativa do Brasil de 1988</p>
-      <p class="hmeta"><span><b>Base:</b> Lei Seca (CF/88, atualizada até a EC 141/2026), material NEAF e questões CheckMate</span><span><b>Atualizado em:</b> 24/10/2026</span></p>
+      <p class="hmeta"><span><b>Base:</b> Lei Seca (CF/88, atualizada até a EC 141/2026), material NEAF e questões CheckMate</span><span><b>Atualizado em:</b> 25/10/2026</span></p>
     </div>
     <button type="button" class="themebtn" id="themeBtn" title="Alternar tema claro/escuro" aria-label="Alternar tema"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
   </header>
@@ -874,9 +909,10 @@ table.qt-ds td:nth-child(2),table.qt-ds td:nth-child(3){width:22%}
 <div class="tw"><table class="qt">
 <thead><tr><th>Direito</th><th>O que a CF fixa</th><th>Inciso</th></tr></thead>
 <tbody>
-<tr><td>Jornada normal</td><td>Até <b>8 h diárias e 40 h semanais</b> (EC 141/2026; antes, 44 h); compensação e redução por acordo ou convenção coletiva</td><td>XIII</td></tr>
+<tr><td>Jornada normal</td><td>Até <b>8 h diárias e 40 h semanais</b> (EC 141/2026; antes, 44 h); compensação e redução por acordo ou convenção coletiva. Transição da própria EC 141 (art. 6º, fora do texto da CF): <b>42 h</b> semanais 2 meses após a publicação e <b>40 h</b> um ano depois</td><td>XIII</td></tr>
 <tr><td>Turnos ininterruptos de revezamento</td><td><b>6 h</b>, salvo negociação coletiva</td><td>XIV</td></tr>
-<tr><td>Repouso semanal</td><td>Remunerado, <b>preferencialmente aos domingos</b>; por convenção ou acordo coletivo, regime compensatório com <b>média de 2 dias</b> no mês-calendário, garantido <b>1 dia</b> por semana (EC 141/2026)</td><td>XV e § 2º</td></tr>
+<tr><td>Repouso semanal</td><td>Remunerado, <b>preferencialmente aos domingos</b>. Nova redação do XV (EC 141/2026), que só vale <b>2 meses após a publicação</b>: <span class="lei">“de 2 (dois) dias, um dos quais preferencialmente aos domingos”</span>. § 2º: <b>excepcionalmente</b>, convenção ou acordo coletivo pode fixar regime compensatório com <b>média de 2 dias</b> no mês-calendário, garantido o gozo de pelo menos <b>1 dia</b> dentro de, no máximo, <b>1 semana</b> de trabalho</td><td>XV e § 2º</td></tr>
+<tr><td>Regimes diferenciados</td><td><b>Lei</b> poderá dispor sobre regimes diferenciados de duração do trabalho e de repouso semanal remunerado, <span class="lei">“respeitados os limites previstos nos incisos XIII, XIV e XV”</span> (EC 141/2026)</td><td>§ 3º</td></tr>
 <tr><td>Hora extra</td><td>Superior, <b>no mínimo, em 50%</b> à do normal</td><td>XVI</td></tr>
 <tr><td>Trabalho noturno</td><td>Remuneração superior à do diurno — <b>a CF não fixa percentual</b></td><td>IX</td></tr>
 <tr><td>Férias</td><td>Anuais remuneradas com, <b>pelo menos, 1/3</b> a mais</td><td>XVII</td></tr>
@@ -1346,10 +1382,11 @@ table.qt-ds td:nth-child(2),table.qt-ds td:nth-child(3){width:22%}
 <tr><th>III – Voluntária</th><td><b>União:</b> 62 anos (mulher) e 65 anos (homem). <b>Estados, DF e Municípios:</b> idade mínima fixada por <b>emenda</b> às Constituições e Leis Orgânicas. Tempo de contribuição e demais requisitos: <b>lei complementar</b> do ente</td></tr>
 </tbody></table></div>
 <div class="tw"><table class="qt qt-small">
-<thead><tr><th>Idade mínima na União</th><th>Mulher</th><th>Homem</th></tr></thead>
+<thead><tr><th>Idade mínima (voluntária)</th><th>Mulher</th><th>Homem</th></tr></thead>
 <tbody>
-<tr><td>Regra geral (§ 1º, III)</td><td>62</td><td>65</td></tr>
-<tr><td>Professor (§ 5º: menos 5 anos)</td><td>57</td><td>60</td></tr>
+<tr><td>Regra geral na União (§ 1º, III)</td><td>62</td><td>65</td></tr>
+<tr><td>Professor na União (§ 5º: menos 5 anos)</td><td>57</td><td>60</td></tr>
+<tr><td>Agente comunitário de saúde e agente de combate às endemias (§ 5º-A, EC 140/2026) — idade fixada na própria CF, com 25 anos de contribuição e de efetivo exercício na atividade</td><td>57</td><td>60</td></tr>
 </tbody></table></div>
 <p class="qt-note"><b>§ 5º – professor:</b> idade reduzida em 5 anos se comprovar tempo de efetivo exercício do magistério na <b>educação infantil e no ensino fundamental e médio</b>, fixado em lei complementar do ente (professor universitário não entra).</p>
 </div>
@@ -1357,7 +1394,7 @@ table.qt-ds td:nth-child(2),table.qt-ds td:nth-child(3){width:22%}
 <div class="qt-card">
 <h4><span class="badge b-esquema">Esquema</span>Requisitos diferenciados <span class="qt-ref">Art. 40, §§ 4º a 5º-A</span></h4>
 <div class="rx"><div class="r"><span class="rx-l">Regra (§ 4º)</span><span class="lei">“É vedada a adoção de requisitos ou critérios diferenciados para concessão de benefícios em regime próprio”</span></div>
-<div class="x"><span class="rx-l">Exceções — por lei complementar do ente</span>
+<div class="x"><span class="rx-l">Exceções — por lei complementar do ente (salvo o § 5º-A, fixado na própria CF)</span>
 <b>§ 4º-A</b> servidores com deficiência, com avaliação biopsicossocial por equipe multiprofissional e interdisciplinar<br>
 <b>§ 4º-B</b> agente penitenciário, agente socioeducativo e policiais (Câmara, Senado, federal, rodoviário e ferroviário federal, civil)<br>
 <b>§ 4º-C</b> exposição efetiva a agentes químicos, físicos e biológicos prejudiciais à saúde — <b>vedada a caracterização por categoria profissional ou ocupação</b><br>
@@ -1518,7 +1555,8 @@ table.qt-ds td:nth-child(2),table.qt-ds td:nth-child(3){width:22%}
 <tr><td><b>70 / 75 anos</b></td><td>Aposentadoria compulsória (75 na forma de lei complementar)</td><td>Art. 40, § 1º, II</td></tr>
 <tr><td><b>57 / 60 anos</b></td><td>Aposentadoria do agente comunitário de saúde e do agente de combate às endemias (mulher / homem), com 25 anos de contribuição e de efetivo exercício (EC 140/2026)</td><td>Art. 40, § 5º-A</td></tr>
 <tr><td><b>6 h</b></td><td>Turnos ininterruptos de revezamento, salvo negociação coletiva</td><td>Art. 7º, XIV</td></tr>
-<tr><td><b>8 h / 40 h</b></td><td>Jornada normal diária / semanal (EC 141/2026; antes, 44 h)</td><td>Art. 7º, XIII</td></tr>
+<tr><td><b>8 h / 40 h</b></td><td>Jornada normal diária / semanal (EC 141/2026; antes, 44 h). Na transição da EC 141: 42 h e, um ano depois, 40 h</td><td>Art. 7º, XIII</td></tr>
+<tr><td><b>2 dias / 1 dia</b></td><td>Regime compensatório por convenção ou acordo coletivo: média de 2 dias de repouso no mês-calendário, com pelo menos 1 dia dentro de no máximo 1 semana de trabalho. A nova redação do XV (vigência 2 meses após a EC 141) prevê repouso semanal de 2 dias</td><td>Art. 7º, XV e § 2º</td></tr>
 <tr><td><b>30 dias</b></td><td>Aviso prévio mínimo</td><td>Art. 7º, XXI</td></tr>
 <tr><td><b>120 dias</b></td><td>Licença à gestante</td><td>Art. 7º, XVIII</td></tr>
 <tr><td><b>50%</b></td><td>Mínimo da hora extra sobre a normal</td><td>Art. 7º, XVI</td></tr>
@@ -1546,8 +1584,9 @@ table.qt-ds td:nth-child(2),table.qt-ds td:nth-child(3){width:22%}
 <tr><td>Fixar ou alterar remuneração e subsídio</td><td>Art. 37, X</td></tr>
 <tr><td>Criar autarquia; autorizar empresa pública, sociedade de economia mista e fundação</td><td>Art. 37, XIX</td></tr>
 <tr><th>Lei ordinária do Congresso, de caráter nacional</th><td>Parcelas indenizatórias fora do teto</td><td>Art. 37, § 11</td></tr>
+<tr><th>Lei (ordinária)</th><td>Regimes diferenciados de duração do trabalho e de repouso semanal remunerado</td><td>Art. 7º, § 3º</td></tr>
 <tr><th rowspan="2">Emenda à Constituição Estadual / Lei Orgânica</th><td>Subteto único dos Desembargadores (Estados e DF)</td><td>Art. 37, § 12</td></tr>
-<tr><td>Idade mínima da aposentadoria voluntária em Estados, DF e Municípios</td><td>Art. 40, § 1º, III</td></tr>
+<tr><td>Idade mínima da aposentadoria voluntária em Estados, DF e Municípios (para os agentes comunitários de saúde e de combate às endemias, a própria CF fixa 57/60 — § 5º-A)</td><td>Art. 40, § 1º, III</td></tr>
 <tr><th rowspan="4">Lei do respectivo ente (ordinária)</th><td>Avaliações periódicas na aposentadoria por incapacidade</td><td>Art. 40, § 1º, I</td></tr>
 <tr><td>Cálculo dos proventos</td><td>Art. 40, § 3º</td></tr>
 <tr><td>Pensão por morte</td><td>Art. 40, § 7º</td></tr>
@@ -1567,15 +1606,70 @@ table.qt-ds td:nth-child(2),table.qt-ds td:nth-child(3){width:22%}
 <li><p class="pr">"antes" × "depois" da naturalização</p><p class="ex">Crime comum: só antes. Tráfico comprovado: a qualquer tempo.</p><span class="qt-ref">Art. 5º, LI</span></li>
 <li><p class="pr">"durante o dia" × "a qualquer hora"</p><p class="ex">Ordem judicial: só de dia. Flagrante, desastre e socorro: a qualquer hora.</p><span class="qt-ref">Art. 5º, XI</span></li>
 <li><p class="pr">"lei" × "lei específica" × "lei complementar"</p><p class="ex">Greve do servidor e remuneração: lei específica. Avaliação periódica do estável e despedida arbitrária: lei complementar.</p><span class="qt-ref">Arts. 7º, I; 37, VII e X; 41, § 1º, III</span></li>
-<li><p class="pr">"exclusivamente" × "preferencialmente"</p><p class="ex">Função de confiança: exclusivamente servidores efetivos. Repouso semanal: preferencialmente aos domingos. RGPS: ocupante exclusivamente de cargo em comissão.</p><span class="qt-ref">Arts. 37, V; 7º, XV; 40, § 13</span></li>
+<li><p class="pr">"exclusivamente" × "preferencialmente"</p><p class="ex">Função de confiança: exclusivamente servidores efetivos. Repouso semanal: preferencialmente aos domingos (na nova redação do XV, dos 2 dias de repouso, <span class="lei">“um dos quais preferencialmente aos domingos”</span>). RGPS: ocupante exclusivamente de cargo em comissão.</p><span class="qt-ref">Arts. 37, V; 7º, XV; 40, § 13</span></li>
 <li><p class="pr">"União, Estados, DF e Municípios" × "União, Estados e DF"</p><p class="ex">Escolas de governo: União, Estados e DF (sem Municípios). Subteto único do § 12: só Estados e DF.</p><span class="qt-ref">Arts. 39, § 2º; 37, § 12</span></li>
 <li><p class="pr">"anualmente" × "semestralmente"</p><p class="ex">Publicação de subsídios e remunerações: anualmente. Revisão geral: anual, na mesma data e sem distinção de índices.</p><span class="qt-ref">Arts. 39, § 6º; 37, X</span></li>
 <li><p class="pr">"poderá" × "deverá"</p><p class="ex">Estados, DF e Municípios poderão ter símbolos próprios; a lei poderá fixar relação entre maior e menor remuneração; os órgãos devem avaliar políticas públicas.</p><span class="qt-ref">Arts. 13, § 2º; 39, § 5º; 37, § 16</span></li>
 </ul>
 </div>
 </section>
+<section class="card qs qt-topic" data-topic="ec" id="dc-ec">
+<h2 class="qt-h"><span>2024 a 2026</span>Alterações nos artigos do edital</h2>
+
+<div class="qt-card">
+<h4><span class="badge b-quadro">Quadro</span>Texto anterior × texto atual <span class="qt-ref">Arts. 7º, 37 e 40</span></h4>
+<p class="qt-small-p">Só os artigos da prova de Escrevente (5º a 13, 37 a 41 e 92). Entre 2024 e 2026, <b>4 emendas</b> alteraram <b>9 dispositivos</b> desses artigos; os arts. 5º, 6º, 8º a 13, 38, 39, 41 e 92 não mudaram. Texto da Constituição compilada do Planalto (<i>Lei Seca/Constituição.mhtml</i>, 25/10/2026).</p>
+<p class="qt-note ec-leg">Legenda: <del class="ec-d">trecho retirado</del> · <ins class="ec-i">trecho novo</ins> · <span class="ec-newk">dispositivo incluído</span></p>
+<div class="tw"><table class="qt ec-t" id="ec-table">
+<colgroup><col class="ec-w1"><col class="ec-w2"><col class="ec-w3"></colgroup>
+<thead><tr><th>Artigo</th><th>Texto anterior</th><th>Texto atual</th></tr></thead>
+<tbody>
+<tr class="ec-g" data-ec="141" data-ano="2026"><td colspan="3"><b>EC 141/2026</b> <span class="ec-dt">16/10/2026</span> Jornada de 40 horas semanais, 2 dias de repouso semanal e renumeração do parágrafo único (domésticos)<span class="ec-arts">Art. 7º, XIII, XV, §§ 1º, 2º e 3º</span></td></tr>
+<tr class="ec-r" data-ec="141" data-ano="2026" data-ed="1"><td class="ec-c-art" data-l="Artigo"><b>Art. 7º, XIII</b><div class="ec-tps"><span class="ec-tp t-red">Nova redação</span></div></td><td class="ec-c-ant" data-l="Texto anterior"><p class="ec-ln ">XIII - duração do trabalho normal não superior a <del class="ec-d">oito</del> horas diárias e <del class="ec-d">quarenta e quatro</del> semanais, facultada a compensação de horários e a redução da jornada, mediante acordo ou convenção coletiva de trabalho;</p><p class="ec-src">Redação anterior: texto original (1988)</p></td><td class="ec-c-atu" data-l="Texto atual"><p class="ec-ln ">XIII - duração do trabalho normal não superior a <ins class="ec-i">8 (oito)</ins> horas diárias e <ins class="ec-i">40 (quarenta) horas</ins> semanais, facultada a compensação de horários e a redução da jornada, mediante acordo ou convenção coletiva de trabalho;</p><p class="ec-src">Transição (art. 6º da EC 141, fora do texto da CF): <b>42 h</b> semanais 2 meses após a publicação e <b>40 h</b> um ano depois.</p></td></tr>
+<tr class="ec-r" data-ec="141" data-ano="2026" data-ed="1"><td class="ec-c-art" data-l="Artigo"><b>Art. 7º, XV</b><div class="ec-tps"><span class="ec-tp t-vig">Vigência futura</span></div></td><td class="ec-c-ant" data-l="Texto anterior"><p class="ec-ln ">XV - repouso semanal remunerado<del class="ec-d">,</del> preferencialmente aos domingos;</p><p class="ec-src">Redação anterior: texto original (1988), que continua valendo até a nova redação entrar em vigor</p></td><td class="ec-c-atu" data-l="Texto atual"><p class="ec-ln ">XV - repouso semanal remunerado <ins class="ec-i">de 2 (dois) dias, um dos quais</ins> preferencialmente aos domingos;</p><p class="ec-src">Nova redação dada pelo art. 1º da EC 141/2026, que só vale <b>2 meses após a publicação</b> (art. 10, I, da EC 141 — publicação em 16/10/2026). Até lá, continua o texto da coluna ao lado.</p></td></tr>
+<tr class="ec-r" data-ec="141" data-ano="2026" data-ed="1"><td class="ec-c-art" data-l="Artigo"><b>Art. 7º, § 1º</b><div class="ec-tps"><span class="ec-tp t-ren">Renumerado</span></div></td><td class="ec-c-ant" data-l="Texto anterior"><p class="ec-ln "><del class="ec-d">Parágrafo único.</del> São assegurados à categoria dos trabalhadores domésticos os direitos previstos nos incisos IV, VI, VII, VIII, X, XIII, XV, XVI, XVII, XVIII, XIX, XXI, XXII, XXIV, XXVI, XXX, XXXI e XXXIII e, atendidas as condições estabelecidas em lei e observada a simplificação do cumprimento das obrigações tributárias, principais e acessórias, decorrentes da relação de trabalho e suas peculiaridades, os previstos nos incisos I, II, III, IX, XII, XXV e XXVIII, bem como a sua integração à previdência social.</p><p class="ec-src">Redação anterior: EC 72/2013</p></td><td class="ec-c-atu" data-l="Texto atual"><p class="ec-ln "><ins class="ec-i">§ 1º</ins> São assegurados à categoria dos trabalhadores domésticos os direitos previstos nos incisos IV, VI, VII, VIII, X, XIII, XV, XVI, XVII, XVIII, XIX, XXI, XXII, XXIV, XXVI, XXX, XXXI e XXXIII e, atendidas as condições estabelecidas em lei e observada a simplificação do cumprimento das obrigações tributárias, principais e acessórias, decorrentes da relação de trabalho e suas peculiaridades, os previstos nos incisos I, II, III, IX, XII, XXV e XXVIII, bem como a sua integração à previdência social.</p></td></tr>
+<tr class="ec-r" data-ec="141" data-ano="2026" data-ed="1"><td class="ec-c-art" data-l="Artigo"><b>Art. 7º, § 2º</b><div class="ec-tps"><span class="ec-tp t-inc">Incluído</span></div></td><td class="ec-c-ant" data-l="Texto anterior"><p class="ec-none">— não havia (dispositivo incluído)</p></td><td class="ec-c-atu" data-l="Texto atual"><p class="ec-ln ec-new ">§ 2º Excepcionalmente, convenção ou acordo coletivo de trabalho poderão, inclusive para os trabalhadores sujeitos a regimes diferenciados de trabalho estabelecidos em lei ou norma regulamentadora, estabelecer regime compensatório que assegure, na média, 2 (dois) dias de repouso semanal remunerado dentro do mês-calendário, garantido o gozo de pelo menos 1 (um) dos dias dentro do período máximo de 1 (uma) semana de trabalho.</p></td></tr>
+<tr class="ec-r" data-ec="141" data-ano="2026" data-ed="1"><td class="ec-c-art" data-l="Artigo"><b>Art. 7º, § 3º</b><div class="ec-tps"><span class="ec-tp t-inc">Incluído</span></div></td><td class="ec-c-ant" data-l="Texto anterior"><p class="ec-none">— não havia (dispositivo incluído)</p></td><td class="ec-c-atu" data-l="Texto atual"><p class="ec-ln ec-new ">§ 3º Lei poderá dispor sobre hipóteses e condições em que a duração do trabalho e os dias de repouso semanal remunerado poderão observar regimes diferenciados, respeitados os limites previstos nos incisos XIII, XIV e XV do caput deste artigo.</p></td></tr>
+<tr class="ec-g" data-ec="140" data-ano="2026"><td colspan="3"><b>EC 140/2026</b> <span class="ec-dt">16/10/2026</span> Idade mínima da aposentadoria dos agentes comunitários de saúde e de combate às endemias<span class="ec-arts">Art. 40, §§ 4º e 5º-A</span></td></tr>
+<tr class="ec-r" data-ec="140" data-ano="2026" data-ed="1"><td class="ec-c-art" data-l="Artigo"><b>Art. 40, § 4º</b><div class="ec-tps"><span class="ec-tp t-red">Nova redação</span></div></td><td class="ec-c-ant" data-l="Texto anterior"><p class="ec-ln ">§ 4º É vedada a adoção de requisitos ou critérios diferenciados para concessão de benefícios em regime próprio de previdência social, ressalvado o disposto nos §§ 4º-A, 4º-B, 4º-C <del class="ec-d">e 5º</del>.</p><p class="ec-src">Redação anterior: EC 103/2019</p></td><td class="ec-c-atu" data-l="Texto atual"><p class="ec-ln ">§ 4º É vedada a adoção de requisitos ou critérios diferenciados para concessão de benefícios em regime próprio de previdência social, ressalvado o disposto nos §§ 4º-A, 4º-B, 4º-C<ins class="ec-i">, 5º e 5º-A deste artigo</ins>.</p></td></tr>
+<tr class="ec-r" data-ec="140" data-ano="2026" data-ed="1"><td class="ec-c-art" data-l="Artigo"><b>Art. 40, § 5º-A</b><div class="ec-tps"><span class="ec-tp t-inc">Incluído</span></div></td><td class="ec-c-ant" data-l="Texto anterior"><p class="ec-none">— não havia (dispositivo incluído)</p></td><td class="ec-c-atu" data-l="Texto atual"><p class="ec-ln ec-new ">§ 5º-A. O requisito de idade a que se refere o inciso III do § 1º deste artigo será de 57 (cinquenta e sete) anos de idade, se mulher, e 60 (sessenta) anos de idade, se homem, para o agente comunitário de saúde e o agente de combate às endemias que comprovem o mínimo de 25 (vinte e cinco) anos de tempo de contribuição e de efetivo exercício na respectiva atividade profissional.</p><p class="ec-src">A EC 140 traz regra de transição própria (fora do texto da CF), com idade mínima progressiva até chegar a 57/60.</p></td></tr>
+<tr class="ec-g" data-ec="138" data-ano="2025"><td colspan="3"><b>EC 138/2025</b> <span class="ec-dt">19/12/2025</span> Acumulação de um cargo de professor com outro de qualquer natureza<span class="ec-arts">Art. 37, XVI, b</span></td></tr>
+<tr class="ec-r" data-ec="138" data-ano="2025" data-ed="1"><td class="ec-c-art" data-l="Artigo"><b>Art. 37, XVI, b</b><div class="ec-tps"><span class="ec-tp t-red">Nova redação</span></div></td><td class="ec-c-ant" data-l="Texto anterior"><p class="ec-ln ">b) a de um cargo de professor com outro <del class="ec-d">técnico ou científico</del>;</p><p class="ec-src">Redação anterior: EC 19/1998</p></td><td class="ec-c-atu" data-l="Texto atual"><p class="ec-ln ">b) a de um cargo de professor com outro <ins class="ec-i">de qualquer natureza</ins>;</p></td></tr>
+<tr class="ec-g" data-ec="135" data-ano="2024"><td colspan="3"><b>EC 135/2024</b> <span class="ec-dt">20/12/2024</span> Parcelas indenizatórias fora do teto: só as previstas em lei ordinária nacional<span class="ec-arts">Art. 37, § 11</span></td></tr>
+<tr class="ec-r" data-ec="135" data-ano="2024" data-ed="1"><td class="ec-c-art" data-l="Artigo"><b>Art. 37, § 11</b><div class="ec-tps"><span class="ec-tp t-red">Nova redação</span></div></td><td class="ec-c-ant" data-l="Texto anterior"><p class="ec-ln ">§ 11. Não serão computadas, para efeito dos limites remuneratórios de que trata o inciso XI do caput deste artigo, as parcelas de caráter indenizatório previstas em lei.</p><p class="ec-src">Redação anterior: EC 47/2005</p></td><td class="ec-c-atu" data-l="Texto atual"><p class="ec-ln ">§ 11. Não serão computadas, para efeito dos limites remuneratórios de que trata o inciso XI do caput deste artigo, as parcelas de caráter indenizatório <ins class="ec-i">expressamente</ins> previstas em lei <ins class="ec-i">ordinária, aprovada pelo Congresso Nacional, de caráter nacional, aplicada a todos os Poderes e órgãos constitucionalmente autônomos</ins>.</p></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="qt-card">
+<h4><span class="badge b-esquema">Esquema</span>Resumo para revisão: antes × agora <span class="qt-ref">Arts. 7º, 37 e 40</span></h4>
+<div class="tw"><table class="qt qt-small ec-sum">
+<thead><tr><th>Artigo</th><th>Antes</th><th>Agora</th><th>Emenda</th></tr></thead>
+<tbody>
+<tr><th>Art. 7º, XIII</th><td>8 h diárias e <b>44 h</b> semanais</td><td>8 h diárias e <b>40 h</b> semanais. Transição da própria EC 141 (art. 6º): <b>42 h</b> 2 meses após a publicação e <b>40 h</b> um ano depois</td><td><span class="tagnew">EC 141/2026</span></td></tr><tr><th>Art. 7º, XV</th><td>Repouso semanal remunerado, preferencialmente aos domingos (texto que ainda vale)</td><td>Repouso semanal remunerado de <b>2 dias</b>, <b>um dos quais</b> preferencialmente aos domingos — nova redação que só vale <b>2 meses após a publicação</b> da EC 141</td><td><span class="tagnew">EC 141/2026</span></td></tr><tr><th>Art. 7º, § 1º</th><td><b>Parágrafo único</b>: direitos dos domésticos</td><td>O mesmo texto, agora como <b>§ 1º</b></td><td><span class="tagnew">EC 141/2026</span></td></tr><tr><th>Art. 7º, § 2º</th><td>—</td><td><b>Novo.</b> Excepcionalmente, <b>convenção ou acordo coletivo</b> pode fixar regime compensatório com média de <b>2 dias</b> de repouso no mês-calendário, garantido o gozo de pelo menos <b>1 dia</b> dentro de, no máximo, <b>1 semana</b> de trabalho</td><td><span class="tagnew">EC 141/2026</span></td></tr><tr><th>Art. 7º, § 3º</th><td>—</td><td><b>Novo.</b> <b>Lei</b> poderá prever regimes diferenciados de duração do trabalho e de repouso semanal, respeitados os limites dos incisos XIII, XIV e XV</td><td><span class="tagnew">EC 141/2026</span></td></tr><tr><th>Art. 37, XVI, b</th><td>Professor + cargo <b>técnico ou científico</b></td><td>Professor + cargo <b>de qualquer natureza</b></td><td><span class="tagnew">EC 138/2025</span></td></tr><tr><th>Art. 37, § 11</th><td>Fora do teto: parcelas indenizatórias <span class="lei">“previstas em lei”</span></td><td>Só as <span class="lei">“expressamente previstas em lei ordinária, aprovada pelo Congresso Nacional, de caráter nacional, aplicada a todos os Poderes e órgãos constitucionalmente autônomos”</span></td><td><span class="tagnew">EC 135/2024</span></td></tr><tr><th>Art. 40, § 4º</th><td>Ressalvava os §§ 4º-A, 4º-B, 4º-C e 5º</td><td>Ressalva também o <b>§ 5º-A</b></td><td><span class="tagnew">EC 140/2026</span></td></tr><tr><th>Art. 40, § 5º-A</th><td>—</td><td><b>Novo.</b> Agente comunitário de saúde e agente de combate às endemias: <b>57 anos (mulher) / 60 anos (homem)</b>, com no mínimo <b>25 anos</b> de contribuição e de efetivo exercício na atividade</td><td><span class="tagnew">EC 140/2026</span></td></tr>
+</tbody></table></div>
+<p class="qt-note"><b>Atenção às regras fora da CF:</b> as transições (42 h → 40 h na EC 141; idade progressiva dos agentes na EC 140) estão no texto das próprias emendas, não no texto compilado da Constituição. A prova costuma cobrar a letra da CF.</p>
+</div>
+
+<div class="qt-card">
+<h4><span class="badge b-esquema">Esquema</span>Linha do tempo: emendas que mudaram o edital <span class="qt-ref">EC 135, 138, 140 e 141</span></h4>
+<div class="tw"><table class="qt qt-small ec-tl">
+<thead><tr><th>Emenda</th><th>Data</th><th>O que mudou no edital</th><th>Dispositivos</th></tr></thead>
+<tbody>
+<tr><th>EC 141/2026</th><td>16/10/2026</td><td>Jornada de 40 horas semanais, 2 dias de repouso semanal e renumeração do parágrafo único (domésticos)</td><td>Art. 7º, XIII, XV, §§ 1º, 2º e 3º</td></tr><tr><th>EC 140/2026</th><td>16/10/2026</td><td>Idade mínima da aposentadoria dos agentes comunitários de saúde e de combate às endemias</td><td>Art. 40, §§ 4º e 5º-A</td></tr><tr><th>EC 138/2025</th><td>19/12/2025</td><td>Acumulação de um cargo de professor com outro de qualquer natureza</td><td>Art. 37, XVI, b</td></tr><tr><th>EC 135/2024</th><td>20/12/2024</td><td>Parcelas indenizatórias fora do teto: só as previstas em lei ordinária nacional</td><td>Art. 37, § 11</td></tr>
+</tbody></table></div>
+<p class="qt-note">As EC 135 e 140 também mexeram em artigos fora do edital, que ficaram de fora deste quadro. As demais emendas do período (EC 133, 134, 136, 137 e 139) não alteraram nenhum artigo da prova.</p>
+</div>
+
+<div class="qt-card peg">
+<h4><span class="badge b-peg">Pegadinhas</span>Alterações recentes</h4>
+<p class="pg-leg"><span class="i-no">✗</span> como costuma aparecer na prova (errado) · <span class="i-yes">✓</span> o que diz a CF</p><ul class="pg">
+<li><p class="no">A duração do trabalho normal não pode passar de 8 horas diárias e 44 semanais.</p><p class="yes">Desde a EC 141/2026: <span class="lei">“8 (oito) horas diárias e 40 (quarenta) horas semanais”</span>. A emenda prevê transição: 42 h e, um ano depois, 40 h.</p><span class="qt-ref">Art. 7º, XIII</span></li><li><p class="no">Com a EC 141, o repouso semanal passou a ser de 2 dias, ambos preferencialmente aos domingos.</p><p class="yes">A nova redação do XV fala em <span class="lei">“2 (dois) dias, um dos quais preferencialmente aos domingos”</span> — e só vale 2 meses após a publicação da emenda.</p><span class="qt-ref">Art. 7º, XV</span></li><li><p class="no">O regime compensatório com média de 2 dias de repouso no mês pode ser ajustado em acordo individual.</p><p class="yes">Só por <span class="lei">“convenção ou acordo coletivo de trabalho”</span>, <span class="lei">“excepcionalmente”</span>, garantido o gozo de pelo menos 1 dia dentro do período máximo de 1 semana de trabalho.</p><span class="qt-ref">Art. 7º, § 2º</span></li><li><p class="no">A lei pode criar regimes diferenciados de jornada e de repouso sem limite.</p><p class="yes"><span class="lei">“respeitados os limites previstos nos incisos XIII, XIV e XV do caput deste artigo”</span>.</p><span class="qt-ref">Art. 7º, § 3º</span></li><li><p class="no">Os direitos dos trabalhadores domésticos estão no parágrafo único do art. 7º.</p><p class="yes">Desde a EC 141/2026, estão no <b>§ 1º</b> (o texto não mudou).</p><span class="qt-ref">Art. 7º, § 1º</span></li><li><p class="no">A idade da aposentadoria do agente comunitário de saúde é fixada por lei complementar do ente.</p><p class="yes">A própria CF fixa: 57 anos (mulher) e 60 anos (homem), com <span class="lei">“o mínimo de 25 (vinte e cinco) anos de tempo de contribuição e de efetivo exercício na respectiva atividade profissional”</span>.</p><span class="qt-ref">Art. 40, § 5º-A</span></li><li><p class="no">O § 4º do art. 40 ressalva só os §§ 4º-A, 4º-B, 4º-C e 5º.</p><p class="yes">Desde a EC 140/2026: <span class="lei">“§§ 4º-A, 4º-B, 4º-C, 5º e 5º-A deste artigo”</span>.</p><span class="qt-ref">Art. 40, § 4º</span></li>
+</ul>
+<p class="qt-note">As pegadinhas da EC 135 (art. 37, § 11) e da EC 138 (art. 37, XVI, b) estão em <b>Adm. Pública</b>.</p>
+</div>
+</section>
     </div>
-    <footer>Quadros, esquemas e dicas elaborados a partir do material NEAF da pasta (aulas e apostila) e do texto da Constituição na lei seca do edital. Pegadinhas baseadas nas questões NEAF e Qconcursos desta página e nas questões comentadas no material.</footer>
+    <footer>Quadros, esquemas e dicas elaborados a partir do material NEAF da pasta (aulas e apostila) e do texto da Constituição na lei seca do edital, revisados pela Constituição compilada do Planalto (25/10/2026, até a EC 141/2026). Pegadinhas baseadas nas questões NEAF e Qconcursos desta página e nas questões comentadas no material.</footer>
   </section>
 
   <section class="view" id="view-questoes">
@@ -1629,7 +1723,7 @@ const ARTICLE_DESC = {"Art. 5": "Direitos individuais", "Art. 6": "Direitos soci
 // artigo -> assunto em Quadros e tabelas
 const DMAP = {"5": "art5", "6": "sociais", "7": "sociais", "8": "sociais", "9": "sociais", "10": "sociais", "11": "sociais", "12": "nac", "13": "nac", "37": "adm", "38": "adm", "39": "serv", "40": "serv", "41": "serv", "92": "jud"};
 // Trilha de Estudo = botões de assunto do arquivo original
-const QNAV = [["art5", "Art. 5º"], ["sociais", "Direitos sociais"], ["nac", "Nacionalidade"], ["adm", "Adm. Pública"], ["serv", "Servidores"], ["jud", "Judiciário"], ["num", "Números e leis"]];
+const QNAV = [["art5", "Art. 5º"], ["sociais", "Direitos sociais"], ["nac", "Nacionalidade"], ["adm", "Adm. Pública"], ["serv", "Servidores"], ["jud", "Judiciário"], ["num", "Números e leis"], ["ec", "Alterações 2024–2026", "hot"]];
 const PEG_LBL = "⚠ Só pegadinhas", PEG_TITLE = "Mostrar apenas os quadros de pegadinhas";
 // revisão pela lei atualizada (EC 140/2026 e EC 141/2026): correções das fundamentações, aplicadas sobre o bloco DATA na montagem.
 // Nenhum gabarito, enunciado ou alternativa foi alterado. Lista completa com tipo e motivo: PATCH_LOG.
@@ -2313,7 +2407,7 @@ function goLei(num){
 // ---------- Quadros e tabelas (conteúdo do arquivo original, no esquema "Trilha de Estudo" do modelo) ----------
 function renderDicas(){
   const nav = $("#dicas-nav");
-  nav.innerHTML = `<span class="lbl">Trilha de Estudo</span>` + QNAV.map(([id,t])=>`<a href="#dc-${id}" data-id="dc-${id}" title="${esc(t)}">${esc(t)}</a>`).join("") +
+  nav.innerHTML = `<span class="lbl">Trilha de Estudo</span>` + QNAV.map(([id,t,c])=>`<a href="#dc-${id}" data-id="dc-${id}" title="${esc(t)}"${c?` class="${c}"`:""}>${esc(t)}</a>`).join("") +
     `<label class="switch" title="${esc(PEG_TITLE)}"><input type="checkbox" id="peg-only"> ${esc(PEG_LBL)}</label>`;
   nav.querySelectorAll("a").forEach(a=>a.onclick=e=>{ e.preventDefault(); const el = document.getElementById(a.dataset.id); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); });
   $("#peg-only").checked = !!STORE._peg; $("#dicas-body").classList.toggle("peg-only", !!STORE._peg);
