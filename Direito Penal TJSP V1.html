@@ -421,6 +421,11 @@ table.pat{font-size:.86rem;min-width:760px}
 .pat td.pa-o{font-weight:700;color:var(--brand);text-align:center}
 .pat tbody tr.a0 > *{border-top:2px solid var(--muted)}
 .pat td.pa-t{font-size:.95em}
+.pqt col.c-g{width:170px}.pqt col.c-q{width:130px}.pqt col.c-art{width:116px}.pqt col.c-fig{width:30%}
+.pqt td.pq-g{font-weight:700;color:var(--brand);text-align:center}
+.pqt td.pq-v{font-weight:800;color:var(--bad);text-align:center;background:var(--bad-soft)}
+#pn-3 .scroll[hidden]{display:none}
+#pn-3 .pq-empty{margin:6px 0 0}
 @media (min-width:1000px){
   #view-penas .scroll{overflow:visible}
   #view-penas thead th{position:sticky;top:calc(var(--qn,52px) - 1px);z-index:2;box-shadow:inset 0 1px 0 var(--line),0 1px 0 var(--line)}
@@ -654,6 +659,13 @@ table.pat{font-size:.86rem;min-width:760px}
     </section>
 
     <section class="card qs" id="pn-3"><h2>3 - Qualificadora</h2>
+      <div class="scroll"><table class="qt pat pqt"><colgroup><col class="c-g"><col class="c-q"><col class="c-art"><col class="c-fig"><col class="c-txt"></colgroup><thead><tr><th>Grupo</th><th>Qualificadora</th><th>Art.</th><th>Figura</th><th>Figura Qualificadora</th></tr></thead><tbody><tr data-grupo="Fé Pública" class="a0"><td rowspan="1" class="pq-g">Fé Pública</td><td rowspan="1" class="pq-v">2  a 6 anos</td><th class="pa-art"><button type="button" class="goto" data-art="311-A" title="Ver na Lei Seca">Art. 311-A</button></th><td>Fraudes em certames de interesse público</td><td class="pa-t">§ 2º Se da ação ou omissão resulta dano à administração pública.</td></tr>
+<tr data-grupo="Func Publico x ADM Publica" class="a0"><td rowspan="4" class="pq-g">Func Publico x ADM Publica</td><td rowspan="1" class="pq-v">2 a 12 anos</td><th class="pa-art"><button type="button" class="goto" data-art="316" title="Ver na Lei Seca">Art. 316 § 1º</button></th><td>Excesso de exação: § 1º - Exige tributo....</td><td class="pa-t">§ 2º Se desvia, em proveito próprio/outrem, o que recebeu indevidamente para recolher aos cofres públicos.</td></tr>
+<tr data-grupo="Func Publico x ADM Publica"><td rowspan="1" class="pq-v">2 a 6 anos</td><th class="pa-art"><button type="button" class="goto" data-art="325" title="Ver na Lei Seca">Art. 325</button></th><td>Violação de sigilo funcional</td><td class="pa-t">§ 2º Se resulta dano à Administração Pública ou a outrem:</td></tr>
+<tr data-grupo="Func Publico x ADM Publica"><td rowspan="1" class="pq-v">3 meses a 1 ano</td><th class="pa-art"><button type="button" class="goto" data-art="321" title="Ver na Lei Seca">Art. 321</button></th><td>Advocacia administrativa</td><td class="pa-t">Parágrafo único - Se o interesse é ilegítimo</td></tr>
+<tr data-grupo="Func Publico x ADM Publica"><td rowspan="1" class="pq-v">3 meses a 1 ano<br>1 a 3 anos</td><th class="pa-art"><button type="button" class="goto" data-art="323" title="Ver na Lei Seca">Art. 323</button></th><td>Abandono de função (abandonar cargo público)</td><td class="pa-t">§ 1º - Se  resulta prejuízo público:<br>§ 2º - Se ocorre em lugar na faixa de fronteira:</td></tr>
+<tr data-grupo="Part. x Adm. Geral" class="a0"><td rowspan="2" class="pq-g">Part. x Adm. Geral</td><td rowspan="1" class="pq-v">1 a 3 anos</td><th class="pa-art"><button type="button" class="goto" data-art="329" title="Ver na Lei Seca">Art. 329</button></th><td>Resistência (mediante violência ou ameaça)</td><td class="pa-t">§ 1º - Se o ato, em razão da resistência, não se executa:</td></tr>
+<tr data-grupo="Part. x Adm. Geral"><td rowspan="1" class="pq-v">2 a 5 anos</td><th class="pa-art"><button type="button" class="goto" data-art="328" title="Ver na Lei Seca">Art. 328</button></th><td>Usurpação de função pública</td><td class="pa-t">Parágrafo único - Se do fato o agente aufere vantagem:</td></tr></tbody></table></div><p class="muted pq-empty" hidden>Nenhum crime deste grupo tem qualificadora no edital.</p>
     </section>
     <footer>Fundamentação elaborada a partir do Código Penal e do material de estudo NEAF (uso pessoal)</footer>
   </section>
@@ -1417,6 +1429,10 @@ function applyPnFilter(){
   const g = pnGroup();
   document.querySelectorAll("#pn-f button").forEach(b=>{ const on = b.dataset.g===g; b.classList.toggle("on", on); b.setAttribute("aria-pressed", String(on)); });
   document.querySelectorAll("#view-penas .pgrp").forEach(d=>d.hidden = !(g==="__todos__" || d.dataset.grupo===g));
+  let nq = 0;
+  document.querySelectorAll("#pn-3 tbody tr[data-grupo]").forEach(tr=>{ const on = g==="__todos__" || tr.dataset.grupo===g; tr.hidden = !on; if(on) nq++; });
+  const qs = document.querySelector("#pn-3 .scroll"), qe = document.querySelector("#pn-3 .pq-empty");
+  if(qs) qs.hidden = nq===0; if(qe) qe.hidden = nq!==0;
   penasSpy();
 }
 function penasSpy(){
@@ -1424,7 +1440,9 @@ function penasSpy(){
   const nav = $("#penas-nav");
   document.documentElement.style.setProperty("--qn", nav.offsetHeight + "px");
   const lim = nav.getBoundingClientRect().bottom + 64;
-  let cur = null; document.querySelectorAll("#view-penas > .qs").forEach(s=>{ if(s.getBoundingClientRect().top <= lim) cur = s.id; });
+  const secs = [...document.querySelectorAll("#view-penas > .qs")];
+  let cur = null; secs.forEach(s=>{ if(s.getBoundingClientRect().top <= lim) cur = s.id; });
+  if(cur && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = secs[secs.length-1].id;   // fim da página: último tópico
   nav.querySelectorAll("a").forEach(a=>a.classList.toggle("on", a.dataset.id===cur));
 }
 function initPenas(){
