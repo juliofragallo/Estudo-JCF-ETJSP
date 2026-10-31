@@ -432,6 +432,36 @@ table.pat{font-size:.86rem;min-width:760px}
 }
 @media (max-width:560px){#teo-tabs .tab{padding:8px 10px}table.pat{min-width:640px}table.pnt{min-width:880px}.pnt col.c-art{width:58px}.pnt col.c-pena{width:120px}.pnt col.c-t{width:18px}.pnt col.c-f{width:22px}}
 @media print{body[data-view="penas"] .wrap{max-width:none}#view-penas .pegtools,#view-penas .goto{text-decoration:none}#view-penas .pegtools{display:none!important}.pnt tr,.pat tr{break-inside:avoid}}
+/* ===== Penas › Autoteste — aumentos e qualificadoras (mesmo padrão da página PCD) ===== */
+.qt.at{table-layout:fixed}
+.qt.at th:first-child{width:44px}.qt.at th:nth-child(3){width:122px}.qt.at th:nth-child(4){width:34%}
+.qt.at td{white-space:normal}
+.qt.at td.atn{font-weight:700;color:var(--brand);text-align:center}
+.atg{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.3px;border-radius:6px;padding:2px 8px}
+.atg.c{background:var(--ok-soft);color:var(--ok)}.atg.e{background:var(--bad-soft);color:var(--bad)}
+.atmine{display:block;font-size:.76rem;font-weight:700;margin-top:5px}.atmine.ok{color:var(--ok)}.atmine.no{color:var(--bad)}
+.atbtn{display:flex;gap:6px;flex-wrap:wrap}
+.atbtn button{font:inherit;font-size:.8rem;font-weight:700;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:3px 9px;cursor:pointer}
+.atbtn button:hover,.atbtn button:focus-visible{border-color:var(--accent);color:var(--accent)}
+.qt.at tr:not(.open) .atans{display:none}
+.qt.at tr:not(.open) td.atwhy::before{content:"Responda para ver o porquê";color:var(--muted);font-size:.8rem}
+.qt.at button.goto{font:inherit;font-size:.74rem;font-weight:700;color:var(--accent);background:none;border:none;padding:0;margin-left:4px;cursor:pointer;text-decoration:underline}
+@media (max-width:560px){
+  .qt.at,.qt.at tbody{display:block}
+  .qt.at thead{display:none}
+  .qt.at tr{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:var(--panel)}
+  .qt.at td{display:block;border:none;padding:0}
+  .qt.at td.atn{text-align:left}
+  .qt.at td.atgab,.qt.at td.atwhy{grid-column:1 / -1;width:auto}
+}
+@media print{
+  .qt.at tr .atans{display:inline!important}
+  .qt.at .atbtn,.qt.at button.goto{display:none!important}
+  .qt.at td.atwhy::before{content:none!important}
+  .qt.at tr{break-inside:avoid}
+}
+#view-penas #pn-auto{scroll-margin-top:96px}
+#pn-f button[data-g="__auto__"]{margin-left:6px}
 </style>
 </head>
 <body data-view="questoes">
@@ -474,7 +504,7 @@ table.pat{font-size:.86rem;min-width:760px}
 
   <section class="view" id="view-penas">
     <nav class="qnav" id="penas-nav" aria-label="Trilha de Estudo"><span class="lbl">Trilha de Estudo</span><a href="#pn-1" data-id="pn-1">1 - Penas</a><a href="#pn-2" data-id="pn-2">2 - Aumento de Penas</a><a href="#pn-3" data-id="pn-3">3 - Qualificadora</a></nav>
-    <div class="pegtools dcf"><div class="pegf" id="pn-f" role="group" aria-label="Filtrar por grupo"><button type="button" data-g="__todos__">Todos</button><button type="button" data-g="Fé Pública">Fé Pública</button><button type="button" data-g="Func Publico x ADM Publica">Func Publico x ADM Publica</button><button type="button" data-g="Part. x Adm. Geral">Part. x Adm. Geral</button><button type="button" data-g="ADM JUSTIÇA">ADM JUSTIÇA</button></div></div>
+    <div class="pegtools dcf"><div class="pegf" id="pn-f" role="group" aria-label="Filtrar por grupo"><button type="button" data-g="__todos__">Todos</button><button type="button" data-g="Fé Pública">Fé Pública</button><button type="button" data-g="Func Publico x ADM Publica">Func Publico x ADM Publica</button><button type="button" data-g="Part. x Adm. Geral">Part. x Adm. Geral</button><button type="button" data-g="ADM JUSTIÇA">ADM JUSTIÇA</button><button type="button" data-g="__auto__" title="Autoteste — aumentos de pena e qualificadoras">Autoteste</button></div></div>
     <p class="muted dcintro">Penas, aumentos e diminuições de todos os artigos do edital (planilha Penal tabela penas qualificadora e aumento).</p>
 
     <section class="card qs" id="pn-1"><h2>1 - Penas</h2>
@@ -666,6 +696,20 @@ table.pat{font-size:.86rem;min-width:760px}
 <tr data-grupo="Func Publico x ADM Publica"><td rowspan="1" class="pq-v">3 meses a 1 ano<br>1 a 3 anos</td><th class="pa-art"><button type="button" class="goto" data-art="323" title="Ver na Lei Seca">Art. 323</button></th><td>Abandono de função (abandonar cargo público)</td><td class="pa-t">§ 1º - Se  resulta prejuízo público:<br>§ 2º - Se ocorre em lugar na faixa de fronteira:</td></tr>
 <tr data-grupo="Part. x Adm. Geral" class="a0"><td rowspan="2" class="pq-g">Part. x Adm. Geral</td><td rowspan="1" class="pq-v">1 a 3 anos</td><th class="pa-art"><button type="button" class="goto" data-art="329" title="Ver na Lei Seca">Art. 329</button></th><td>Resistência (mediante violência ou ameaça)</td><td class="pa-t">§ 1º - Se o ato, em razão da resistência, não se executa:</td></tr>
 <tr data-grupo="Part. x Adm. Geral"><td rowspan="1" class="pq-v">2 a 5 anos</td><th class="pa-art"><button type="button" class="goto" data-art="328" title="Ver na Lei Seca">Art. 328</button></th><td>Usurpação de função pública</td><td class="pa-t">Parágrafo único - Se do fato o agente aufere vantagem:</td></tr></tbody></table></div><p class="muted pq-empty" hidden>Nenhum crime deste grupo tem qualificadora no edital.</p>
+    </section>
+    <section class="card qs" id="pn-auto" hidden>
+      <h2>Autoteste — Aumentos de pena e Qualificadoras</h2>
+      <p class="muted">53 assertivas no estilo Certo ou Errado sobre as <b>causas de aumento</b> (e diminuição) e as <b>qualificadoras</b> — só os artigos do edital que têm aumento ou qualificadora. No <b>Modo treino</b>, marque Certo ou Errado em cada linha para ver o gabarito e o porquê; desligue o Modo treino para ver a tabela completa.</p>
+      <div class="pegtools attools">
+        <label class="switch"><input type="checkbox" id="at-treino"> Modo treino</label>
+        <div class="pegf" id="at-filtro"><button type="button" data-g="all">Todas</button><button type="button" data-g="g1">Fé Pública</button><button type="button" data-g="g2">Func Publico x ADM Publica</button><button type="button" data-g="g3">Part. x Adm. Geral</button><button type="button" data-g="g4">ADM JUSTIÇA</button></div>
+        <span class="chip" id="at-score"></span>
+        <button type="button" class="btn ghost sm" id="at-reset" title="Apaga as suas respostas do Autoteste">Refazer</button>
+      </div>
+      <div class="scroll"><table class="qt at" id="at-tab">
+        <thead><tr><th>Nº</th><th>Assertiva</th><th>Gabarito</th><th>Por quê</th></tr></thead>
+        <tbody id="at-body"></tbody></table></div>
+      <p class="src">Assertivas elaboradas por IA a partir da Lei Seca TJSP 2026 (Código Penal) e das tabelas desta aba (2 - Aumento de Penas e 3 - Qualificadora), no formato do Autoteste do “Estudo Lei 13146 - TJSP V4”.</p>
     </section>
     <footer>Fundamentação elaborada a partir do Código Penal e do material de estudo NEAF (uso pessoal)</footer>
   </section>
@@ -1422,15 +1466,51 @@ function dicasSpy(){
   nav.querySelectorAll("a").forEach(a=>a.classList.toggle("on", a.dataset.id===cur));
 }
 
+// ---------- Penas › Autoteste — aumentos de pena e qualificadoras (Certo ou Errado) ----------
+// [grupo, gabarito (C/E), assertiva, por quê (**negrito**), artigo para o atalho "Lei Seca ›"]
+const AUTO = [["g1", "E", "Na falsificação de papéis públicos (art. 293), se o agente é funcionário público e comete o crime prevalecendo-se do cargo, a pena é aumentada de um terço.", "O aumento é de **sexta parte** (art. 295).", "295"], ["g1", "C", "O aumento de sexta parte do art. 295 aplica-se também ao crime de petrechos de falsificação (art. 294), se o agente é funcionário público e comete o crime prevalecendo-se do cargo.", "Art. 295 — vale para os crimes dos arts. 293 e 294.", "295"], ["g1", "C", "Na falsificação do selo ou sinal público, se o agente é funcionário público e comete o crime prevalecendo-se do cargo, a pena aumenta-se de sexta parte.", "Art. 296, § 2º.", "296"], ["g1", "E", "Na falsificação do selo ou sinal público, basta que o agente seja funcionário público para que a pena seja aumentada de sexta parte.", "Além de ser funcionário público, o agente precisa **cometer o crime prevalecendo-se do cargo** (art. 296, § 2º).", "296"], ["g1", "C", "Na falsificação de documento público, se o agente é funcionário público e comete o crime prevalecendo-se do cargo, aumenta-se a pena de sexta parte.", "Art. 297, § 1º.", "297"], ["g1", "E", "Nos crimes de falsificação de papéis públicos, de selo ou sinal público e de documento público, o aumento de pena para o funcionário público que comete o crime prevalecendo-se do cargo é de um terço.", "Nos três o aumento é de **sexta parte** (arts. 295, 296, § 2º, e 297, § 1º).", "297"], ["g1", "C", "Na falsidade ideológica, a pena é aumentada de sexta parte se a falsificação ou alteração é de assentamento de registro civil.", "Art. 299, parágrafo único.", "299"], ["g1", "E", "Na falsidade ideológica, o aumento de sexta parte só se aplica quando o agente é funcionário público que comete o crime prevalecendo-se do cargo.", "Também aumenta de sexta parte se a falsificação ou alteração é de **assentamento de registro civil** (art. 299, parágrafo único).", "299"], ["g1", "E", "Nas fraudes em certames de interesse público, se da ação ou omissão resulta dano à administração pública, a pena é aumentada de um terço.", "O dano à administração pública é **qualificadora**: reclusão, de **2 a 6 anos**, e multa (art. 311-A, § 2º).", "311-A"], ["g1", "C", "A forma qualificada das fraudes em certames de interesse público (dano à administração pública) é punida com reclusão, de 2 a 6 anos, e multa.", "Art. 311-A, § 2º.", "311-A"], ["g1", "C", "Nas fraudes em certames de interesse público, a pena é aumentada de 1/3 se o fato é cometido por funcionário público.", "Art. 311-A, § 3º.", "311-A"], ["g1", "E", "O aumento de pena das fraudes em certames de interesse público exige que o funcionário público cometa o crime prevalecendo-se do cargo.", "Basta que o fato seja **cometido por funcionário público**; o § 3º **não fala em prevalecer-se do cargo** (art. 311-A, § 3º).", "311-A"], ["g2", "C", "A pena dos crimes praticados por funcionário público contra a administração em geral é aumentada da terça parte quando os autores ocupam cargos em comissão ou função de direção ou assessoramento de órgão da administração direta, sociedade de economia mista, empresa pública ou fundação instituída pelo poder público.", "Art. 327, § 2º.", "327"], ["g2", "E", "O texto do art. 327, § 2º, inclui expressamente os ocupantes de cargos em comissão de autarquias entre os que têm a pena aumentada.", "O § 2º menciona **administração direta, sociedade de economia mista, empresa pública e fundação instituída pelo poder público** — **não fala em autarquia** (art. 327, § 2º).", "327"], ["g2", "E", "O ocupante de função de direção em empresa pública que comete peculato tem a pena aumentada de metade.", "O aumento do art. 327, § 2º, é da **terça parte**.", "327"], ["g2", "E", "No peculato culposo, a reparação do dano antes da sentença irrecorrível reduz a pena de metade.", "Se **precede** a sentença irrecorrível, **extingue a punibilidade**; se lhe é **posterior**, reduz de metade a pena imposta (art. 312, § 3º).", "312"], ["g2", "E", "A reparação do dano antes da sentença irrecorrível extingue a punibilidade tanto no peculato culposo quanto no peculato doloso.", "O § 3º vale **só para o peculato culposo** — ele se refere ao “parágrafo anterior”, o § 2º (art. 312, § 3º).", "312"], ["g2", "C", "Na modificação ou alteração não autorizada de sistema de informações, as penas são aumentadas de um terço até a metade se da modificação ou alteração resulta dano para a Administração Pública ou para o administrado.", "Art. 313-B, parágrafo único.", "313-B"], ["g2", "E", "Na modificação ou alteração não autorizada de sistema de informações, o dano para a Administração Pública qualifica o crime, que passa a ter pena de reclusão, de 2 a 12 anos, e multa.", "O dano é **causa de aumento** de **1/3 até a metade** (art. 313-B, parágrafo único). Reclusão de 2 a 12 anos é a pena do **art. 313-A** (inserção de dados falsos).", "313-B"], ["g2", "C", "No excesso de exação, se o funcionário desvia, em proveito próprio ou de outrem, o que recebeu indevidamente para recolher aos cofres públicos, a pena é de reclusão, de 2 a 12 anos, e multa.", "Art. 316, § 2º (forma qualificada do excesso de exação).", "316"], ["g2", "E", "A forma qualificada do excesso de exação (§ 2º) tem pena mínima maior que a do excesso de exação simples (§ 1º).", "O mínimo do § 2º (**2 anos**) é **menor** que o do § 1º (**3 anos**); só o máximo é maior (12 x 8 anos) (art. 316, §§ 1º e 2º).", "316"], ["g2", "E", "Na corrupção passiva, a pena é aumentada de metade se, em consequência da vantagem ou promessa, o funcionário retarda ou deixa de praticar qualquer ato de ofício.", "A pena é aumentada de **um terço** (art. 317, § 1º).", "317"], ["g2", "C", "Na corrupção passiva, a pena é aumentada de um terço se, em consequência da vantagem ou promessa, o funcionário pratica o ato de ofício infringindo dever funcional.", "Art. 317, § 1º.", "317"], ["g2", "E", "Se o funcionário pratica, deixa de praticar ou retarda ato de ofício, com infração de dever funcional, cedendo a pedido ou influência de outrem, aplica-se a pena da corrupção passiva aumentada de um terço.", "É a forma **privilegiada** da corrupção passiva: **detenção, de 3 meses a 1 ano, ou multa** (art. 317, § 2º).", "317"], ["g2", "C", "Na advocacia administrativa, se o interesse é ilegítimo, a pena é de detenção, de 3 meses a 1 ano, além da multa.", "Art. 321, parágrafo único (qualificadora).", "321"], ["g2", "E", "Na advocacia administrativa, o patrocínio de interesse ilegítimo é causa de aumento de pena de um terço.", "É **qualificadora**: detenção, de **3 meses a 1 ano, além da multa** (art. 321, parágrafo único).", "321"], ["g2", "C", "No abandono de função, se do fato resulta prejuízo público, a pena é de detenção, de 3 meses a 1 ano, e multa.", "Art. 323, § 1º (qualificadora).", "323"], ["g2", "E", "No abandono de função, se o fato ocorre em lugar compreendido na faixa de fronteira, a pena é aumentada de metade.", "É **qualificadora**: detenção, de **1 a 3 anos**, e multa (art. 323, § 2º).", "323"], ["g2", "E", "O abandono de função ocorrido em lugar compreendido na faixa de fronteira é punido com reclusão, de 1 a 3 anos, e multa.", "A pena é de **detenção**, de 1 a 3 anos, e multa (art. 323, § 2º).", "323"], ["g2", "C", "Na violação de sigilo funcional, se da ação ou omissão resulta dano à Administração Pública ou a outrem, a pena é de reclusão, de 2 a 6 anos, e multa.", "Art. 325, § 2º (qualificadora).", "325"], ["g2", "E", "A violação de sigilo funcional qualificada pelo dano à Administração Pública é punida com detenção, de 2 a 6 anos, e multa.", "É **reclusão**, de 2 a 6 anos, e multa (art. 325, § 2º). Detenção (6 meses a 2 anos, ou multa) é a pena da forma simples.", "325"], ["g3", "C", "Na usurpação de função pública, se do fato o agente aufere vantagem, a pena é de reclusão, de 2 a 5 anos, e multa.", "Art. 328, parágrafo único (qualificadora).", "328"], ["g3", "E", "Na usurpação de função pública, a vantagem auferida pelo agente aumenta a pena de metade.", "É **qualificadora**: reclusão, de **2 a 5 anos**, e multa (art. 328, parágrafo único).", "328"], ["g3", "C", "Na resistência, se o ato, em razão da resistência, não se executa, a pena é de reclusão, de 1 a 3 anos.", "Art. 329, § 1º (qualificadora).", "329"], ["g3", "E", "Na resistência, se o ato não se executa em razão da resistência, a pena é de detenção, de 1 a 3 anos.", "É **reclusão**, de 1 a 3 anos (art. 329, § 1º). A forma simples é que é punida com detenção (2 meses a 2 anos).", "329"], ["g3", "E", "Na resistência, a não execução do ato em razão da resistência é causa de aumento de pena de um terço.", "É **qualificadora**: reclusão, de **1 a 3 anos** (art. 329, § 1º).", "329"], ["g3", "C", "No tráfico de influência, a pena é aumentada da metade se o agente alega ou insinua que a vantagem é também destinada ao funcionário.", "Art. 332, parágrafo único.", "332"], ["g3", "E", "No tráfico de influência, a pena é aumentada de um terço se o agente alega ou insinua que a vantagem é também destinada ao funcionário.", "É aumentada **da metade** (art. 332, parágrafo único). Um terço é o aumento da exploração de prestígio (art. 357, parágrafo único).", "332"], ["g3", "C", "Na corrupção ativa, a pena é aumentada de um terço se, em razão da vantagem ou promessa, o funcionário retarda ou omite ato de ofício, ou o pratica infringindo dever funcional.", "Art. 333, parágrafo único.", "333"], ["g3", "E", "Na corrupção ativa, se em razão da vantagem ou promessa o funcionário omite ato de ofício, a pena é aumentada de metade.", "É aumentada de **um terço** (art. 333, parágrafo único).", "333"], ["g4", "C", "Na denunciação caluniosa, a pena é aumentada de sexta parte se o agente se serve de anonimato ou de nome suposto.", "Art. 339, § 1º.", "339"], ["g4", "E", "Na denunciação caluniosa, a pena é aumentada de metade se a imputação é de prática de contravenção.", "Nesse caso a pena é **diminuída** de metade (art. 339, § 2º).", "339"], ["g4", "C", "No falso testemunho ou falsa perícia, as penas aumentam-se de um sexto a um terço se o crime é praticado mediante suborno.", "Art. 342, § 1º.", "342"], ["g4", "E", "No falso testemunho, as penas aumentam-se de um terço até a metade se o crime é cometido com o fim de obter prova destinada a produzir efeito em processo penal.", "Aumentam-se de **um sexto a um terço** (art. 342, § 1º).", "342"], ["g4", "E", "No falso testemunho, há aumento de pena quando o fim é obter prova destinada a produzir efeito em qualquer processo civil.", "Só em processo civil **em que for parte entidade da administração pública direta ou indireta** (art. 342, § 1º).", "342"], ["g4", "C", "No crime do art. 343 (dar, oferecer ou prometer vantagem a testemunha, perito, contador, tradutor ou intérprete), as penas aumentam-se de um sexto a um terço se o crime é cometido com o fim de obter prova destinada a produzir efeito em processo penal.", "Art. 343, parágrafo único.", "343"], ["g4", "E", "No crime do art. 343, as penas aumentam-se de um sexto a um terço se o crime é praticado mediante suborno.", "O parágrafo único do art. 343 prevê aumento só pelo **fim de obter prova** em processo penal ou em processo civil em que for parte entidade da administração pública. “Mediante suborno” é causa de aumento do **falso testemunho** (art. 342, § 1º).", "343"], ["g4", "C", "Na coação no curso do processo, a pena aumenta-se de 1/3 até a metade se o processo envolver crime contra a dignidade sexual.", "Art. 344, parágrafo único.", "344"], ["g4", "E", "Na coação no curso do processo, se o processo envolver crime contra a dignidade sexual, a pena é aplicada em dobro.", "A pena aumenta-se de **1/3 até a metade** (art. 344, parágrafo único). Pena em dobro é a da fraude processual destinada a processo penal (art. 347, parágrafo único).", "344"], ["g4", "C", "Na fraude processual, se a inovação se destina a produzir efeito em processo penal, ainda que não iniciado, as penas aplicam-se em dobro.", "Art. 347, parágrafo único.", "347"], ["g4", "E", "Na fraude processual, a pena em dobro só se aplica se o processo penal já estiver iniciado.", "Aplica-se em dobro **ainda que o processo penal não tenha sido iniciado** (art. 347, parágrafo único).", "347"], ["g4", "C", "Na exploração de prestígio, as penas aumentam-se de um terço se o agente alega ou insinua que o dinheiro ou utilidade também se destina a qualquer das pessoas referidas no artigo.", "Art. 357, parágrafo único.", "357"], ["g4", "E", "Na exploração de prestígio, as penas aumentam-se de metade se o agente alega ou insinua que o dinheiro ou utilidade também se destina a juiz, jurado ou testemunha.", "Aumentam-se de **um terço** (art. 357, parágrafo único). Metade é o aumento do tráfico de influência (art. 332, parágrafo único).", "357"]];
+function atStore(){ const s = STORE._auto = STORE._auto || {}; if(!s.ans) s.ans = {}; if(s.treino===undefined) s.treino = true; return s; }
+const atMd = t => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+function renderAuto(){
+  const s = atStore(), g = s.g || "all";
+  const rows = AUTO.map((a,i)=>({a, n:i+1})).filter(o=>g==="all" || o.a[0]===g);
+  $("#at-body").innerHTML = rows.map(({a,n})=>{
+    const mine = s.ans[n], open = !s.treino || !!mine;
+    const gab = `<span class="atg ${a[1]==="C" ? "c" : "e"}">${a[1]==="C" ? "CERTO" : "ERRADO"}</span>`;
+    const you = mine ? `<span class="atmine ${mine===a[1] ? "ok" : "no"}">Você marcou ${mine==="C" ? "Certo" : "Errado"} ${mine===a[1] ? "✓" : "✗"}</span>` : "";
+    const btns = s.treino && !mine ? `<div class="atbtn"><button type="button" data-n="${n}" data-v="C">Certo</button><button type="button" data-n="${n}" data-v="E">Errado</button></div>` : "";
+    const go = LEIART[a[4]] ? `<button type="button" class="goto" data-art="${esc(a[4])}" title="Abrir o artigo na Lei Seca">Lei Seca ›</button>` : "";
+    return `<tr class="${open ? "open" : ""}" data-n="${n}"><td class="atn">${n}</td><td>${esc(a[2])}</td>` +
+      `<td class="atgab">${btns}<span class="atans">${gab}${you}</span></td><td class="atwhy"><span class="atans">${atMd(a[3])} ${go}</span></td></tr>`;
+  }).join("");
+  const done = rows.filter(o=>s.ans[o.n]).length, ok = rows.filter(o=>s.ans[o.n]===o.a[1]).length;
+  $("#at-score").innerHTML = s.treino ? `Respondidas <b>${done}</b> de ${rows.length} · Acertos <b>${ok}</b>${done ? ` (${Math.round(100*ok/done)}%)` : ""}` : `${rows.length} assertivas`;
+  $("#at-treino").checked = !!s.treino;
+  $("#at-reset").hidden = !s.treino;
+  document.querySelectorAll("#at-filtro button").forEach(b=>b.classList.toggle("on", b.dataset.g===g));
+  $("#at-body").querySelectorAll(".atbtn button").forEach(b=>b.onclick=()=>{ atStore().ans[b.dataset.n] = b.dataset.v; saveAll(); renderAuto(); });
+  // o atalho "Lei Seca ›" é tratado pelo clique geral da aba Penas (classe .goto)
+}
+function initAuto(){
+  $("#at-treino").onchange = e=>{ atStore().treino = e.target.checked; saveAll(); renderAuto(); };
+  document.querySelectorAll("#at-filtro button").forEach(b=>b.onclick=()=>{ atStore().g = b.dataset.g; saveAll(); renderAuto(); });
+  $("#at-reset").onclick = ()=>{ atStore().ans = {}; saveAll(); renderAuto(); };
+  renderAuto();
+}
+
 // ---------- Estudo > Penas (tabelas da planilha Penal tabela penas qualificadora e aumento) ----------
 const PGROUPS = [...new Set([...document.querySelectorAll("#view-penas .pgrp")].map(d=>d.dataset.grupo))];
-function pnGroup(){ return PGROUPS.includes(STORE._png) ? STORE._png : "__todos__"; }
+function pnGroup(){ return PGROUPS.includes(STORE._png) || STORE._png==="__auto__" ? STORE._png : "__todos__"; }
 function applyPnFilter(){
   const g = pnGroup();
   document.querySelectorAll("#pn-f button").forEach(b=>{ const on = b.dataset.g===g; b.classList.toggle("on", on); b.setAttribute("aria-pressed", String(on)); });
-  document.querySelectorAll("#view-penas .pgrp").forEach(d=>d.hidden = !(g==="__todos__" || d.dataset.grupo===g));
+  const auto = g==="__auto__";
+  ["pn-1","pn-2","pn-3"].forEach(id=>{ document.getElementById(id).hidden = auto; });
+  $("#pn-auto").hidden = !auto;
+  document.querySelectorAll("#penas-nav a").forEach(a=>a.classList.toggle("off", auto));
+  document.querySelectorAll("#view-penas .pgrp").forEach(d=>d.hidden = !(g==="__todos__" || g==="__auto__" || d.dataset.grupo===g));
   let nq = 0;
-  document.querySelectorAll("#pn-3 tbody tr[data-grupo]").forEach(tr=>{ const on = g==="__todos__" || tr.dataset.grupo===g; tr.hidden = !on; if(on) nq++; });
+  document.querySelectorAll("#pn-3 tbody tr[data-grupo]").forEach(tr=>{ const on = g==="__todos__" || g==="__auto__" || tr.dataset.grupo===g; tr.hidden = !on; if(on) nq++; });
   const qs = document.querySelector("#pn-3 .scroll"), qe = document.querySelector("#pn-3 .pq-empty");
   if(qs) qs.hidden = nq===0; if(qe) qe.hidden = nq!==0;
   penasSpy();
@@ -1440,13 +1520,13 @@ function penasSpy(){
   const nav = $("#penas-nav");
   document.documentElement.style.setProperty("--qn", nav.offsetHeight + "px");
   const lim = nav.getBoundingClientRect().bottom + 64;
-  const secs = [...document.querySelectorAll("#view-penas > .qs")];
+  const secs = [...document.querySelectorAll("#view-penas > .qs:not([hidden])")];
   let cur = null; secs.forEach(s=>{ if(s.getBoundingClientRect().top <= lim) cur = s.id; });
   if(cur && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = secs[secs.length-1].id;   // fim da página: último tópico
   nav.querySelectorAll("a").forEach(a=>a.classList.toggle("on", a.dataset.id===cur));
 }
 function initPenas(){
-  $("#penas-nav").querySelectorAll("a").forEach(a=>a.onclick=e=>{ e.preventDefault(); const el = document.getElementById(a.dataset.id); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); });
+  $("#penas-nav").querySelectorAll("a").forEach(a=>a.onclick=e=>{ e.preventDefault(); if(pnGroup()==="__auto__"){ STORE._png = "__todos__"; saveAll(); applyPnFilter(); } const el = document.getElementById(a.dataset.id); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); });
   $("#pn-f").querySelectorAll("button").forEach(b=>b.onclick=()=>{ STORE._png = b.dataset.g; saveAll(); applyPnFilter(); });
   $("#view-penas").addEventListener("click", e=>{ const g = e.target.closest(".goto"); if(g && LEIART[g.dataset.art]) goLei(g.dataset.art); });
   document.querySelectorAll("#view-penas .goto").forEach(b=>{ if(!LEIART[b.dataset.art]){ b.disabled = true; b.removeAttribute("title"); } });
@@ -1476,7 +1556,7 @@ function showView(v, anchor){
   $("#lei-reset").onclick = ()=>{ STORE._lei={}; saveAll(); renderLei(); };
   $("#lei-toc").addEventListener("click", e=>{ const a = e.target.closest("a"); if(!a) return; e.preventDefault(); const el = document.getElementById(a.getAttribute("href").slice(1)); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); });
   window.addEventListener("scroll", dicasSpy, {passive:true});
-  renderLei(); renderDicas(); initPenas();
+  renderLei(); renderDicas(); initAuto(); initPenas();
   const h = location.hash.slice(1);
   const byHash = {lei:"lei", dicas:"dicas", penas:"penas", questoes:"questoes", teoria:teo(), estudo:teo()}[h];
   showView(byHash || (["lei","dicas","penas","questoes"].includes(STORE._top) ? STORE._top : "questoes"));
