@@ -598,6 +598,197 @@ table.ec-sum td:last-child,.qt-card table.ec-sum tbody th,.qt-card table.ec-tl t
 :root[data-theme="dark"] .prb.p-a{color:#0f1420}
 :root[data-theme="dark"] .tbl tr.lv-parte td,:root[data-theme="dark"] .tbl tr.lv-livro td,:root[data-theme="dark"] .tbl tr.lv-tit td,:root[data-theme="dark"] .tbl tr.lv-tit td .gn{color:#0f1420}
 :root[data-theme="dark"] mark.sh.cur{color:#0f1420}
+
+/* ===== quadros › Remuneração: esquemas e consulta à lei seca a partir dos quadros ===== */
+.b-mem{background:var(--chip);color:var(--c-l)}
+#dc-rem .qt-card{scroll-margin-top:104px}
+.rem-pl{margin:2px 0 6px;font-size:.82rem;color:var(--muted)}
+.rem-pl a{color:var(--accent);font-weight:600;text-decoration:none;white-space:nowrap}
+.rem-pl a:hover{text-decoration:underline}
+.rem-idx{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+.rem-idx a{font-size:.8rem;font-weight:600;text-decoration:none;color:var(--brand);background:var(--brand-soft);border-radius:999px;padding:3px 11px}
+.rem-idx a.pk{background:var(--warn-soft);color:var(--warn)}
+.rem-idx a:hover{box-shadow:inset 0 0 0 1px var(--accent)}
+a.rem-go{color:var(--accent);font-weight:700;text-decoration:none}
+a.rem-go:hover{text-decoration:underline}
+/* botões de consulta à lei seca */
+button.lsr,button.lsall{font:inherit;cursor:pointer;color:var(--accent);background:var(--panel);border:1px solid var(--line);border-radius:999px;display:inline-flex;align-items:center;gap:4px;transition:background-color .15s,border-color .15s}
+button.lsr{font-size:.74rem;font-weight:700;padding:0 8px 0 6px;line-height:1.7;white-space:nowrap;vertical-align:1px;margin:1px 0}
+button.lsr:hover,button.lsall:hover,button.lsr[aria-expanded="true"],button.lsall[aria-expanded="true"]{background:var(--brand-soft);border-color:var(--accent)}
+button.lsr:focus-visible,button.lsall:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button.lsr::before,button.lsall::before{content:"";flex:0 0 auto;width:12px;height:12px;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 5.5C5.5 4 9 4 12 6c3-2 6.5-2 9-.5V19c-2.5-1.5-6-1.5-9 .5-3-2-6.5-2-9-.5zM12 6v13.5' fill='none' stroke='%23000' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 5.5C5.5 4 9 4 12 6c3-2 6.5-2 9-.5V19c-2.5-1.5-6-1.5-9 .5-3-2-6.5-2-9-.5zM12 6v13.5' fill='none' stroke='%23000' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.qt-card h4 button.lsall{margin-left:auto;font-size:.74rem;font-weight:600;padding:2px 10px 2px 8px;line-height:1.35;text-align:left;white-space:normal}
+button.lsall .lsk{font-weight:800;margin-right:3px}
+.pg .qt-ref button.lsr{margin-left:4px}
+/* mapa */
+.rem-map{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:8px 0 2px}
+.rem-q{border:1px solid var(--line);border-top:4px solid var(--c);border-radius:10px;background:var(--panel);padding:9px 12px}
+.rem-q h5{margin:0 0 6px;font-size:.93rem;color:var(--c);display:flex;align-items:center;gap:8px}
+.rem-q h5 i{font-style:normal;flex:0 0 22px;height:22px;border-radius:50%;background:var(--c);color:var(--panel);display:grid;place-items:center;font-size:.78rem;font-weight:800}
+.rem-q ul{margin:0;padding-left:18px;font-size:.87rem}
+.rem-q li{margin:4px 0}
+/* dicionário */
+.rem-eq{display:grid;gap:8px;margin:4px 0 12px}
+.rem-eq>div{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.rem-eq span{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px 11px;font-weight:700;font-size:.9rem;line-height:1.3}
+.rem-eq span small{display:block;font-weight:500;font-size:.76rem;color:var(--muted)}
+.rem-eq span.hl{background:var(--brand-soft);border-color:var(--accent);color:var(--brand)}
+.rem-eq i{font-style:normal;font-weight:800;color:var(--muted);font-size:1.1rem}
+table.rem-t tbody th{min-width:118px}
+table.rem-t td{white-space:normal}
+table.rem-t td.c{text-align:left}
+table.rem-t td.y,table.rem-t td.n,table.rem-t td.w{text-align:left;font-size:inherit}
+table.rem-t th small{font-weight:500;color:var(--muted)}
+/* escadas */
+.rem-esc{display:grid;gap:6px;margin:8px 0}
+.rem-esc>div{display:grid;grid-template-columns:56px 132px 1fr auto;gap:4px 12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-size:.9rem;line-height:1.4}
+.rem-n{background:var(--accent);color:var(--panel);font-weight:800;border-radius:8px;text-align:center;padding:4px 2px;font-size:.8rem}
+.rem-v{font-weight:800;color:var(--brand);text-transform:uppercase;letter-spacing:.3px;font-size:.8rem;line-height:1.25}
+/* teto */
+.rem-teto{display:grid;gap:8px;margin:6px 0 10px}
+.rem-stf{background:var(--brand);color:var(--panel);border-radius:10px;padding:10px 14px;text-align:center}
+.rem-stf b{display:block;letter-spacing:.3px}
+.rem-stf small{display:block;font-size:.8rem;opacity:.92;margin-top:2px}
+.rem-lv{display:grid;grid-template-columns:1fr 2.4fr 1fr;gap:8px;position:relative}
+.rem-ent{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:8px 10px;font-size:.88rem;text-align:center}
+.rem-ent h5{margin:0 0 6px;font-size:.74rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+.rem-ent p{margin:4px 0}
+.rem-pw{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.rem-pw>div{background:var(--brand-soft);border-radius:8px;padding:6px 8px;line-height:1.3}
+.rem-pw span{display:block;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.rem-pw b{display:block;color:var(--brand);font-size:.86rem}
+.rem-pw small{display:block;font-size:.74rem;color:var(--muted);margin-top:2px}
+.qt-card .grid4 span small{display:block;font-weight:500;font-size:.74rem;color:var(--muted);margin-top:2px}
+/* treino */
+.rem-tr h4 .rem-all{margin-left:auto}
+ol.rem-fc{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px;counter-reset:fc}
+.rem-fc li{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:8px 12px;cursor:pointer;counter-increment:fc}
+.rem-fc .fq{margin:0;font-weight:600;font-size:.92rem;display:flex;gap:10px;align-items:baseline}
+.rem-fc .fq:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.rem-fc .fq::before{content:counter(fc);flex:0 0 22px;height:22px;border-radius:50%;background:var(--chip);color:var(--muted);display:inline-grid;place-items:center;font-size:.76rem;font-weight:800}
+.rem-fc li:not(.open) .fq::after{content:"ver resposta ›";margin-left:auto;font-size:.74rem;font-weight:700;color:var(--accent);white-space:nowrap;padding-left:8px}
+.rem-fc .fa{margin:6px 0 0 32px;padding-top:6px;border-top:1px dashed var(--line);font-size:.9rem}
+.rem-fc li:not(.open) .fa{display:none}
+.rem-fc li.open{border-color:var(--ok);background:var(--ok-soft)}
+.rem-fc li.open .fq::before{background:var(--ok);color:var(--panel)}
+/* painel da lei seca */
+.lspop{position:fixed;z-index:40;left:16px;top:16px;width:min(560px,calc(100vw - 24px));max-height:min(64vh,560px);display:flex;flex-direction:column;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 36px rgba(20,30,50,.28)}
+.lspop:focus{outline:none}
+.lsp-h{display:flex;align-items:center;gap:8px;padding:8px 10px 8px 14px;border-bottom:1px solid var(--line)}
+.lsp-h b{font-size:.72rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.lsp-h span{font-size:.8rem;color:var(--muted)}
+.lsp-x{margin-left:auto;font:inherit;font-size:1.15rem;line-height:1;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;flex:0 0 auto}
+.lsp-x:hover{background:var(--brand-soft)}
+.lsp-b{overflow:auto;padding:2px 14px 12px;overscroll-behavior:contain}
+.lsp-it{padding:10px 0 4px;border-top:1px dashed var(--line)}
+.lsp-it:first-child{border-top:none}
+.lsp-it h5{margin:0 0 4px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:.88rem;color:var(--brand)}
+.lsp-go{margin-left:auto;font:inherit;font-size:.76rem;font-weight:700;color:var(--accent);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline}
+.lsp-it p{margin:3px 0;font-size:.9rem;line-height:1.5}
+.lsp-it p.inc{padding-left:1.2em}.lsp-it p.ali{padding-left:2.4em}
+.lsp-it .lb{font-weight:700;color:var(--brand)}
+.lsp-it .nota{font-size:.76rem;color:var(--muted);font-style:italic}
+.lsp-it .ltag{font-size:.72rem;font-weight:700;background:var(--warn-soft);color:var(--warn);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.lsback{position:fixed;left:16px;bottom:16px;z-index:21;display:inline-flex;align-items:center;gap:6px;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;background:var(--brand);color:var(--panel);border:none;border-radius:999px;padding:10px 18px;box-shadow:0 6px 22px rgba(20,30,50,.25)}
+#lei-body .art p{transition:background-color .9s,box-shadow .9s}
+#lei-body .art p.lshit{background:var(--mark);color:var(--mark-ink);box-shadow:0 0 0 4px var(--mark);border-radius:4px}
+@media (max-width:640px){
+  .rem-esc>div{grid-template-columns:auto 1fr auto}
+  .rem-esc>div>.rem-n{min-width:44px}
+  .rem-esc>div>.lsr{grid-column:3;grid-row:1}
+  .rem-esc>div>.rem-d{grid-column:1 / -1;grid-row:2}
+  .rem-lv,.rem-pw{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .lspop{left:0!important;right:0;top:auto!important;bottom:0;width:100%;max-height:75vh;border-radius:14px 14px 0 0}
+  .lsback{left:12px;bottom:12px}
+  .rem-fc .fa{margin-left:0}
+}
+@media print{
+  .lspop,.lsback,.rem-idx,.rem-all{display:none!important}
+  button.lsr,button.lsall{border:none;padding:0;background:none;color:var(--muted)}
+  button.lsr::before,button.lsall::before{display:none}
+  .rem-fc li .fa{display:block!important}
+  .rem-fc li:not(.open) .fq::after{content:none}
+}
+.rem-no{color:var(--bad);font-weight:800}
+.rem-yes{color:var(--ok);font-weight:800}
+table.rem-t td.y,table.rem-t td.n,table.rem-t td.w{font-weight:700}
+ul.rem-a7l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:4px 14px}
+ul.rem-a7l li{display:flex;gap:8px;align-items:baseline;font-size:.9rem}
+ul.rem-a7l li .lsr{flex:0 0 auto;min-width:62px;justify-content:center}
+/* tabelas do tópico viram fichas no celular (rótulo de cada coluna em data-l, posto pelo script) */
+@media (max-width:640px){
+  table.rem-t.stk,table.rem-t.stk tbody{display:block;border:none}
+  table.rem-t.stk thead{display:none}
+  table.rem-t.stk tr{display:block;border:1px solid var(--line);border-radius:9px;margin:0 0 8px;overflow:hidden;background:var(--panel)}
+  table.rem-t.stk th,table.rem-t.stk td{display:block;border:none;border-top:1px solid var(--line)}
+  table.rem-t.stk tr>:first-child{border-top:none}
+  table.rem-t.stk tbody th{background:var(--brand-soft);color:var(--brand);min-width:0}
+  table.rem-t.stk tbody th:empty{display:none}
+  table.rem-t.stk td[data-l]::before{content:attr(data-l);display:block;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+  ul.rem-a7l{grid-template-columns:1fr}
+}
+/* ===== quadros › Tipos de lei (planilha "Tipos de lei na CF") ===== */
+:root{--f-lc:var(--c-l);--f-lo:var(--c-e);--f-ved:var(--bad);--f-out:var(--warn)}
+#dc-leis .qt-card{scroll-margin-top:104px}
+.f-lc{--c:var(--f-lc)} .f-lo{--c:var(--f-lo)} .f-ved{--c:var(--f-ved)} .f-out{--c:var(--f-out)}
+.tl-map{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;margin:6px 0 4px}
+.tl-tile{font:inherit;text-align:left;cursor:pointer;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:10px;padding:8px 10px;display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:start;align-content:start;transition:background-color .15s,box-shadow .15s}
+.tl-tile:hover{box-shadow:inset 0 0 0 1px var(--c)}
+.tl-tile:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tl-tile[aria-pressed="true"]{background:var(--brand-soft);box-shadow:inset 0 0 0 2px var(--c)}
+.tl-tile b{font-size:.88rem;line-height:1.3;color:var(--c)}
+.tl-tile .tl-n{font-size:1.2rem;font-weight:800;line-height:1;color:var(--c);font-variant-numeric:tabular-nums}
+.tl-tile small{grid-column:1 / -1;font-size:.76rem;line-height:1.35;color:var(--muted)}
+.tl-leg{font-size:.78rem!important;color:var(--muted);margin:6px 0 0!important;display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px}
+.tl-sw{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-left:6px}
+.tl-sw:first-child{margin-left:0}
+.tl-tools{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin:2px 0 8px}
+.tl-row{min-width:0}
+.tl-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.tl-lbl{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);min-width:78px}
+#tl-q{flex:1 1 220px;min-width:0;font:inherit;font-size:.88rem;padding:5px 11px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+.tl-row .pegf button .tl-c{font-weight:500;opacity:.8}
+#tl-tp{flex:0 1 auto;max-width:100%;min-width:0;font:inherit;font-size:.86rem;padding:5px 10px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+#tl-tp.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);font-weight:600}
+table.tl-t col.tl-c1{width:128px} table.tl-t col.tl-c3{width:150px}
+table.tl-t td{line-height:1.5}
+table.tl-t td.tl-art{white-space:nowrap}
+table.tl-t td.tl-x b.kw{font-weight:700}
+table.tl-t td.tl-tag span{display:inline-block;font-size:.76rem;font-weight:700;line-height:1.35;border-radius:7px;padding:1px 8px;background:var(--chip);color:var(--muted)}
+table.tl-t td.tl-tag span.f{background:var(--panel);color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+table.tl-t td.tl-tag span.none{font-style:italic;font-weight:500}
+table.tl-t tr.tl-g th{background:var(--brand-soft);color:var(--brand);padding:7px 10px}
+table.tl-t tr.tl-g .tl-gw{display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px}
+table.tl-t tr.tl-g .tl-gn{font-size:.9rem;color:var(--c,var(--brand))}
+table.tl-t tr.tl-g .tl-gn::before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--c,var(--brand));margin-right:6px;vertical-align:1px}
+table.tl-t tr.tl-g .tl-gc{font-size:.76rem;font-weight:700;color:var(--muted)}
+table.tl-t tr.tl-g .tl-gx{flex-basis:100%;font-size:.8rem;font-weight:500;color:var(--muted)}
+table.tl-t tr.tl-g button.lsall{margin-left:auto;font-size:.72rem;font-weight:600;padding:1px 9px 1px 7px;line-height:1.4}
+table.tl-t tr.tl-empty td{text-align:center;color:var(--muted);font-style:italic;padding:14px}
+.tl-two{margin-top:10px}
+.tl-two>div{border-top:4px solid var(--c)}
+.qt-card p.tl-h5{margin:0 0 4px;font-weight:800;font-size:.86rem;color:var(--c)}
+.tl-ul{list-style:none;padding-left:0}
+.tl-ul li{display:flex;gap:8px;align-items:baseline;font-size:.88rem}
+.tl-ul li .lsr{flex:0 0 auto;min-width:104px;justify-content:center}
+@media (max-width:640px){
+  .tl-map{grid-template-columns:1fr 1fr}
+  .tl-lbl{min-width:0;flex-basis:100%}
+  #tl-tp{width:100%}
+  table.tl-t.stk tr.tl-g{border:none;background:none;margin:14px 0 6px;border-radius:0}
+  table.tl-t.stk tr.tl-g th{border-radius:9px}
+  table.tl-t.stk td.tl-art{white-space:normal}
+  .tl-ul li .lsr{min-width:0}
+}
+@media (max-width:420px){ .tl-map{grid-template-columns:1fr} }
+@media print{
+  .tl-tools{display:none!important}
+  .tl-tile{break-inside:avoid}
+}
 </style>
 </head>
 <body data-view="lei">
@@ -607,7 +798,7 @@ table.ec-sum td:last-child,.qt-card table.ec-sum tbody th,.qt-card table.ec-tl t
       <p class="eyebrow">Escrevente Técnico Judiciário · TJ-SP</p>
       <h1>Direito Constitucional</h1>
       <p>Constituição da República Federativa do Brasil de 1988</p>
-      <p class="hmeta"><span><b>Base:</b> Lei Seca (CF/88, atualizada até a EC 141/2026), material NEAF e questões CheckMate</span><span><b>Atualizado em:</b> 25/10/2026</span></p>
+      <p class="hmeta"><span><b>Base:</b> Lei Seca (CF/88, atualizada até a EC 141/2026), material NEAF e questões CheckMate</span><span><b>Atualizado em:</b> 31/10/2026</span></p>
     </div>
     <button type="button" class="themebtn" id="themeBtn" title="Alternar tema claro/escuro" aria-label="Alternar tema"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
   </header>
@@ -1207,6 +1398,7 @@ table.ec-sum td:last-child,.qt-card table.ec-sum tbody th,.qt-card table.ec-tl t
 <li><b>XV:</b> subsídio e vencimentos são <b>irredutíveis</b>, ressalvados o teto (XI), o XIV, o subsídio do art. 39, § 4º, e os tributos (arts. 150, II, 153, III, e 153, § 2º, I).</li>
 </ul>
 <p class="qt-note"><b>SV 37:</b> o Judiciário não pode aumentar vencimentos com fundamento na isonomia. <b>SV 42:</b> é inconstitucional vincular o reajuste de servidores estaduais ou municipais a índices federais de correção.</p>
+<p class="qt-note">Visão completa, com o texto da lei seca em cada linha: <a href="#dc-rem" class="rem-go">tópico Remuneração ›</a></p>
 </div>
 
 <div class="qt-card">
@@ -1360,6 +1552,7 @@ table.ec-sum td:last-child,.qt-card table.ec-sum tbody th,.qt-card table.ec-tl t
 <thead><tr><th>Remuneração (vencimentos)</th><th>Subsídio</th></tr></thead>
 <tbody><tr><td>Parcela fixa (vencimento básico) + parcelas variáveis (gratificações, adicionais)</td><td><b>Parcela única</b>, sem acréscimos — obrigatório para os agentes do § 4º; facultativo para carreiras (§ 8º)</td></tr></tbody>
 </table></div>
+<p class="qt-note">Visão completa, com o texto da lei seca em cada linha: <a href="#dc-rem" class="rem-go">tópico Remuneração ›</a></p>
 </div>
 
 <div class="qt-card">
@@ -1472,6 +1665,354 @@ table.ec-sum td:last-child,.qt-card table.ec-sum tbody th,.qt-card table.ec-tl t
 </ul>
 </div>
 </section>
+<section class="card qs qt-topic" data-topic="rem" id="dc-rem">
+<h2 class="qt-h"><span>Arts. 37 a 41 · foco nos arts. 37 e 39</span>Remuneração dos servidores</h2>
+<p class="sub">Tudo o que a CF diz sobre <b>quem</b> recebe o quê, <b>como</b> o valor é fixado, <b>até quanto</b> se pode receber, o que é <b>proibido</b> e o que é <b>garantido</b>. Toque numa referência como <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button> para ler o texto literal da lei seca sem sair do quadro; no painel, <b>Abrir na Lei Seca ›</b> leva ao dispositivo destacado na aba Lei Seca, e o botão <b>← Voltar</b> traz você de volta a este ponto.</p>
+<p class="rem-pl">Texto oficial no Planalto: <a href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm#art37" target="_blank" rel="noopener">art. 37 ↗</a> · <a href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm#art38" target="_blank" rel="noopener">art. 38 ↗</a> · <a href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm#art39" target="_blank" rel="noopener">art. 39 ↗</a> · <a href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm#art40" target="_blank" rel="noopener">art. 40 ↗</a> · <a href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm#art41" target="_blank" rel="noopener">art. 41 ↗</a></p>
+<nav class="rem-idx" aria-label="Quadros deste tópico">
+<a href="#rem-mapa">Mapa</a><a href="#rem-dic">Dicionário</a><a href="#rem-e37">Escada do art. 37</a><a href="#rem-e39">Escada do art. 39</a><a href="#rem-sub">Subsídio × remuneração</a><a href="#rem-fix">Fixar × revisar</a><a href="#rem-teto">Teto</a><a href="#rem-ind">Indenizações</a><a href="#rem-proib">Proibições</a><a href="#rem-gar">Garantias</a><a href="#rem-a7">Art. 7º no serviço público</a><a href="#rem-acum">Acumulação e mandato</a><a href="#rem-norma">Que norma?</a><a href="#rem-stf">STF</a><a href="#rem-peg" class="pk">Pegadinhas</a><a href="#rem-treino" class="pk">Treino</a>
+</nav>
+
+<div class="qt-card" id="rem-mapa">
+<h4><span class="badge b-esquema">Esquema</span>Mapa da remuneração: 5 perguntas <button type="button" class="lsall" data-r="37-X 37-XI 37-XII 37-XIII 37-XIV 37-XV 37-XVI 37-§9 37-§10 37-§11 37-§12 37-§13 38-II 38-III 39-§1 39-§3 39-§4 39-§5 39-§6 39-§7 39-§8 39-§9 41-§3" title="Ler na lei seca (23 dispositivos)"><span class="lsk">Lei seca</span>Ler todos os dispositivos</button></h4>
+<p class="qt-note">Diante de qualquer alternativa sobre remuneração, descubra <b>qual das 5 perguntas</b> ela responde — isso diz em qual inciso ou parágrafo procurar.</p>
+<div class="rem-map">
+<div class="rem-q" style="--c:var(--c-e)"><h5><i>1</i>Quem recebe o quê?</h5><ul>
+<li><b>Subsídio</b> (parcela única) <b>obrigatório</b>: membro de Poder, detentor de mandato eletivo, Ministros de Estado e Secretários Estaduais e Municipais <button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button></li>
+<li>Subsídio <b>facultativo</b>: servidores organizados em carreira <button type="button" class="lsr" data-r="39-§8" title="Ler o Art. 39, § 8º na lei seca">Art. 39, § 8º</button></li>
+<li><b>Remuneração</b> (vencimento + vantagens): os demais servidores <button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></li>
+</ul></div>
+<div class="rem-q" style="--c:var(--accent)"><h5><i>2</i>Como o valor é fixado?</h5><ul>
+<li>Só por <b>lei específica</b>, com iniciativa privativa; <b>revisão geral anual</b> <button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></li>
+<li>Critérios do sistema remuneratório <button type="button" class="lsr" data-r="39-§1" title="Ler o Art. 39, § 1º na lei seca">Art. 39, § 1º</button></li>
+<li>Lei <b>poderá</b> fixar a relação maior × menor remuneração <button type="button" class="lsr" data-r="39-§5" title="Ler o Art. 39, § 5º na lei seca">Art. 39, § 5º</button></li>
+<li>Valores publicados <b>anualmente</b> <button type="button" class="lsr" data-r="39-§6" title="Ler o Art. 39, § 6º na lei seca">Art. 39, § 6º</button></li>
+<li>Economia de despesas correntes → até <b>prêmio de produtividade</b> <button type="button" class="lsr" data-r="39-§7" title="Ler o Art. 39, § 7º na lei seca">Art. 39, § 7º</button></li>
+</ul></div>
+<div class="rem-q" style="--c:var(--c-l)"><h5><i>3</i>Até quanto?</h5><ul>
+<li><b>Teto</b>: subsídio dos Ministros do STF; subtetos por ente e Poder <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></li>
+<li><b>Subteto único</b> opcional nos Estados e DF <button type="button" class="lsr" data-r="37-§12" title="Ler o Art. 37, § 12 na lei seca">Art. 37, § 12</button></li>
+<li>Estatais: só se receberem recursos para pessoal ou custeio <button type="button" class="lsr" data-r="37-§9" title="Ler o Art. 37, § 9º na lei seca">Art. 37, § 9º</button></li>
+<li>Legislativo e Judiciário não pagam mais que o Executivo <button type="button" class="lsr" data-r="37-XII" title="Ler o Art. 37, XII na lei seca">Art. 37, XII</button></li>
+<li>Fora do teto: <b>indenizações</b> da lei ordinária nacional <button type="button" class="lsr" data-r="37-§11" title="Ler o Art. 37, § 11 na lei seca">Art. 37, § 11</button></li>
+</ul></div>
+<div class="rem-q" style="--c:var(--bad)"><h5><i>4</i>O que é proibido?</h5><ul>
+<li>Vincular ou equiparar remunerações <button type="button" class="lsr" data-r="37-XIII" title="Ler o Art. 37, XIII na lei seca">Art. 37, XIII</button></li>
+<li>Efeito cascata <button type="button" class="lsr" data-r="37-XIV" title="Ler o Art. 37, XIV na lei seca">Art. 37, XIV</button></li>
+<li>Somar gratificação, adicional etc. ao subsídio <button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button></li>
+<li>Incorporar vantagem de função de confiança ou cargo em comissão <button type="button" class="lsr" data-r="39-§9" title="Ler o Art. 39, § 9º na lei seca">Art. 39, § 9º</button></li>
+<li>Acumular cargos (regra) <button type="button" class="lsr" data-r="37-XVI" title="Ler o Art. 37, XVI na lei seca">Art. 37, XVI</button> e proventos com remuneração <button type="button" class="lsr" data-r="37-§10" title="Ler o Art. 37, § 10 na lei seca">Art. 37, § 10</button></li>
+</ul></div>
+<div class="rem-q" style="--c:var(--ok)"><h5><i>5</i>O que é garantido?</h5><ul>
+<li><b>Irredutibilidade</b>, com ressalvas <button type="button" class="lsr" data-r="37-XV" title="Ler o Art. 37, XV na lei seca">Art. 37, XV</button></li>
+<li>Direitos do art. 7º listados no § 3º <button type="button" class="lsr" data-r="39-§3" title="Ler o Art. 39, § 3º na lei seca">Art. 39, § 3º</button></li>
+<li>Readaptação com a remuneração do cargo de origem <button type="button" class="lsr" data-r="37-§13" title="Ler o Art. 37, § 13 na lei seca">Art. 37, § 13</button></li>
+<li>Mandato eletivo: optar ou acumular <button type="button" class="lsr" data-r="38-II" title="Ler o Art. 38, II na lei seca">Art. 38, II</button> <button type="button" class="lsr" data-r="38-III" title="Ler o Art. 38, III na lei seca">Art. 38, III</button></li>
+<li>Disponibilidade com remuneração proporcional <button type="button" class="lsr" data-r="41-§3" title="Ler o Art. 41, § 3º na lei seca">Art. 41, § 3º</button></li>
+</ul></div>
+</div>
+</div>
+
+<div class="qt-card" id="rem-dic">
+<h4><span class="badge b-quadro">Quadro</span>Dicionário: cada palavra no seu lugar <button type="button" class="lsall" data-r="39-§1 37-X 37-XI 37-XIII 37-XIV 39-§4 37-§11 37-§10 41-§3" title="Ler na lei seca (9 dispositivos)"><span class="lsk">Lei seca</span>Arts. 37, 39 e 41</button></h4>
+<div class="rem-eq">
+<div><span>Vencimento</span><i>+</i><span>Vantagens pecuniárias<small>adicionais, gratificações</small></span><i>=</i><span class="hl">Remuneração</span></div>
+<div><span class="hl">Subsídio</span><i>=</i><span>parcela única<small>sem gratificação, adicional, abono, prêmio ou verba de representação</small></span></div>
+<div><span class="hl">Indenização</span><i>=</i><span>reembolso de gasto feito por causa do serviço<small>fica fora do teto se prevista na lei ordinária nacional do § 11</small></span></div>
+</div>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th>Termo</th><th>Em palavras simples</th><th>Lei seca</th></tr></thead>
+<tbody>
+<tr><th>Vencimento</th><td>O valor básico do cargo, fixado em lei (o “salário-base”)</td><td><button type="button" class="lsr" data-r="39-§1" title="Ler o Art. 39, § 1º na lei seca">Art. 39, § 1º</button></td></tr>
+<tr><th>Remuneração</th><td>Vencimento + vantagens pecuniárias. Na CF é o termo amplo para o que o servidor recebe, em oposição ao subsídio</td><td><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button> <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></td></tr>
+<tr><th>Vencimentos <small>(plural)</small></th><td>A CF usa como sinônimo da remuneração do cargo</td><td><button type="button" class="lsr" data-r="37-XII" title="Ler o Art. 37, XII na lei seca">Art. 37, XII</button> <button type="button" class="lsr" data-r="37-XV" title="Ler o Art. 37, XV na lei seca">Art. 37, XV</button></td></tr>
+<tr><th>Subsídio</th><td>Parcela única, sem acréscimos</td><td><button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button> <button type="button" class="lsr" data-r="39-§8" title="Ler o Art. 39, § 8º na lei seca">Art. 39, § 8º</button></td></tr>
+<tr><th>Acréscimos (vantagens) pecuniários</th><td>Valores somados ao vencimento: adicionais (por tempo de serviço, noturno…) e gratificações (de função, de desempenho…)</td><td><button type="button" class="lsr" data-r="37-XIV" title="Ler o Art. 37, XIV na lei seca">Art. 37, XIV</button></td></tr>
+<tr><th>Vantagens pessoais</th><td>Ligadas à situação de cada servidor (ex.: adicional por tempo de serviço). <b>Entram no teto</b></td><td><button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></td></tr>
+<tr><th>Espécie remuneratória</th><td>Qualquer forma de pagar o agente: vencimento, subsídio, gratificação, proventos…</td><td><button type="button" class="lsr" data-r="37-XIII" title="Ler o Art. 37, XIII na lei seca">Art. 37, XIII</button> <button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button></td></tr>
+<tr><th>Parcela indenizatória</th><td>Reembolso de despesa causada pelo serviço (ex.: diárias, ajuda de custo por mudança de domicílio). Não paga o trabalho</td><td><button type="button" class="lsr" data-r="37-§11" title="Ler o Art. 37, § 11 na lei seca">Art. 37, § 11</button></td></tr>
+<tr><th>Proventos</th><td>O que o <b>aposentado</b> recebe</td><td><button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button> <button type="button" class="lsr" data-r="37-§10" title="Ler o Art. 37, § 10 na lei seca">Art. 37, § 10</button> <button type="button" class="lsr" data-r="40-§2" title="Ler o Art. 40, § 2º na lei seca">Art. 40, § 2º</button></td></tr>
+<tr><th>Pensão</th><td>O que os <b>dependentes</b> recebem após a morte do servidor</td><td><button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></td></tr>
+<tr><th>Revisão geral anual</th><td>Recomposição de <b>todos</b>, todo ano, na mesma data e pelo mesmo índice — não é aumento para uma carreira</td><td><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></td></tr>
+<tr><th>Teto e subteto</th><td>Valor máximo que se pode receber: o geral (STF) e o de cada ente ou Poder</td><td><button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button> <button type="button" class="lsr" data-r="37-§12" title="Ler o Art. 37, § 12 na lei seca">Art. 37, § 12</button></td></tr>
+<tr><th>Remuneração proporcional</th><td>O que recebe o estável posto em <b>disponibilidade</b>: proporcional ao tempo de serviço</td><td><button type="button" class="lsr" data-r="41-§3" title="Ler o Art. 41, § 3º na lei seca">Art. 41, § 3º</button></td></tr>
+</tbody></table></div>
+<p class="qt-note">A CF não define vencimento nem remuneração; os conceitos vêm da doutrina e da Lei 8.112/1990 (art. 40: vencimento é a retribuição pelo cargo, com valor fixado em lei; art. 41: remuneração é o vencimento acrescido das vantagens pecuniárias permanentes). Na prova, o que decide é a <b>palavra exata</b> de cada inciso.</p>
+</div>
+
+<div class="qt-card" id="rem-e37">
+<h4><span class="badge b-mem">Memorize</span>Escada do art. 37: um verbo por inciso <button type="button" class="lsall" data-r="37-X 37-XI 37-XII 37-XIII 37-XIV 37-XV 37-XVI 37-XVII" title="Ler na lei seca (8 dispositivos)"><span class="lsk">Lei seca</span>Art. 37, X a XVII</button></h4>
+<p class="qt-note">Os incisos de remuneração vêm em sequência. Grave o <b>verbo</b> de cada degrau e o resto vem junto.</p>
+<div class="rem-esc">
+<div><span class="rem-n">X</span><span class="rem-v">Fixar</span><span class="rem-d">Só <b>lei específica</b> fixa ou altera remuneração e subsídio, com iniciativa privativa; <b>revisão geral anual</b>, sempre na mesma data e sem distinção de índices</span><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></div>
+<div><span class="rem-n">XI</span><span class="rem-v">Limitar</span><span class="rem-d"><b>Teto</b> = subsídio dos Ministros do STF; subtetos: Prefeito; Governador, Deputados e Desembargadores (90,25%)</span><button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></div>
+<div><span class="rem-n">XII</span><span class="rem-v">Nivelar</span><span class="rem-d">Legislativo e Judiciário <b>não pagam mais</b> que o Executivo</span><button type="button" class="lsr" data-r="37-XII" title="Ler o Art. 37, XII na lei seca">Art. 37, XII</button></div>
+<div><span class="rem-n">XIII</span><span class="rem-v">Separar</span><span class="rem-d">Vedada a <b>vinculação ou equiparação</b> de espécies remuneratórias</span><button type="button" class="lsr" data-r="37-XIII" title="Ler o Art. 37, XIII na lei seca">Art. 37, XIII</button></div>
+<div><span class="rem-n">XIV</span><span class="rem-v">Não empilhar</span><span class="rem-d">Acréscimo <b>não é base</b> de outro acréscimo (sem efeito cascata)</span><button type="button" class="lsr" data-r="37-XIV" title="Ler o Art. 37, XIV na lei seca">Art. 37, XIV</button></div>
+<div><span class="rem-n">XV</span><span class="rem-v">Proteger</span><span class="rem-d">Subsídio e vencimentos <b>irredutíveis</b>, ressalvados XI, XIV, 39, § 4º, e tributos</span><button type="button" class="lsr" data-r="37-XV" title="Ler o Art. 37, XV na lei seca">Art. 37, XV</button></div>
+<div><span class="rem-n">XVI</span><span class="rem-v">Não acumular</span><span class="rem-d">Vedada a acumulação <b>remunerada</b>, salvo 2 professor · professor + qualquer · 2 saúde, com compatibilidade de horários e teto</span><button type="button" class="lsr" data-r="37-XVI" title="Ler o Art. 37, XVI na lei seca">Art. 37, XVI</button></div>
+<div><span class="rem-n">XVII</span><span class="rem-v">Estender</span><span class="rem-d">A proibição alcança <b>empregos e funções</b> e toda a administração indireta</span><button type="button" class="lsr" data-r="37-XVII" title="Ler o Art. 37, XVII na lei seca">Art. 37, XVII</button></div>
+</div>
+<p class="qt-mnem"><b>Frase para decorar:</b> “A lei <b>fixa</b>, o teto <b>limita</b>, o Executivo <b>nivela</b>, ninguém se <b>vincula</b>, acréscimo não <b>empilha</b>, o valor não se <b>reduz</b> — e cargo não se <b>acumula</b>.”</p>
+</div>
+
+<div class="qt-card" id="rem-e39">
+<h4><span class="badge b-mem">Memorize</span>Escada do art. 39: os parágrafos da remuneração <button type="button" class="lsall" data-r="39 39-§1 39-§3 39-§4 39-§5 39-§6 39-§7 39-§8 39-§9" title="Ler na lei seca (9 dispositivos)"><span class="lsk">Lei seca</span>Art. 39, caput e §§ 1º a 9º</button></h4>
+<div class="rem-esc">
+<div><span class="rem-n">caput</span><span class="rem-v">Conselho</span><span class="rem-d">Redação da EC 19/1998: <b>conselho de política de administração e remuneração de pessoal</b>, integrado por servidores designados pelos Poderes (válida após a ADI 2.135)</span><button type="button" class="lsr" data-r="39" title="Ler o Art. 39, caput na lei seca">Art. 39, caput</button></div>
+<div><span class="rem-n">§ 1º</span><span class="rem-v">Critérios</span><span class="rem-d">O cargo vale pelo que <b>é</b> (natureza, grau de responsabilidade, complexidade), pelo que <b>exige</b> (requisitos para a investidura) e pelo que tem de <b>especial</b> (peculiaridades)</span><button type="button" class="lsr" data-r="39-§1" title="Ler o Art. 39, § 1º na lei seca">Art. 39, § 1º</button></div>
+<div><span class="rem-n">§ 3º</span><span class="rem-v">Art. 7º</span><span class="rem-d">Só os incisos <b>listados</b> do art. 7º valem para o servidor; a lei pode exigir requisitos diferenciados de admissão</span><button type="button" class="lsr" data-r="39-§3" title="Ler o Art. 39, § 3º na lei seca">Art. 39, § 3º</button></div>
+<div><span class="rem-n">§ 4º</span><span class="rem-v">Subsídio obrigatório</span><span class="rem-d">Membro de Poder, mandato eletivo, Ministros de Estado, Secretários Estaduais e Municipais: <b>parcela única</b>, obedecido o art. 37, X e XI</span><button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button></div>
+<div><span class="rem-n">§ 5º</span><span class="rem-v">Maior × menor</span><span class="rem-d">Lei de cada ente <b>poderá</b> fixar a relação entre a maior e a menor remuneração, respeitado o teto</span><button type="button" class="lsr" data-r="39-§5" title="Ler o Art. 39, § 5º na lei seca">Art. 39, § 5º</button></div>
+<div><span class="rem-n">§ 6º</span><span class="rem-v">Publicar</span><span class="rem-d">Os três Poderes publicam <b>anualmente</b> os valores do subsídio e da remuneração</span><button type="button" class="lsr" data-r="39-§6" title="Ler o Art. 39, § 6º na lei seca">Art. 39, § 6º</button></div>
+<div><span class="rem-n">§ 7º</span><span class="rem-v">Economizar e premiar</span><span class="rem-d">A economia com despesas correntes vai para qualidade, produtividade, treinamento, modernização… <b>inclusive adicional ou prêmio de produtividade</b></span><button type="button" class="lsr" data-r="39-§7" title="Ler o Art. 39, § 7º na lei seca">Art. 39, § 7º</button></div>
+<div><span class="rem-n">§ 8º</span><span class="rem-v">Subsídio opcional</span><span class="rem-d">Servidores organizados em carreira <b>poderão</b> receber subsídio</span><button type="button" class="lsr" data-r="39-§8" title="Ler o Art. 39, § 8º na lei seca">Art. 39, § 8º</button></div>
+<div><span class="rem-n">§ 9º</span><span class="rem-v">Não incorporar</span><span class="rem-d">Vantagem temporária, de função de confiança ou de cargo em comissão <b>não se incorpora</b> ao cargo efetivo</span><button type="button" class="lsr" data-r="39-§9" title="Ler o Art. 39, § 9º na lei seca">Art. 39, § 9º</button></div>
+</div>
+<p class="qt-mnem"><b>4 obriga, 8 faculta:</b> no § 4º o subsídio é <b>obrigatório</b> para a cúpula; no § 8º (o dobro do número) é só uma <b>possibilidade</b> para as carreiras. O § 2º (escolas de governo) trata de promoção, não de remuneração.</p>
+</div>
+
+<div class="qt-card" id="rem-sub">
+<h4><span class="badge b-quadro">Quadro</span>Subsídio × remuneração: quem recebe o quê <button type="button" class="lsall" data-r="39-§4 39-§8 37-X 37-XI 37-XIV 37-XV" title="Ler na lei seca (6 dispositivos)"><span class="lsk">Lei seca</span>Art. 39, §§ 4º e 8º; art. 37, X, XI, XIV e XV</button></h4>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th></th><th>Subsídio</th><th>Remuneração (vencimentos)</th></tr></thead>
+<tbody>
+<tr><th>Formato</th><td><b>Parcela única</b></td><td>Vencimento + vantagens pecuniárias</td></tr>
+<tr><th>Quem recebe</th><td><b>Obrigatório:</b> membro de Poder, detentor de mandato eletivo, Ministros de Estado, Secretários Estaduais e Municipais <button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button><br><b>Facultativo:</b> servidores organizados em carreira <button type="button" class="lsr" data-r="39-§8" title="Ler o Art. 39, § 8º na lei seca">Art. 39, § 8º</button></td><td>Os demais servidores (é a regra)</td></tr>
+<tr><th>Pode somar parcelas?</th><td><span class="rem-no">Não</span> — <span class="lei">“vedado o acréscimo de qualquer gratificação, adicional, abono, prêmio, verba de representação ou outra espécie remuneratória”</span> <button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button></td><td><span class="rem-yes">Sim</span>, as previstas em lei — sem efeito cascata <button type="button" class="lsr" data-r="37-XIV" title="Ler o Art. 37, XIV na lei seca">Art. 37, XIV</button></td></tr>
+<tr><th>Como se fixa</th><td colspan="2" class="c">Lei específica, observada a iniciativa privativa, com revisão geral anual <button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></td></tr>
+<tr><th>Teto</th><td colspan="2" class="c">Os dois se sujeitam ao teto <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button> — o § 4º diz <span class="lei">“obedecido, em qualquer caso, o disposto no art. 37, X e XI”</span></td></tr>
+<tr><th>Irredutível?</th><td colspan="2" class="c">Sim, os dois, com as ressalvas do inciso XV <button type="button" class="lsr" data-r="37-XV" title="Ler o Art. 37, XV na lei seca">Art. 37, XV</button></td></tr>
+</tbody></table></div>
+<div class="grid2">
+<div class="box"><p><span class="mn">3 M + S</span> <b>Quem é obrigado (§ 4º)</b></p><p><b>M</b>embro de Poder · <b>M</b>andato eletivo · <b>M</b>inistros de Estado · <b>S</b>ecretários Estaduais e Municipais.</p><p class="muted">Fora da lista do § 4º: agentes de segurança pública, servidores do Legislativo e as carreiras em geral (para estas, o subsídio é só facultativo).</p></div>
+<div class="box"><p><span class="mn">GAAP-V</span> <b>O que não se soma ao subsídio</b></p><p><b>G</b>ratificação · <b>A</b>dicional · <b>A</b>bono · <b>P</b>rêmio · <b>V</b>erba de representação</p><p class="muted">Frase: “<b>G</b>anhou <b>A</b>lgo <b>À</b> <b>P</b>arte? <b>V</b>edado!”</p></div>
+</div>
+<p class="qt-note"><b>Não confunda:</b> o § 7º admite <b>adicional ou prêmio de produtividade</b> custeado pela economia de despesas correntes; o § 4º proíbe somar prêmio ou adicional a quem recebe subsídio.</p>
+</div>
+
+<div class="qt-card" id="rem-fix">
+<h4><span class="badge b-quadro">Quadro</span>Fixar × revisar: lei específica e revisão geral anual <button type="button" class="lsall" data-r="37-X" title="Ler na lei seca (1 dispositivo)"><span class="lsk">Lei seca</span>Art. 37, X</button></h4>
+<p><span class="lei">“a remuneração dos servidores públicos e o subsídio de que trata o § 4º do art. 39 somente poderão ser fixados ou alterados por lei específica, observada a iniciativa privativa em cada caso, assegurada revisão geral anual, sempre na mesma data e sem distinção de índices”</span> <button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></p>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th></th><th>Fixar ou alterar</th><th>Revisão geral anual</th></tr></thead>
+<tbody>
+<tr><th>Para quê</th><td>Criar ou mudar o valor de um cargo ou carreira (aumento, reestruturação)</td><td>Recompor a perda do poder de compra de <b>todos</b></td></tr>
+<tr><th>Instrumento</th><td colspan="2" class="c"><b>Lei específica</b> — nunca decreto, resolução ou convenção coletiva</td></tr>
+<tr><th>Quando</th><td>Quando a lei dispuser</td><td><b>Todo ano</b>, <span class="lei">“sempre na mesma data”</span></td></tr>
+<tr><th>Índice</th><td>O que a lei fixar para aquele cargo</td><td><span class="lei">“sem distinção de índices”</span> — o mesmo para todos</td></tr>
+<tr><th>Iniciativa</th><td colspan="2" class="c"><span class="lei">“observada a iniciativa privativa em cada caso”</span>: só quem a CF indica pode apresentar o projeto (veja abaixo)</td></tr>
+</tbody></table></div>
+<p class="qt-note"><b>Só para entender (fora do edital):</b> no Executivo, a iniciativa é do Chefe do Executivo (art. 61, § 1º, II, a); no Judiciário, do próprio tribunal (art. 96, II, b) — a remuneração do escrevente do TJ-SP é fixada por lei estadual de iniciativa do TJ-SP; no Legislativo, de cada Casa (arts. 51, IV, e 52, XIII).</p>
+<p class="qt-note"><b>STF que a VUNESP já cobrou:</b> a omissão em mandar o projeto de revisão anual <b>não gera indenização</b>, mas o Executivo deve explicar por que não o fez (Tema 19); o Judiciário <b>não pode obrigar</b> o envio do projeto <b>nem fixar o índice</b> (Tema 624); nem aumentar vencimentos com base na isonomia (SV 37).</p>
+</div>
+
+<div class="qt-card" id="rem-teto">
+<h4><span class="badge b-esquema">Esquema</span>Teto remuneratório: a pirâmide <button type="button" class="lsall" data-r="37-XI 37-§9 37-§11 37-§12 40-§11" title="Ler na lei seca (5 dispositivos)"><span class="lsk">Lei seca</span>Art. 37, XI, §§ 9º, 11 e 12; art. 40, § 11</button></h4>
+<div class="rem-teto">
+<div class="rem-stf"><b>TETO GERAL — subsídio mensal, em espécie, dos Ministros do STF</b><small>Vale para todos os entes e Poderes; na União, é o único limite. Valor reafirmado pelo STF em 25/03/2026: R$ 46.366,19.</small></div>
+<div class="rem-lv">
+<div class="rem-ent"><h5>União</h5><p>Ministros do STF</p></div>
+<div class="rem-ent"><h5>Estados e DF — cada Poder com o seu limite</h5>
+<div class="rem-pw"><div><span>Executivo</span><b>Governador</b></div><div><span>Legislativo</span><b>Deputados Estaduais e Distritais</b></div><div><span>Judiciário</span><b>Desembargadores do TJ</b><small>até 90,25% do STF · também MP, Procuradores e Defensores Públicos</small></div></div></div>
+<div class="rem-ent"><h5>Municípios</h5><p><b>Prefeito</b> — limite único no Município</p></div>
+</div>
+</div>
+<div class="grid2">
+<div class="box"><p><span class="mn">G · D · D</span> <b>No Estado, cada Poder olha para o seu chefe</b></p><p><b>G</b>overnador (Executivo) · <b>D</b>eputados (Legislativo) · <b>D</b>esembargadores (Judiciário). No Município não há divisão: é sempre o <b>Prefeito</b>.</p></div>
+<div class="box"><p><span class="mn">90,25%</span> <b>De onde vem o número</b></p><p><b>95% de 95%</b>: Ministro de Tribunal Superior recebe 95% do Ministro do STF, e o Desembargador, no máximo 95% disso (0,95 × 0,95 = 0,9025 — art. 93, V, fora do edital).</p></div>
+</div>
+<div class="callout ok"><span class="ct">E o escrevente do TJ-SP?</span><p>É servidor do Judiciário estadual: o teto dele é o subsídio dos <b>Desembargadores do TJ-SP</b>, limitado a 90,25% do subsídio dos Ministros do STF <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button>. Já um servidor de autarquia estadual (Executivo) tem como teto o <b>Governador</b> — a VUNESP cobrou isso na prova do TJ-SP de 2025.</p></div>
+<div class="rx">
+<div class="r"><span class="rx-l">Entra no teto</span>remuneração e subsídio · proventos e pensões · <span class="lei">“percebidos cumulativamente ou não, incluídas as vantagens pessoais ou de qualquer outra natureza”</span> <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button> · estatais que <b>recebem recursos</b> para pessoal ou custeio <button type="button" class="lsr" data-r="37-§9" title="Ler o Art. 37, § 9º na lei seca">Art. 37, § 9º</button> · a <b>soma</b> dos proventos de inatividade <button type="button" class="lsr" data-r="40-§11" title="Ler o Art. 40, § 11 na lei seca">Art. 40, § 11</button></div>
+<div class="x"><span class="rx-l">Fica fora do teto</span>parcelas <b>indenizatórias</b> expressamente previstas em <b>lei ordinária, aprovada pelo Congresso Nacional, de caráter nacional</b> <button type="button" class="lsr" data-r="37-§11" title="Ler o Art. 37, § 11 na lei seca">Art. 37, § 11</button> · estatais que não recebem esses recursos <button type="button" class="lsr" data-r="37-§9" title="Ler o Art. 37, § 9º na lei seca">Art. 37, § 9º</button> · STF: na acumulação permitida, o teto incide sobre <b>cada vínculo</b> (Temas 377 e 384)</div>
+</div>
+<div class="rx-t">Subteto único — a opção do § 12 <button type="button" class="lsr" data-r="37-§12" title="Ler o Art. 37, § 12 na lei seca">Art. 37, § 12</button></div>
+<div class="tw"><table class="qt rem-t qt-small">
+<tbody>
+<tr><th>Quem pode</th><td><b>Estados e DF</b> — Municípios não</td></tr>
+<tr><th>Como</th><td><b>Emenda</b> à Constituição Estadual ou à Lei Orgânica do DF — é facultativo (<span class="lei">“fica facultado”</span>)</td></tr>
+<tr><th>Limite único</th><td>Subsídio mensal dos <b>Desembargadores</b> do TJ, até 90,25% do subsídio dos Ministros do STF</td></tr>
+<tr class="neg"><th>Não alcança</th><td>Os subsídios dos <b>Deputados Estaduais e Distritais</b> e dos <b>Vereadores</b></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="qt-card" id="rem-ind">
+<h4><span class="badge b-quadro">Quadro</span>Parcelas indenizatórias e o § 11 (EC 135/2024) <button type="button" class="lsall" data-r="37-§11 37-XI" title="Ler na lei seca (2 dispositivos)"><span class="lsk">Lei seca</span>Art. 37, § 11</button></h4>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th></th><th>Parcela remuneratória</th><th>Parcela indenizatória</th></tr></thead>
+<tbody>
+<tr><th>Para quê</th><td>Paga o <b>trabalho</b></td><td><b>Reembolsa</b> um gasto causado pelo serviço</td></tr>
+<tr><th>Exemplos</th><td>Vencimento, subsídio, gratificações, adicional por tempo de serviço</td><td>Diárias, ajuda de custo por mudança de domicílio, indenização de transporte</td></tr>
+<tr><th>Teto</th><td class="n">Entra <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></td><td class="y">Fica fora — se prevista na lei do § 11 <button type="button" class="lsr" data-r="37-§11" title="Ler o Art. 37, § 11 na lei seca">Art. 37, § 11</button></td></tr>
+</tbody></table></div>
+<div class="two">
+<div><b>Antes (EC 47/2005)</b><br>Fora do teto: parcelas indenizatórias <span class="lei">“previstas em lei”</span> — qualquer lei, de qualquer ente.</div>
+<div><b>Agora (EC 135/2024)</b><br>Só as <span class="lei">“expressamente previstas em lei ordinária, aprovada pelo Congresso Nacional, de caráter nacional, aplicada a todos os Poderes e órgãos constitucionalmente autônomos”</span>.</div>
+</div>
+<p class="rx-t">Os 4 requisitos — falta um, a parcela entra no teto</p>
+<div class="grid4"><span>1. Lei <u>ordinária</u><br><small>não complementar</small></span><span>2. Aprovada pelo <u>Congresso Nacional</u><br><small>não Assembleia nem Câmara Municipal</small></span><span>3. De caráter <u>nacional</u></span><span>4. Para <u>todos</u> os Poderes e órgãos autônomos</span></div>
+<p class="qt-note"><b>Atualidade (STF, 25/03/2026, Temas 966 e 976; embargos julgados em 30/06/2026):</b> enquanto o Congresso não edita essa lei, juízes e membros do Ministério Público só podem receber, além do subsídio, as parcelas listadas pelo STF — a maioria com soma limitada a 35% do subsídio; as demais devem deixar de ser pagas. Para a prova, a base continua sendo a letra do § 11.</p>
+</div>
+
+<div class="qt-card" id="rem-proib">
+<h4><span class="badge b-quadro">Quadro</span>O que é proibido <button type="button" class="lsall" data-r="37-XII 37-XIII 37-XIV 39-§4 39-§9 37-XVI 37-§10 7-IV" title="Ler na lei seca (8 dispositivos)"><span class="lsk">Lei seca</span>Arts. 37, 39 e 7º, IV</button></h4>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th>Proibição</th><th>Em palavras simples</th><th>Exemplo</th><th>Lei seca</th></tr></thead>
+<tbody>
+<tr><th>Vincular ou equiparar</th><td>A remuneração de um cargo não pode ficar presa à de outro (vincular) nem ser igualada por lei (equiparar)</td><td>Lei dizendo que o técnico ganha 70% do analista; reajuste automático por índice federal (SV 42)</td><td><button type="button" class="lsr" data-r="37-XIII" title="Ler o Art. 37, XIII na lei seca">Art. 37, XIII</button></td></tr>
+<tr><th>Efeito cascata</th><td>Um acréscimo não entra na base de cálculo de outro</td><td>Adicional de 10% calculado sobre vencimento + gratificação ✗; só sobre o vencimento ✓</td><td><button type="button" class="lsr" data-r="37-XIV" title="Ler o Art. 37, XIV na lei seca">Art. 37, XIV</button></td></tr>
+<tr><th>Legislativo e Judiciário acima do Executivo</th><td>O Executivo é a referência: os outros dois Poderes não pagam vencimentos maiores</td><td>A banca inverte: “o Executivo não pode pagar mais que o Judiciário” ✗</td><td><button type="button" class="lsr" data-r="37-XII" title="Ler o Art. 37, XII na lei seca">Art. 37, XII</button></td></tr>
+<tr><th>Acréscimo ao subsídio</th><td>Nada se soma à parcela única</td><td>Verba de representação para Secretário Municipal ✗</td><td><button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button></td></tr>
+<tr><th>Incorporação</th><td>Receber pela chefia enquanto a exerce: pode. Levar o valor para sempre ao cargo efetivo: não</td><td>Chefe por 10 anos que deixa a função volta a receber só o do cargo efetivo</td><td><button type="button" class="lsr" data-r="39-§9" title="Ler o Art. 39, § 9º na lei seca">Art. 39, § 9º</button></td></tr>
+<tr><th>Acumulação remunerada</th><td>Regra: um cargo só. Exceções no inciso XVI</td><td>Dois cargos técnicos ✗</td><td><button type="button" class="lsr" data-r="37-XVI" title="Ler o Art. 37, XVI na lei seca">Art. 37, XVI</button> <button type="button" class="lsr" data-r="37-XVII" title="Ler o Art. 37, XVII na lei seca">Art. 37, XVII</button></td></tr>
+<tr><th>Proventos + remuneração</th><td>Aposentado não volta a receber de outro cargo, salvo cargos acumuláveis, eletivos e em comissão</td><td>Analista aposentado que assume cargo efetivo de auditor fiscal ✗</td><td><button type="button" class="lsr" data-r="37-§10" title="Ler o Art. 37, § 10 na lei seca">Art. 37, § 10</button></td></tr>
+<tr><th>Salário mínimo como indexador</th><td>O mínimo não pode servir de base de cálculo de vantagem (vale ao servidor pelo art. 39, § 3º)</td><td>Gratificação = 2 salários mínimos ✗ (SV 4)</td><td><button type="button" class="lsr" data-r="7-IV" title="Ler o Art. 7º, IV na lei seca">Art. 7º, IV</button></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="qt-card" id="rem-gar">
+<h4><span class="badge b-quadro">Quadro</span>O que é garantido <button type="button" class="lsall" data-r="37-XV 37-X 37-§13 38-II 38-III 38-IV 41-§2 41-§3 40-§2 40-§8" title="Ler na lei seca (10 dispositivos)"><span class="lsk">Lei seca</span>Arts. 37, 38, 40 e 41</button></h4>
+<div class="rx-t">Irredutibilidade e suas 4 ressalvas <button type="button" class="lsr" data-r="37-XV" title="Ler o Art. 37, XV na lei seca">Art. 37, XV</button></div>
+<p><span class="lei">“o subsídio e os vencimentos dos ocupantes de cargos e empregos públicos são irredutíveis”</span> — o valor <b>nominal</b> não pode cair. Mas não ofendem a irredutibilidade:</p>
+<div class="grid4"><span>Teto<br><small>inciso XI</small></span><span>Fim da cascata<br><small>inciso XIV</small></span><span>Virar subsídio<br><small>art. 39, § 4º</small></span><span>Tributos (IR)<br><small>arts. 150, II, 153, III, e § 2º, I</small></span></div>
+<p class="qt-note">Frase: “só reduz por <b>Teto, Cascata, Subsídio e Imposto</b>”. STF: <b>não há direito adquirido a regime jurídico</b> (à forma de cálculo das parcelas), desde que respeitada a irredutibilidade (Tema 41). E a irredutibilidade não é absoluta nem cede a negociação coletiva — a banca adora “absolutamente irredutíveis” ✗.</p>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th>Garantia</th><th>O que diz</th><th>Lei seca</th></tr></thead>
+<tbody>
+<tr><th>Revisão geral anual</th><td>Assegurada a todos, sempre na mesma data e sem distinção de índices</td><td><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></td></tr>
+<tr><th>Readaptação</th><td>Servidor efetivo com limitação física ou mental vai para cargo compatível, <span class="lei">“mantida a remuneração do cargo de origem”</span></td><td><button type="button" class="lsr" data-r="37-§13" title="Ler o Art. 37, § 13 na lei seca">Art. 37, § 13</button></td></tr>
+<tr><th>Mandato eletivo</th><td>Prefeito: afastado, <b>pode optar</b> pela remuneração do cargo. Vereador com horários compatíveis: <b>acumula</b>. Tempo de serviço conta para tudo, <b>exceto promoção por merecimento</b></td><td><button type="button" class="lsr" data-r="38-II" title="Ler o Art. 38, II na lei seca">Art. 38, II</button> <button type="button" class="lsr" data-r="38-III" title="Ler o Art. 38, III na lei seca">Art. 38, III</button> <button type="button" class="lsr" data-r="38-IV" title="Ler o Art. 38, IV na lei seca">Art. 38, IV</button></td></tr>
+<tr><th>Disponibilidade</th><td>Estável cujo cargo foi extinto ou declarado desnecessário (§ 3º) — e o estável que ocupava a vaga de um servidor reintegrado, se não for reconduzido nem aproveitado (§ 2º): <span class="lei">“remuneração proporcional ao tempo de serviço”</span></td><td><button type="button" class="lsr" data-r="41-§3" title="Ler o Art. 41, § 3º na lei seca">Art. 41, § 3º</button> <button type="button" class="lsr" data-r="41-§2" title="Ler o Art. 41, § 2º na lei seca">Art. 41, § 2º</button></td></tr>
+<tr><th>Proventos</th><td>Nunca abaixo do salário mínimo; reajustados para preservar o valor real</td><td><button type="button" class="lsr" data-r="40-§2" title="Ler o Art. 40, § 2º na lei seca">Art. 40, § 2º</button> <button type="button" class="lsr" data-r="40-§8" title="Ler o Art. 40, § 8º na lei seca">Art. 40, § 8º</button></td></tr>
+<tr><th>Direitos do art. 7º</th><td>Os incisos listados no art. 39, § 3º — veja o quadro seguinte</td><td><button type="button" class="lsr" data-r="39-§3" title="Ler o Art. 39, § 3º na lei seca">Art. 39, § 3º</button></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="qt-card" id="rem-a7">
+<h4><span class="badge b-quadro">Quadro</span>Direitos do art. 7º que valem para o servidor <button type="button" class="lsall" data-r="39-§3 7-IV 7-VII 7-VIII 7-IX 7-XII 7-XIII 7-XV 7-XVI 7-XVII 7-XVIII 7-XIX 7-XX 7-XXII 7-XXX" title="Ler na lei seca (15 dispositivos)"><span class="lsk">Lei seca</span>Art. 39, § 3º, e art. 7º</button></h4>
+<p class="qt-mnem big">IV ao XX, pulando V-VI, X-XI e XIV · + XXII e XXX</p>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th>Grupo</th><th>Direitos (art. 7º)</th></tr></thead>
+<tbody>
+<tr><th>Dinheiro</th><td><ul class="rem-a7l"><li><button type="button" class="lsr" data-r="7-IV" title="Ler o Art. 7º, IV na lei seca">IV</button> salário mínimo</li><li><button type="button" class="lsr" data-r="7-VII" title="Ler o Art. 7º, VII na lei seca">VII</button> nunca abaixo do mínimo para quem tem remuneração variável</li><li><button type="button" class="lsr" data-r="7-VIII" title="Ler o Art. 7º, VIII na lei seca">VIII</button> 13º salário</li><li><button type="button" class="lsr" data-r="7-IX" title="Ler o Art. 7º, IX na lei seca">IX</button> noturno maior que o diurno</li><li><button type="button" class="lsr" data-r="7-XII" title="Ler o Art. 7º, XII na lei seca">XII</button> salário-família</li><li><button type="button" class="lsr" data-r="7-XVI" title="Ler o Art. 7º, XVI na lei seca">XVI</button> hora extra com pelo menos 50% a mais</li></ul></td></tr>
+<tr><th>Tempo</th><td><ul class="rem-a7l"><li><button type="button" class="lsr" data-r="7-XIII" title="Ler o Art. 7º, XIII na lei seca">XIII</button> jornada de até 8 h diárias e 40 h semanais (EC 141/2026)</li><li><button type="button" class="lsr" data-r="7-XV" title="Ler o Art. 7º, XV na lei seca">XV</button> repouso semanal remunerado</li><li><button type="button" class="lsr" data-r="7-XVII" title="Ler o Art. 7º, XVII na lei seca">XVII</button> férias com pelo menos 1/3 a mais</li></ul></td></tr>
+<tr><th>Família</th><td><ul class="rem-a7l"><li><button type="button" class="lsr" data-r="7-XVIII" title="Ler o Art. 7º, XVIII na lei seca">XVIII</button> licença à gestante de 120 dias</li><li><button type="button" class="lsr" data-r="7-XIX" title="Ler o Art. 7º, XIX na lei seca">XIX</button> licença-paternidade</li></ul></td></tr>
+<tr><th>Proteção e igualdade</th><td><ul class="rem-a7l"><li><button type="button" class="lsr" data-r="7-XX" title="Ler o Art. 7º, XX na lei seca">XX</button> proteção do mercado de trabalho da mulher</li><li><button type="button" class="lsr" data-r="7-XXII" title="Ler o Art. 7º, XXII na lei seca">XXII</button> redução dos riscos do trabalho</li><li><button type="button" class="lsr" data-r="7-XXX" title="Ler o Art. 7º, XXX na lei seca">XXX</button> proibição de diferença de salários por sexo, idade, cor ou estado civil</li></ul></td></tr>
+<tr class="neg"><th>Não estão na lista</th><td>FGTS · seguro-desemprego · piso salarial · irredutibilidade do art. 7º, VI (o servidor tem a do art. 37, XV) · participação nos lucros · adicional de insalubridade, periculosidade e penosidade · aviso prévio · convenções e acordos coletivos</td></tr>
+</tbody></table></div>
+<p class="qt-note"><b>SV 16:</b> o salário mínimo do art. 7º, IV, e do art. 39, § 3º, refere-se ao <b>total da remuneração</b> do servidor, não ao vencimento básico. <b>SV 15:</b> gratificações não incidem sobre o abono pago para atingir o mínimo. O § 3º ainda permite à lei <span class="lei">“estabelecer requisitos diferenciados de admissão quando a natureza do cargo o exigir”</span>. Transição da jornada da EC 141 no quadro do art. 7º (Direitos sociais).</p>
+</div>
+
+<div class="qt-card" id="rem-acum">
+<h4><span class="badge b-quadro">Quadro</span>Acumulação, aposentadoria e mandato: quem recebe o quê <button type="button" class="lsall" data-r="37-XVI 37-XVII 37-§10 40-§11 38-I 38-II 38-III 38-IV" title="Ler na lei seca (8 dispositivos)"><span class="lsk">Lei seca</span>Arts. 37, 38 e 40</button></h4>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th>Situação</th><th>Pode?</th><th>O que recebe</th><th>Lei seca</th></tr></thead>
+<tbody>
+<tr><th>2 cargos de professor</th><td class="y">Sim*</td><td>As duas remunerações</td><td><button type="button" class="lsr" data-r="37-XVI-a" title="Ler o Art. 37, XVI, a na lei seca">Art. 37, XVI, a</button></td></tr>
+<tr><th>Professor + cargo de qualquer natureza</th><td class="y">Sim*</td><td>As duas — desde a EC 138/2025 (antes: “técnico ou científico”)</td><td><button type="button" class="lsr" data-r="37-XVI-b" title="Ler o Art. 37, XVI, b na lei seca">Art. 37, XVI, b</button></td></tr>
+<tr><th>2 cargos ou empregos privativos de profissionais de saúde</th><td class="y">Sim*</td><td>As duas — profissões regulamentadas</td><td><button type="button" class="lsr" data-r="37-XVI-c" title="Ler o Art. 37, XVI, c na lei seca">Art. 37, XVI, c</button></td></tr>
+<tr class="neg"><th>Qualquer outra combinação ou 3 cargos</th><td class="n">Não</td><td>— (vale também para empregos, funções e toda a indireta)</td><td><button type="button" class="lsr" data-r="37-XVI" title="Ler o Art. 37, XVI na lei seca">Art. 37, XVI</button> <button type="button" class="lsr" data-r="37-XVII" title="Ler o Art. 37, XVII na lei seca">Art. 37, XVII</button></td></tr>
+<tr><th>Aposentado + cargo acumulável, eletivo ou em comissão</th><td class="y">Sim</td><td>Proventos + remuneração; o teto incide sobre a <b>soma</b></td><td><button type="button" class="lsr" data-r="37-§10" title="Ler o Art. 37, § 10 na lei seca">Art. 37, § 10</button> <button type="button" class="lsr" data-r="40-§11" title="Ler o Art. 40, § 11 na lei seca">Art. 40, § 11</button></td></tr>
+<tr class="neg"><th>Aposentado + outro cargo efetivo não acumulável</th><td class="n">Não</td><td>—</td><td><button type="button" class="lsr" data-r="37-§10" title="Ler o Art. 37, § 10 na lei seca">Art. 37, § 10</button></td></tr>
+<tr><th>Mandato federal, estadual ou distrital</th><td class="w">Afastado</td><td>Fica afastado do cargo (sem previsão de opção)</td><td><button type="button" class="lsr" data-r="38-I" title="Ler o Art. 38, I na lei seca">Art. 38, I</button></td></tr>
+<tr><th>Prefeito</th><td class="w">Afastado</td><td><b>Pode optar</b> pela remuneração do cargo</td><td><button type="button" class="lsr" data-r="38-II" title="Ler o Art. 38, II na lei seca">Art. 38, II</button></td></tr>
+<tr><th>Vereador, horários compatíveis</th><td class="y">Acumula</td><td>Vantagens do cargo + remuneração do cargo eletivo</td><td><button type="button" class="lsr" data-r="38-III" title="Ler o Art. 38, III na lei seca">Art. 38, III</button></td></tr>
+<tr><th>Vereador, horários incompatíveis</th><td class="w">Afastado</td><td>Pode optar (aplica-se a regra do Prefeito)</td><td><button type="button" class="lsr" data-r="38-III" title="Ler o Art. 38, III na lei seca">Art. 38, III</button></td></tr>
+</tbody></table></div>
+<p class="qt-note">* Sempre com <b>compatibilidade de horários</b> e observado o teto (<span class="lei">“observado em qualquer caso o disposto no inciso XI”</span>). STF: na acumulação permitida, o teto é aplicado a cada vínculo isoladamente (Temas 377 e 384) — a VUNESP cobrou em 2026. Já a letra do art. 40, § 11, manda somar proventos e remuneração: em questão de lei seca, siga a letra.</p>
+<p class="qt-mnem"><b>Mandato:</b> Federal/Estadual/Distrital — <b>fica fora</b>. Prefeito — <b>pode optar</b>. Vereador — <b>olha o relógio</b>: horário compatível acumula; incompatível, afasta e opta.</p>
+</div>
+
+<div class="qt-card" id="rem-norma">
+<h4><span class="badge b-quadro">Quadro</span>Que norma faz o quê? <button type="button" class="lsall" data-r="37-X 37-§11 37-§12 39-§5 39-§7 37-§8-III 40-§14 39-§3" title="Ler na lei seca (8 dispositivos)"><span class="lsk">Lei seca</span>Arts. 37, 39 e 40</button></h4>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th>Assunto</th><th>Norma exigida</th><th>Lei seca</th></tr></thead>
+<tbody>
+<tr><th>Fixar ou alterar remuneração e subsídio; revisão geral anual</th><td><b>Lei específica</b>, observada a iniciativa privativa</td><td><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></td></tr>
+<tr><th>Tirar indenizações do teto</th><td><b>Lei ordinária</b> aprovada pelo <b>Congresso Nacional</b>, de caráter nacional</td><td><button type="button" class="lsr" data-r="37-§11" title="Ler o Art. 37, § 11 na lei seca">Art. 37, § 11</button></td></tr>
+<tr><th>Subteto único estadual</th><td><b>Emenda</b> à Constituição Estadual ou à Lei Orgânica do DF</td><td><button type="button" class="lsr" data-r="37-§12" title="Ler o Art. 37, § 12 na lei seca">Art. 37, § 12</button></td></tr>
+<tr><th>Relação entre maior e menor remuneração</th><td>Lei da União, de cada Estado, do DF e de cada Município — <b>“poderá”</b></td><td><button type="button" class="lsr" data-r="39-§5" title="Ler o Art. 39, § 5º na lei seca">Art. 39, § 5º</button></td></tr>
+<tr><th>Uso da economia com despesas correntes</th><td>Lei da União, de cada Estado, do DF e de cada Município</td><td><button type="button" class="lsr" data-r="39-§7" title="Ler o Art. 39, § 7º na lei seca">Art. 39, § 7º</button></td></tr>
+<tr><th>Remuneração do pessoal no contrato de desempenho</th><td>Lei</td><td><button type="button" class="lsr" data-r="37-§8-III" title="Ler o Art. 37, § 8º, III na lei seca">Art. 37, § 8º, III</button></td></tr>
+<tr><th>Previdência complementar (benefício limitado ao teto do RGPS)</th><td>Lei de iniciativa do <b>Poder Executivo</b> de cada ente</td><td><button type="button" class="lsr" data-r="40-§14" title="Ler o Art. 40, § 14 na lei seca">Art. 40, § 14</button></td></tr>
+<tr><th>Requisitos diferenciados de admissão</th><td>Lei, quando a natureza do cargo exigir</td><td><button type="button" class="lsr" data-r="39-§3" title="Ler o Art. 39, § 3º na lei seca">Art. 39, § 3º</button></td></tr>
+</tbody></table></div>
+<p class="qt-mnem"><b>Fixar</b> → lei <b>específica</b> · <b>Tirar do teto</b> → lei <b>nacional</b> (ordinária, do Congresso) · <b>Unificar o teto</b> → <b>emenda</b> estadual. Em remuneração, os arts. 37 e 39 <b>nunca</b> pedem lei complementar — alternativa com “lei complementar” aqui está errada.</p>
+</div>
+
+<div class="qt-card" id="rem-stf">
+<h4><span class="badge b-stf">STF</span>Súmulas e teses que conversam com a lei seca <button type="button" class="lsall" data-r="37-X 37-XI 37-XIII 37-XV 37-XVI 37-§11 39-§3 7-IV" title="Ler na lei seca (8 dispositivos)"><span class="lsk">Lei seca</span>Arts. 37, 39 e 7º</button></h4>
+<div class="tw"><table class="qt rem-t">
+<thead><tr><th>Entendimento</th><th>O que diz</th><th>Lei seca</th></tr></thead>
+<tbody>
+<tr><th>SV 37</th><td>O Judiciário não pode aumentar vencimentos com fundamento na isonomia</td><td><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></td></tr>
+<tr><th>Tema 19</th><td>Não mandar o projeto de revisão geral anual não gera direito a indenização; o Executivo deve justificar, de forma fundamentada, por que não o fez</td><td><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></td></tr>
+<tr><th>Tema 624</th><td>O Judiciário não pode obrigar o Executivo a apresentar o projeto de revisão geral anual nem fixar o índice</td><td><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></td></tr>
+<tr><th>Súmula 679</th><td>Vencimentos de servidores não podem ser fixados por convenção coletiva</td><td><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></td></tr>
+<tr><th>SV 42</th><td>É inconstitucional vincular o reajuste de servidores estaduais ou municipais a índices federais de correção</td><td><button type="button" class="lsr" data-r="37-XIII" title="Ler o Art. 37, XIII na lei seca">Art. 37, XIII</button></td></tr>
+<tr><th>Tema 41</th><td>Não há direito adquirido a regime jurídico, desde que respeitada a irredutibilidade de vencimentos</td><td><button type="button" class="lsr" data-r="37-XV" title="Ler o Art. 37, XV na lei seca">Art. 37, XV</button></td></tr>
+<tr><th>Temas 377 e 384</th><td>Na acumulação permitida, o teto incide sobre cada vínculo, não sobre a soma</td><td><button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button> <button type="button" class="lsr" data-r="37-XVI" title="Ler o Art. 37, XVI na lei seca">Art. 37, XVI</button></td></tr>
+<tr><th>SV 4</th><td>Salvo casos da CF, o salário mínimo não pode ser indexador de vantagem de servidor</td><td><button type="button" class="lsr" data-r="7-IV" title="Ler o Art. 7º, IV na lei seca">Art. 7º, IV</button></td></tr>
+<tr><th>SV 16</th><td>O mínimo garantido ao servidor refere-se ao total da remuneração</td><td><button type="button" class="lsr" data-r="39-§3" title="Ler o Art. 39, § 3º na lei seca">Art. 39, § 3º</button></td></tr>
+<tr><th>Temas 966 e 976 (2026)</th><td>Até a lei nacional do § 11, juízes e membros do MP só recebem, além do subsídio, as parcelas listadas pelo STF — a maioria com soma limitada a 35% do subsídio</td><td><button type="button" class="lsr" data-r="37-§11" title="Ler o Art. 37, § 11 na lei seca">Art. 37, § 11</button></td></tr>
+</tbody></table></div>
+<p class="qt-note">Para a prova de escrevente, a base é a lei seca; jurisprudência aparece de vez em quando — a VUNESP cobrou os Temas 19 e 624 em 2024 e 2025.</p>
+</div>
+
+<div class="qt-card peg" id="rem-peg">
+<h4><span class="badge b-peg">Pegadinhas</span>Remuneração: as trocas que a banca faz</h4>
+<p class="pg-leg"><span class="i-no">✗</span> como costuma aparecer na prova (errado) · <span class="i-yes">✓</span> o que diz a CF</p>
+<ul class="pg">
+<li><p class="no">A remuneração dos servidores pode ser fixada por decreto, resolução ou acordo coletivo.</p><p class="yes"><span class="lei">“somente poderão ser fixados ou alterados por lei específica”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></span></li>
+<li><p class="no">A revisão geral anual terá a necessária distinção de índices entre as carreiras.</p><p class="yes"><span class="lei">“sempre na mesma data e sem distinção de índices”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></span></li>
+<li><p class="no">O teto dos servidores municipais é o subsídio do Governador (ou dos Vereadores, ou do Presidente da Câmara).</p><p class="yes">Nos Municípios, o limite é o <span class="lei">“subsídio do Prefeito”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></span></li>
+<li><p class="no">O subsídio dos Desembargadores é limitado a 95% do subsídio dos Ministros do STF.</p><p class="yes">A <span class="lei">“noventa inteiros e vinte e cinco centésimos por cento”</span> (90,25%).</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></span></li>
+<li><p class="no">O teto não alcança as vantagens pessoais nem os proventos.</p><p class="yes">Alcança proventos e pensões, <span class="lei">“incluídas as vantagens pessoais ou de qualquer outra natureza”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></span></li>
+<li><p class="no">Ficam fora do teto as parcelas indenizatórias previstas em lei complementar (ou em lei estadual, ou definidas pelo próprio tribunal).</p><p class="yes">Só as previstas em <span class="lei">“lei ordinária, aprovada pelo Congresso Nacional, de caráter nacional”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-§11" title="Ler o Art. 37, § 11 na lei seca">Art. 37, § 11</button></span></li>
+<li><p class="no">O teto se aplica a qualquer empresa pública ou sociedade de economia mista.</p><p class="yes">Só às que <span class="lei">“receberem recursos”</span> dos entes para despesas de pessoal ou de custeio em geral.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-§9" title="Ler o Art. 37, § 9º na lei seca">Art. 37, § 9º</button></span></li>
+<li><p class="no">O limite único estadual pode incluir os subsídios dos Deputados Estaduais e dos Vereadores, e os Municípios também podem adotá-lo.</p><p class="yes">Faculdade só dos Estados e do DF, e <span class="lei">“não se aplicando o disposto neste parágrafo aos subsídios dos Deputados Estaduais e Distritais e dos Vereadores”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-§12" title="Ler o Art. 37, § 12 na lei seca">Art. 37, § 12</button></span></li>
+<li><p class="no">Os vencimentos do Executivo não podem superar os do Legislativo e do Judiciário.</p><p class="yes">É o inverso: Legislativo e Judiciário <span class="lei">“não poderão ser superiores aos pagos pelo Poder Executivo”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-XII" title="Ler o Art. 37, XII na lei seca">Art. 37, XII</button></span></li>
+<li><p class="no">É vedada a vinculação, mas permitida a equiparação entre cargos do mesmo Poder com funções equivalentes.</p><p class="yes"><span class="lei">“é vedada a vinculação ou equiparação de quaisquer espécies remuneratórias”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-XIII" title="Ler o Art. 37, XIII na lei seca">Art. 37, XIII</button></span></li>
+<li><p class="no">Os acréscimos pecuniários podem ser computados para acréscimos ulteriores, quando previstos em lei.</p><p class="yes"><span class="lei">“não serão computados nem acumulados para fins de concessão de acréscimos ulteriores”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-XIV" title="Ler o Art. 37, XIV na lei seca">Art. 37, XIV</button></span></li>
+<li><p class="no">Subsídio e vencimentos são absolutamente irredutíveis (ou irredutíveis salvo negociação coletiva).</p><p class="yes">Irredutíveis, <span class="lei">“ressalvado o disposto nos incisos XI e XIV deste artigo e nos arts. 39, § 4º, 150, II, 153, III, e 153, § 2º, I”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-XV" title="Ler o Art. 37, XV na lei seca">Art. 37, XV</button></span></li>
+<li><p class="no">Membros de Poder, detentores de mandato, Ministros, Secretários e agentes de segurança pública recebem subsídio admitida verba de representação.</p><p class="yes">Agentes de segurança pública não estão no § 4º, e é vedado o acréscimo de <span class="lei">“verba de representação ou outra espécie remuneratória”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button></span></li>
+<li><p class="no">Os servidores organizados em carreira devem ser remunerados por subsídio.</p><p class="yes"><span class="lei">“A remuneração dos servidores públicos organizados em carreira poderá ser fixada nos termos do § 4º.”</span></p><span class="qt-ref"><button type="button" class="lsr" data-r="39-§8" title="Ler o Art. 39, § 8º na lei seca">Art. 39, § 8º</button></span></li>
+<li><p class="no">Após cinco anos, as vantagens da função de confiança incorporam-se ao cargo efetivo.</p><p class="yes"><span class="lei">“É vedada a incorporação de vantagens de caráter temporário ou vinculadas ao exercício de função de confiança ou de cargo em comissão”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="39-§9" title="Ler o Art. 39, § 9º na lei seca">Art. 39, § 9º</button></span></li>
+<li><p class="no">Os Poderes publicarão mensalmente (ou semestralmente) os valores do subsídio e da remuneração.</p><p class="yes"><span class="lei">“publicarão anualmente”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="39-§6" title="Ler o Art. 39, § 6º na lei seca">Art. 39, § 6º</button></span></li>
+<li><p class="no">Aplicam-se ao servidor todos os direitos do art. 7º, inclusive FGTS e adicional de insalubridade.</p><p class="yes">Só os incisos listados no § 3º (IV, VII, VIII, IX, XII, XIII, XV a XX, XXII e XXX).</p><span class="qt-ref"><button type="button" class="lsr" data-r="39-§3" title="Ler o Art. 39, § 3º na lei seca">Art. 39, § 3º</button></span></li>
+<li><p class="no">Na readaptação, o servidor passa a receber a remuneração do cargo de destino.</p><p class="yes"><span class="lei">“mantida a remuneração do cargo de origem”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-§13" title="Ler o Art. 37, § 13 na lei seca">Art. 37, § 13</button></span></li>
+<li><p class="no">Eleito Deputado Estadual, o servidor fica afastado e pode optar pela remuneração do cargo.</p><p class="yes">A opção é do Prefeito (e do Vereador sem horários compatíveis); no mandato federal, estadual ou distrital, ele apenas <span class="lei">“ficará afastado”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="38-I" title="Ler o Art. 38, I na lei seca">Art. 38, I</button> <button type="button" class="lsr" data-r="38-II" title="Ler o Art. 38, II na lei seca">Art. 38, II</button></span></li>
+<li><p class="no">Extinto o cargo, o estável fica em disponibilidade com remuneração integral.</p><p class="yes"><span class="lei">“com remuneração proporcional ao tempo de serviço”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="41-§3" title="Ler o Art. 41, § 3º na lei seca">Art. 41, § 3º</button></span></li>
+</ul>
+</div>
+
+<div class="qt-card peg rem-tr" id="rem-treino">
+<h4><span class="badge b-peg">Treino</span>Revisão relâmpago: responda de cabeça e toque para conferir <button type="button" class="btn ghost sm rem-all" aria-pressed="false">Mostrar todas</button></h4>
+<p class="qt-note">Tentar lembrar antes de ver a resposta fixa muito mais do que reler. Faça a rodada inteira e repita os que errou.</p>
+<ol class="rem-fc">
+<li><p class="fq">Quem recebe subsídio obrigatoriamente?</p><div class="fa">Membro de Poder, detentor de mandato eletivo, Ministros de Estado e Secretários Estaduais e Municipais (3 M + S). <button type="button" class="lsr" data-r="39-§4" title="Ler o Art. 39, § 4º na lei seca">Art. 39, § 4º</button></div></li>
+<li><p class="fq">Que ato fixa ou altera a remuneração?</p><div class="fa">Somente <b>lei específica</b>, observada a iniciativa privativa em cada caso. <button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></div></li>
+<li><p class="fq">Quais as três marcas da revisão geral?</p><div class="fa"><b>Anual</b>, <b>sempre na mesma data</b> e <b>sem distinção de índices</b>. <button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></div></li>
+<li><p class="fq">Qual o teto no Município?</p><div class="fa">O subsídio do <b>Prefeito</b>. <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></div></li>
+<li><p class="fq">Qual o teto do escrevente do TJ-SP?</p><div class="fa">O subsídio dos <b>Desembargadores do TJ</b>, limitado a 90,25% do subsídio dos Ministros do STF. <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></div></li>
+<li><p class="fq">Além dos servidores do Judiciário, quem também tem como limite o subsídio dos Desembargadores?</p><div class="fa">Membros do <b>Ministério Público</b>, <b>Procuradores</b> e <b>Defensores Públicos</b>. <button type="button" class="lsr" data-r="37-XI" title="Ler o Art. 37, XI na lei seca">Art. 37, XI</button></div></li>
+<li><p class="fq">Que parcelas ficam fora do teto?</p><div class="fa">As <b>indenizatórias</b> expressamente previstas em lei ordinária, aprovada pelo Congresso Nacional, de caráter nacional, aplicada a todos os Poderes e órgãos constitucionalmente autônomos. <button type="button" class="lsr" data-r="37-§11" title="Ler o Art. 37, § 11 na lei seca">Art. 37, § 11</button></div></li>
+<li><p class="fq">Subteto único: quem pode adotar, por qual norma, e quem fica de fora?</p><div class="fa"><b>Estados e DF</b>, por <b>emenda</b> à Constituição Estadual ou à Lei Orgânica; não se aplica aos subsídios dos <b>Deputados Estaduais e Distritais e dos Vereadores</b>. <button type="button" class="lsr" data-r="37-§12" title="Ler o Art. 37, § 12 na lei seca">Art. 37, § 12</button></div></li>
+<li><p class="fq">Quais as ressalvas da irredutibilidade?</p><div class="fa">Teto (XI), cascata (XIV), subsídio (art. 39, § 4º) e tributos (arts. 150, II, 153, III, e 153, § 2º, I). <button type="button" class="lsr" data-r="37-XV" title="Ler o Art. 37, XV na lei seca">Art. 37, XV</button></div></li>
+<li><p class="fq">Quais os critérios para fixar os padrões de vencimento?</p><div class="fa">Natureza, grau de responsabilidade e complexidade dos cargos; requisitos para a investidura; peculiaridades dos cargos. <button type="button" class="lsr" data-r="39-§1" title="Ler o Art. 39, § 1º na lei seca">Art. 39, § 1º</button></div></li>
+<li><p class="fq">O que a lei de cada ente “poderá” estabelecer no art. 39, § 5º?</p><div class="fa">A <b>relação entre a maior e a menor remuneração</b> dos servidores, obedecido o teto. <button type="button" class="lsr" data-r="39-§5" title="Ler o Art. 39, § 5º na lei seca">Art. 39, § 5º</button></div></li>
+<li><p class="fq">Com que frequência se publicam os valores de subsídio e remuneração?</p><div class="fa"><b>Anualmente</b>, pelos três Poderes. <button type="button" class="lsr" data-r="39-§6" title="Ler o Art. 39, § 6º na lei seca">Art. 39, § 6º</button></div></li>
+<li><p class="fq">Quais as 3 exceções à proibição de acumular cargos?</p><div class="fa">Dois cargos de professor; professor com outro <b>de qualquer natureza</b>; dois cargos ou empregos privativos de profissionais de saúde — sempre com compatibilidade de horários e teto. <button type="button" class="lsr" data-r="37-XVI" title="Ler o Art. 37, XVI na lei seca">Art. 37, XVI</button></div></li>
+<li><p class="fq">Quando o aposentado pode somar proventos e remuneração?</p><div class="fa">Nos cargos <b>acumuláveis</b>, nos cargos <b>eletivos</b> e nos cargos <b>em comissão</b>. <button type="button" class="lsr" data-r="37-§10" title="Ler o Art. 37, § 10 na lei seca">Art. 37, § 10</button></div></li>
+<li><p class="fq">Servidor eleito Vereador, com horários compatíveis: o que recebe?</p><div class="fa">As <b>vantagens do cargo</b> sem prejuízo da <b>remuneração do cargo eletivo</b>. <button type="button" class="lsr" data-r="38-III" title="Ler o Art. 38, III na lei seca">Art. 38, III</button></div></li>
+<li><p class="fq">O servidor readaptado recebe a remuneração de qual cargo?</p><div class="fa">A do cargo de <b>origem</b>. <button type="button" class="lsr" data-r="37-§13" title="Ler o Art. 37, § 13 na lei seca">Art. 37, § 13</button></div></li>
+<li><p class="fq">Em disponibilidade, qual a remuneração?</p><div class="fa"><b>Proporcional ao tempo de serviço</b>. <button type="button" class="lsr" data-r="41-§3" title="Ler o Art. 41, § 3º na lei seca">Art. 41, § 3º</button></div></li>
+<li><p class="fq">A economia com despesas correntes pode virar pagamento ao servidor?</p><div class="fa">Sim: a lei pode aplicá-la em programas de qualidade e produtividade, <b>inclusive sob a forma de adicional ou prêmio de produtividade</b>. <button type="button" class="lsr" data-r="39-§7" title="Ler o Art. 39, § 7º na lei seca">Art. 39, § 7º</button></div></li>
+</ol>
+</div>
+</section>
+
 <section class="card qs qt-topic" data-topic="jud" id="dc-jud">
 <h2 class="qt-h"><span>Art. 92</span>Poder Judiciário</h2>
 
@@ -1668,8 +2209,67 @@ table.ec-sum td:last-child,.qt-card table.ec-sum tbody th,.qt-card table.ec-tl t
 <p class="qt-note">As pegadinhas da EC 135 (art. 37, § 11) e da EC 138 (art. 37, XVI, b) estão em <b>Adm. Pública</b>.</p>
 </div>
 </section>
+<section class="card qs qt-topic" data-topic="leis" id="dc-leis">
+<h2 class="qt-h"><span>Arts. 5º a 41 · planilha Tipos de lei na CF</span>Tipos de lei: que norma a CF exige</h2>
+<p class="sub">Os <b>30 registros</b> da sua planilha <i>Tipos de lei na CF - Escrevente TJSP.xlsx</i> (pasta Infográfico): 11 tipos de norma em 28 dispositivos — Art. 37, XIX e Art. 40, § 1º, III aparecem duas vezes porque citam duas espécies. Toque num tipo para filtrar a tabela e numa referência como <button type="button" class="lsr" data-r="37-VII" title="Ler o Art. 37, VII na lei seca">Art. 37, VII</button> para ler a lei seca sem sair do quadro.</p>
+<nav class="rem-idx" aria-label="Quadros deste tópico"><a href="#tl-mapa">Mapa dos tipos</a><a href="#tl-tab">Tabela</a><a href="#tl-dica">LC × lei</a><a href="#tl-peg" class="pk">Pegadinhas</a></nav>
+
+<div class="qt-card" id="tl-mapa">
+<h4><span class="badge b-esquema">Esquema</span>Mapa dos tipos de lei <span class="qt-ref">30 registros · 11 tipos</span></h4>
+<div class="tl-map" id="tl-map" role="group" aria-label="Filtrar a tabela por tipo de lei"></div>
+<p class="tl-leg"><span class="tl-sw f-lc"></span>Lei complementar · 11 <span class="tl-sw f-lo"></span>Lei ordinária com qualificação · 11 <span class="tl-sw f-ved"></span>Vedação ao legislador · 5 <span class="tl-sw f-out"></span>Outras normas · 3</p>
+</div>
+
+<div class="qt-card" id="tl-tab">
+<h4><span class="badge b-quadro">Quadro</span>Tipo de lei, artigo e texto da lei <span class="qt-ref" id="tl-count"></span></h4>
+<div class="tl-tools">
+<div class="tl-row"><span class="tl-lbl">Agrupar por</span><div class="seg" id="tl-by" role="group" aria-label="Agrupar a tabela"><button type="button" data-by="tipo">Tipo de lei</button><button type="button" data-by="grupo">Grupo</button></div>
+<input type="search" id="tl-q" placeholder="Buscar (ex.: fundação, 40)" aria-label="Buscar no texto ou no artigo"><button type="button" class="btn ghost sm" id="tl-clear">Limpar filtros</button></div>
+<div class="tl-row"><span class="tl-lbl">Grupo</span><div class="pegf" id="tl-gr" role="group" aria-label="Filtrar por grupo"></div></div>
+<div class="tl-row"><span class="tl-lbl">Tipo</span><select id="tl-tp" aria-label="Filtrar por tipo de lei"></select></div>
+</div>
+<div class="tw"><table class="qt qt-small rem-t tl-t" id="tl-table">
+<colgroup><col class="tl-c1"><col><col class="tl-c3"></colgroup>
+<thead><tr><th>Art.</th><th>Texto da lei</th><th id="tl-h3">Grupo</th></tr></thead>
+<tbody id="tl-body"></tbody>
+</table></div>
+<p class="qt-note">A expressão que define o tipo está destacada no texto. Quando a CF diz só <span class="lei">“lei”</span>, <span class="lei">“na forma da lei”</span> ou <span class="lei">“nos termos da lei”</span>, basta lei ordinária — esses dispositivos não entram nesta tabela.</p>
+</div>
+
+<div class="qt-card" id="tl-dica">
+<h4><span class="badge b-dica">Dica</span>Lei complementar × lei: onde a banca troca <button type="button" class="lsall" data-r="40-§1-III 40-§4-A 40-§4-B 40-§4-C 40-§5 40-§1-I 40-§3 40-§7 40-§19" title="Ler na lei seca (9 dispositivos)"><span class="lsk">Lei seca</span>Art. 40</button></h4>
+<p class="qt-mnem"><b>Lei específica = GRE</b>: <b>G</b>reve do servidor (37, VII) · <b>R</b>emuneração e subsídio (37, X) · <b>E</b>ntidades — criar autarquia e autorizar empresa pública, sociedade de economia mista e fundação (37, XIX).</p>
+<div class="two tl-two">
+<div class="f-lc"><p class="tl-h5">Lei complementar do ente</p><ul class="qt-ul tl-ul"><li><button type="button" class="lsr" data-r="40-§1-III" title="Ler o Art. 40, § 1º, III na lei seca">Art. 40, § 1º, III</button> tempo de contribuição e demais requisitos da voluntária</li><li><button type="button" class="lsr" data-r="40-§4-A" title="Ler o Art. 40, § 4º-A na lei seca">Art. 40, § 4º-A</button> idade e tempo diferenciados: servidor com deficiência</li><li><button type="button" class="lsr" data-r="40-§4-B" title="Ler o Art. 40, § 4º-B na lei seca">Art. 40, § 4º-B</button> idade e tempo diferenciados: agentes penitenciário e socioeducativo e policiais</li><li><button type="button" class="lsr" data-r="40-§4-C" title="Ler o Art. 40, § 4º-C na lei seca">Art. 40, § 4º-C</button> idade e tempo diferenciados: exposição a agentes nocivos</li><li><button type="button" class="lsr" data-r="40-§5" title="Ler o Art. 40, § 5º na lei seca">Art. 40, § 5º</button> tempo de magistério do professor</li></ul></div>
+<div class="f-lo"><p class="tl-h5">Lei do ente (ordinária)</p><ul class="qt-ul tl-ul"><li><button type="button" class="lsr" data-r="40-§1-I" title="Ler o Art. 40, § 1º, I na lei seca">Art. 40, § 1º, I</button> avaliações periódicas na aposentadoria por incapacidade</li><li><button type="button" class="lsr" data-r="40-§3" title="Ler o Art. 40, § 3º na lei seca">Art. 40, § 3º</button> cálculo dos proventos</li><li><button type="button" class="lsr" data-r="40-§7" title="Ler o Art. 40, § 7º na lei seca">Art. 40, § 7º</button> pensão por morte</li><li><button type="button" class="lsr" data-r="40-§19" title="Ler o Art. 40, § 19 na lei seca">Art. 40, § 19</button> abono de permanência</li></ul></div>
+</div>
+<p class="qt-note"><b>Dois tipos no mesmo dispositivo:</b> no art. 37, XIX, lei <b>específica</b> cria a autarquia e autoriza as demais entidades, e lei <b>complementar</b> define as áreas de atuação da fundação. No art. 40, § 1º, III, a idade mínima nos Estados, DF e Municípios vem por <b>emenda</b> à Constituição Estadual ou à Lei Orgânica, e o tempo de contribuição e os demais requisitos, por <b>lei complementar do ente</b>.</p>
+</div>
+
+<div class="qt-card peg" id="tl-peg">
+<h4><span class="badge b-peg">Pegadinhas</span>Troca da espécie de lei</h4>
+<p class="pg-leg"><span class="i-no">✗</span> como costuma aparecer na prova (errado) · <span class="i-yes">✓</span> o que diz a CF</p><ul class="pg">
+<li><p class="no">O direito de greve do servidor público será exercido nos termos e nos limites definidos em lei complementar.</p><p class="yes">Em <b>lei específica</b>: <span class="lei">“nos termos e nos limites definidos em lei específica”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-VII" title="Ler o Art. 37, VII na lei seca">Art. 37, VII</button></span></li>
+<li><p class="no">A remuneração dos servidores públicos pode ser fixada ou alterada por lei complementar.</p><p class="yes"><span class="lei">“somente poderão ser fixados ou alterados por lei específica, observada a iniciativa privativa em cada caso”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-X" title="Ler o Art. 37, X na lei seca">Art. 37, X</button></span></li>
+<li><p class="no">Autarquia é criada por lei complementar.</p><p class="yes"><span class="lei">“somente por lei específica poderá ser criada autarquia”</span>. A lei complementar só define as <b>áreas de atuação da fundação</b>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-XIX" title="Ler o Art. 37, XIX na lei seca">Art. 37, XIX</button></span></li>
+<li><p class="no">A criação de subsidiárias de empresa pública independe de autorização legislativa.</p><p class="yes"><span class="lei">“depende de autorização legislativa, em cada caso”</span> — e também a participação em empresa privada.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-XX" title="Ler o Art. 37, XX na lei seca">Art. 37, XX</button></span></li>
+<li><p class="no">A proteção contra despedida arbitrária ou sem justa causa será definida em lei ordinária.</p><p class="yes"><span class="lei">“nos termos de lei complementar, que preverá indenização compensatória”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="7-I" title="Ler o Art. 7º, I na lei seca">Art. 7º, I</button></span></li>
+<li><p class="no">O servidor estável perde o cargo por avaliação periódica de desempenho, na forma de lei ordinária.</p><p class="yes"><span class="lei">“na forma de lei complementar, assegurada ampla defesa”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="41-§1-III" title="Ler o Art. 41, § 1º, III na lei seca">Art. 41, § 1º, III</button></span></li>
+<li><p class="no">A aposentadoria compulsória aos 75 anos depende só de lei ordinária.</p><p class="yes"><span class="lei">“aos 75 (setenta e cinco) anos de idade, na forma de lei complementar”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="40-§1-II" title="Ler o Art. 40, § 1º, II na lei seca">Art. 40, § 1º, II</button></span></li>
+<li><p class="no">Nos Estados, a idade mínima da aposentadoria voluntária é fixada por lei complementar estadual.</p><p class="yes">A idade mínima vem por <b>emenda</b> à Constituição Estadual (ou à Lei Orgânica); a <b>lei complementar do ente</b> fixa o tempo de contribuição e os demais requisitos.</p><span class="qt-ref"><button type="button" class="lsr" data-r="40-§1-III" title="Ler o Art. 40, § 1º, III na lei seca">Art. 40, § 1º, III</button></span></li>
+<li><p class="no">As normas gerais dos regimes próprios de previdência são fixadas por lei complementar de cada ente.</p><p class="yes"><span class="lei">“lei complementar federal estabelecerá”</span> essas normas gerais.</p><span class="qt-ref"><button type="button" class="lsr" data-r="40-§22" title="Ler o Art. 40, § 22 na lei seca">Art. 40, § 22</button></span></li>
+<li><p class="no">As regras de cálculo dos proventos de aposentadoria ficam em lei complementar do respectivo ente.</p><p class="yes">Ficam em <span class="lei">“lei do respectivo ente federativo”</span> — lei, não lei complementar.</p><span class="qt-ref"><button type="button" class="lsr" data-r="40-§3" title="Ler o Art. 40, § 3º na lei seca">Art. 40, § 3º</button></span></li>
+<li><p class="no">O regime de previdência complementar é instituído por lei de iniciativa do Poder Legislativo.</p><p class="yes"><span class="lei">“por lei de iniciativa do respectivo Poder Executivo”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="40-§14" title="Ler o Art. 40, § 14 na lei seca">Art. 40, § 14</button></span></li>
+<li><p class="no">Ficam fora do teto as parcelas indenizatórias previstas em lei de cada ente.</p><p class="yes">Só as <span class="lei">“previstas em lei ordinária, aprovada pelo Congresso Nacional, de caráter nacional”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-§11" title="Ler o Art. 37, § 11 na lei seca">Art. 37, § 11</button></span></li>
+<li><p class="no">Os Estados podem adotar o subteto único dos Desembargadores por lei estadual.</p><p class="yes"><span class="lei">“mediante emenda às respectivas Constituições e Lei Orgânica”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="37-§12" title="Ler o Art. 37, § 12 na lei seca">Art. 37, § 12</button></span></li>
+<li><p class="no">Lei federal deverá fixar a relação entre a maior e a menor remuneração dos servidores de todos os entes.</p><p class="yes"><span class="lei">“Lei da União, dos Estados, do Distrito Federal e dos Municípios poderá”</span> — cada ente, e é faculdade.</p><span class="qt-ref"><button type="button" class="lsr" data-r="39-§5" title="Ler o Art. 39, § 5º na lei seca">Art. 39, § 5º</button></span></li>
+<li><p class="no">Em casos excepcionais, a lei pode admitir tempo de contribuição fictício.</p><p class="yes"><span class="lei">“A lei não poderá estabelecer qualquer forma de contagem de tempo de contribuição fictício”</span>.</p><span class="qt-ref"><button type="button" class="lsr" data-r="40-§10" title="Ler o Art. 40, § 10 na lei seca">Art. 40, § 10</button></span></li>
+<li><p class="no">A lei pode exigir autorização do Estado para a fundação de sindicato.</p><p class="yes"><span class="lei">“a lei não poderá exigir autorização do Estado”</span>, ressalvado o registro no órgão competente.</p><span class="qt-ref"><button type="button" class="lsr" data-r="8-I" title="Ler o Art. 8º, I na lei seca">Art. 8º, I</button></span></li>
+</ul>
+</div>
+</section>
     </div>
-    <footer>Quadros, esquemas e dicas elaborados a partir do material NEAF da pasta (aulas e apostila) e do texto da Constituição na lei seca do edital, revisados pela Constituição compilada do Planalto (25/10/2026, até a EC 141/2026). Pegadinhas baseadas nas questões NEAF e Qconcursos desta página e nas questões comentadas no material.</footer>
+    <footer>Quadros, esquemas e dicas elaborados a partir do material NEAF da pasta (aulas e apostila) e do texto da Constituição na lei seca do edital, revisados pela Constituição compilada do Planalto (25/10/2026, até a EC 141/2026). Pegadinhas baseadas nas questões NEAF e Qconcursos desta página e nas questões comentadas no material. O tópico <b>Remuneração</b> reúne os arts. 37 a 41 sobre o tema, com consulta ao texto da lei seca em cada linha (27/10/2026). O tópico <b>Tipos de lei</b> vem da planilha “Tipos de lei na CF - Escrevente TJSP.xlsx” (pasta Infográfico, 31/10/2026).</footer>
   </section>
 
   <section class="view" id="view-questoes">
@@ -1722,8 +2322,9 @@ const IA_Q = [];
 const ARTICLE_DESC = {"Art. 5": "Direitos individuais", "Art. 6": "Direitos sociais", "Art. 7": "Direitos sociais", "Art. 8": "Direitos sociais", "Art. 9": "Direitos sociais", "Art. 10": "Direitos sociais", "Art. 11": "Direitos sociais", "Art. 12": "Nacionalidade", "Art. 13": "Nacionalidade", "Art. 37": "Administração Pública", "Art. 38": "Administração Pública", "Art. 39": "Servidores", "Art. 40": "Servidores", "Art. 41": "Servidores", "Art. 92": "Poder Judiciário"};
 // artigo -> assunto em Quadros e tabelas
 const DMAP = {"5": "art5", "6": "sociais", "7": "sociais", "8": "sociais", "9": "sociais", "10": "sociais", "11": "sociais", "12": "nac", "13": "nac", "37": "adm", "38": "adm", "39": "serv", "40": "serv", "41": "serv", "92": "jud"};
+const REM_ART = new Set(["37", "38", "39"]);   // artigos da Lei Seca com atalho para o tópico Remuneração
 // Trilha de Estudo = botões de assunto do arquivo original
-const QNAV = [["art5", "Art. 5º"], ["sociais", "Direitos sociais"], ["nac", "Nacionalidade"], ["adm", "Adm. Pública"], ["serv", "Servidores"], ["jud", "Judiciário"], ["num", "Números e leis"], ["ec", "Alterações 2024–2026", "hot"]];
+const QNAV = [["art5", "Art. 5º"], ["sociais", "Direitos sociais"], ["nac", "Nacionalidade"], ["adm", "Adm. Pública"], ["serv", "Servidores"], ["rem", "Remuneração"], ["jud", "Judiciário"], ["num", "Números e leis"], ["ec", "Alterações 2024–2026", "hot"], ["leis", "Tipos de lei"]];
 const PEG_LBL = "⚠ Só pegadinhas", PEG_TITLE = "Mostrar apenas os quadros de pegadinhas";
 // revisão pela lei atualizada (EC 140/2026 e EC 141/2026): correções das fundamentações, aplicadas sobre o bloco DATA na montagem.
 // Nenhum gabarito, enunciado ou alternativa foi alterado. Lista completa com tipo e motivo: PATCH_LOG.
@@ -2348,7 +2949,8 @@ function renderLei(){
     html += `<article class="art ${st.l?"lido":""}${x.noctl?" cont":""}" id="${x.id}" data-art="${x.num}">
       <div class="atop"><span class="an">${esc(desc)}</span>
         ${ctl}
-        ${d?`<a class="qlink" href="#dc-${d}" data-q="dc-${d}">Quadros ›</a>`:""}</div>
+        ${d?`<a class="qlink" href="#dc-${d}" data-q="dc-${d}">Quadros ›</a>`:""}
+        ${REM_ART.has(x.num)?`<a class="qlink" href="#dc-rem" data-q="dc-rem" title="Tudo sobre remuneração em Quadros e tabelas">Remuneração ›</a>`:""}</div>
       <p><span class="lb">${esc(x.label)}</span> ${x.tag?`<span class="ltag">${markText(x.tag)}</span> `:""}<span class="${isRev(x.caput)?"rev":""}">${markText(x.caput)}</span>${notaHtml(x.note)}</p>${items}</article>`;
   });
   box.innerHTML = html || `<div class="card empty"><p>Nenhum artigo contém “${esc(LQ)}”.</p></div>`;
@@ -2573,6 +3175,240 @@ applyTheme();
     if(v) showView(v); });
 })();
 
+</script>
+<script>
+// ---------- Quadros › Remuneração: consulta à lei seca a partir dos quadros ----------
+// Os botões .lsr (uma referência) e .lsall (várias) trazem em data-r as chaves dos dispositivos, no mesmo
+// padrão do índice da página: "37-XI", "37-§11", "37-XVI-b", "37-§8-III"; só o número ("39") = caput.
+// O texto mostrado vem do próprio LAW da página (o texto da aba Lei Seca).
+(function(){
+  const IDX = {};
+  (function(){
+    let art = null, par = null, inc = null;
+    const ln = (r, cls) => ({cls, l:r.label || "", t:r.text || "", note:r.note || "", tag:r.tag || ""});
+    LAW.forEach(r=>{
+      const t = r.type;
+      if(t==="artigo"){ art = artKey(r.label); par = inc = null;
+        (IDX[art] = IDX[art] || {art, label:artName(art) + ", caput", lines:[]}).lines.push(ln(r, "cap")); return; }
+      if(!art || t==="obs" || t==="titulo" || t==="capitulo" || t==="secao" || !r.label) return;
+      if(t==="paragrafo"){ const pk = parKey(r.label); if(!pk) return; par = pk; inc = null;
+        IDX[art+"-"+pk] = {art, label:artName(art) + ", " + parName(pk), lines:[ln(r, "par")]}; return; }
+      if(t==="inciso"){ const rn = incKey(r.label); if(!rn) return; inc = rn;
+        const base = par ? art+"-"+par : art;
+        IDX[base+"-"+rn] = {art, label:artName(art) + (par ? ", " + parName(par) : "") + ", " + rn, lines:[ln(r, "inc")]};
+        if(par) IDX[art+"-"+par].lines.push(ln(r, "inc")); return; }
+      if(t==="alinea"){ const al = r.label.replace(/[^a-z]/g, ""), base = (par ? art+"-"+par : art) + "-" + inc;
+        IDX[base+"-"+al] = {art, label:artName(art) + (par ? ", " + parName(par) : "") + ", " + inc + ", " + al, lines:[ln(r, "ali")]};
+        if(IDX[base]) IDX[base].lines.push(ln(r, "ali"));
+        if(par) IDX[art+"-"+par].lines.push(ln(r, "ali")); }
+    });
+  })();
+
+  // ----- painel com o texto literal -----
+  const pop = document.createElement("div");
+  pop.className = "lspop"; pop.hidden = true; pop.tabIndex = -1;
+  pop.setAttribute("role", "dialog"); pop.setAttribute("aria-label", "Texto da lei seca");
+  document.body.appendChild(pop);
+  let opener = null, openY = 0;
+  const lineHtml = x => `<p class="${x.cls==="cap" ? "" : x.cls}">${x.l ? `<span class="lb">${esc(x.l)}</span> ` : ""}${x.tag ? `<span class="ltag">${esc(x.tag)}</span> ` : ""}${esc(x.t)}${x.note ? ` <span class="nota">${esc(x.note)}</span>` : ""}</p>`;
+  function place(){
+    if(window.innerWidth <= 600){ pop.style.left = pop.style.top = ""; return; }
+    const r = opener.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight, vw = window.innerWidth, vh = window.innerHeight;
+    const left = Math.min(Math.max(12, r.left), vw - w - 12);
+    let top = r.bottom + 6;
+    if(top + h > vh - 12){ top = r.top - h - 6; if(top < 12) top = Math.max(12, vh - h - 12); }
+    pop.style.left = left + "px"; pop.style.top = top + "px";
+  }
+  function openPop(btn){
+    if(opener===btn && !pop.hidden){ closePop(true); return; }
+    const keys = (btn.dataset.r || "").split(/\s+/).filter(k=>IDX[k]);
+    if(!keys.length) return;
+    pop.innerHTML = `<div class="lsp-h"><b>Lei seca</b><span>${keys.length > 1 ? keys.length + " dispositivos" : "texto literal"}</span><button type="button" class="lsp-x" aria-label="Fechar" title="Fechar (Esc)">×</button></div>
+      <div class="lsp-b">${keys.map(k=>{ const it = IDX[k];
+        return `<div class="lsp-it"><h5>${esc(it.label)}<button type="button" class="lsp-go" data-k="${esc(k)}" title="Ir para este dispositivo na aba Lei Seca">Abrir na Lei Seca ›</button></h5>${it.lines.map(lineHtml).join("")}</div>`; }).join("")}</div>`;
+    if(opener) opener.setAttribute("aria-expanded", "false");
+    opener = btn; btn.setAttribute("aria-expanded", "true");
+    pop.hidden = false; place(); openY = window.scrollY;
+    pop.focus({preventScroll:true});
+  }
+  function closePop(focus){
+    if(pop.hidden) return;
+    pop.hidden = true;
+    if(opener){ opener.setAttribute("aria-expanded", "false"); if(focus) opener.focus({preventScroll:true}); }
+    opener = null;
+  }
+
+  // ----- ir ao dispositivo na aba Lei Seca (destacado) e voltar ao quadro -----
+  function findEl(key){
+    const it = IDX[key]; if(!it) return null;
+    const arts = [...document.querySelectorAll(`#lei-body .art[data-art="${it.art}"]`)];
+    if(!arts.length) return null;
+    if(key===it.art) return arts[0];
+    for(const a of arts){
+      let par = null, inc = null;
+      for(const p of a.querySelectorAll(":scope > p")){
+        const lb = p.querySelector(".lb"); if(!lb) continue;
+        const l = lb.textContent.trim(); let k = null;
+        if(p.classList.contains("par")){ const pk = parKey(l); if(!pk) continue; par = pk; inc = null; k = it.art + "-" + pk; }
+        else if(p.classList.contains("inc")){ const rn = incKey(l); if(!rn) continue; inc = rn; k = (par ? it.art+"-"+par : it.art) + "-" + rn; }
+        else if(p.classList.contains("ali")) k = (par ? it.art+"-"+par : it.art) + "-" + inc + "-" + l.replace(/[^a-z]/g, "");
+        if(k===key) return p;
+      }
+    }
+    return arts[0];
+  }
+  const back = document.createElement("button");
+  back.type = "button"; back.className = "lsback"; back.hidden = true;
+  back.innerHTML = '<span aria-hidden="true">←</span> Voltar ao quadro';
+  document.body.appendChild(back);
+  let RET = null;
+  function goDisp(key){
+    const from = document.body.dataset.view;
+    if(from && from!=="lei") RET = {view:from, y:window.scrollY};
+    if(LQ){ LQ = ""; $("#lei-q").value = ""; renderLei(); }
+    showView("lei");
+    const el = findEl(key);
+    if(el){
+      el.scrollIntoView({block:"center"});
+      const cls = el.tagName==="ARTICLE" ? "flash" : "lshit";
+      el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls);
+      if(cls==="lshit") setTimeout(()=>el.classList.remove("lshit"), 3500);
+    }
+    if(RET) back.hidden = false;
+  }
+  back.onclick = ()=>{
+    const r = RET; RET = null; back.hidden = true;
+    if(!r) return;
+    showView(r.view); window.scrollTo({top:r.y});
+  };
+  new MutationObserver(()=>{ if(document.body.dataset.view!=="lei"){ back.hidden = true; RET = null; } })
+    .observe(document.body, {attributes:true, attributeFilter:["data-view"]});
+
+  // ----- eventos -----
+  document.addEventListener("click", e=>{
+    const b = e.target.closest("button.lsr, button.lsall");
+    if(b){ e.preventDefault(); e.stopPropagation(); openPop(b); return; }
+    const g = e.target.closest(".lsp-go");
+    if(g){ e.stopPropagation(); const k = g.dataset.k; closePop(); goDisp(k); return; }
+    if(e.target.closest(".lsp-x")){ closePop(true); return; }
+    if(!pop.hidden && !e.target.closest(".lspop")) closePop();
+  }, true);
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !pop.hidden){ e.stopPropagation(); closePop(true); } }, true);
+  window.addEventListener("scroll", ()=>{ if(!pop.hidden && window.innerWidth > 600 && Math.abs(window.scrollY - openY) > 80) closePop(); }, {passive:true});
+  window.addEventListener("resize", ()=>{ if(!pop.hidden) place(); });
+
+  // ----- índice do tópico e atalhos de outros quadros para o tópico -----
+  document.querySelectorAll(".rem-idx a, a.rem-go").forEach(a=>a.addEventListener("click", e=>{
+    const el = document.querySelector(a.getAttribute("href")); if(!el) return;
+    e.preventDefault(); el.scrollIntoView({behavior:"smooth", block:"start"});
+  }));
+
+  // ----- tabelas do tópico: rótulo de cada coluna para a leitura em fichas no celular -----
+  document.querySelectorAll("#dc-rem table.rem-t").forEach(t=>{
+    if(!t.tHead || !t.tBodies.length) return;
+    const hs = [...t.tHead.rows[0].cells].map(c=>c.textContent.trim());
+    t.classList.add("stk");
+    [...t.tBodies[0].rows].forEach(r=>{ let i = 0;
+      [...r.cells].forEach(c=>{ const n = c.colSpan || 1; if(c.tagName==="TD" && n===1 && hs[i]) c.setAttribute("data-l", hs[i]); i += n; }); });
+  });
+
+  // ----- treino: perguntas com resposta escondida -----
+  function setOpen(li, on){ li.classList.toggle("open", on); const q = li.querySelector(".fq"); if(q) q.setAttribute("aria-expanded", String(on)); }
+  document.querySelectorAll(".rem-fc li").forEach(li=>{
+    const q = li.querySelector(".fq");
+    if(q){ q.tabIndex = 0; q.setAttribute("role", "button"); q.setAttribute("aria-expanded", "false");
+      q.addEventListener("keydown", e=>{ if(e.key==="Enter" || e.key===" "){ e.preventDefault(); setOpen(li, !li.classList.contains("open")); } }); }
+    li.addEventListener("click", e=>{ if(e.target.closest("button, a")) return; setOpen(li, !li.classList.contains("open")); });
+  });
+  document.querySelectorAll(".rem-all").forEach(b=>b.addEventListener("click", ()=>{
+    const on = b.getAttribute("aria-pressed")!=="true";
+    b.closest(".qt-card").querySelectorAll(".rem-fc li").forEach(li=>setOpen(li, on));
+    b.setAttribute("aria-pressed", String(on)); b.textContent = on ? "Esconder todas" : "Mostrar todas";
+  }));
+})();
+</script>
+<script>
+// ---------- Quadros › Tipos de lei: dados da planilha "Tipos de lei na CF - Escrevente TJSP.xlsx" (aba Tipos de lei) ----------
+// rows: [tipo, artigo, chave da lei seca, texto da lei, grupo, ordem na lei]; tipos: [nome, família, expressão do tipo, observação]
+const TL = {"rows": [["Lei complementar", "Art. 7º, I", "7-I", "relação de emprego protegida contra despedida arbitrária ou sem justa causa, nos termos de lei complementar, que preverá indenização compensatória, dentre outros direitos;", "Estabilidade", 114], ["Lei complementar", "Art. 37, XIX", "37-XIX", "somente por lei específica poderá ser criada autarquia e autorizada a instituição de empresa pública, de sociedade de economia mista e de fundação, cabendo à lei complementar, neste último caso, definir as áreas de sua atuação;", "Fundação", 220], ["Lei complementar", "Art. 40, § 1º, II", "40-§1-II", "§ 1º O servidor abrangido por regime próprio de previdência social será aposentado: (...)\nII – compulsoriamente, com proventos proporcionais ao tempo de contribuição, aos 70 (setenta) anos de idade, ou aos 75 (setenta e cinco) anos de idade, na forma de lei complementar;", "Aposentadoria", 271], ["Lei complementar", "Art. 41, § 1º, III", "41-§1-III", "§ 1º O servidor público estável só perderá o cargo:(...)\nIII – mediante procedimento de avaliação periódica de desempenho, na forma de lei complementar, assegurada ampla defesa.", "Estabilidade", 312], ["Lei complementar federal", "Art. 40, § 20", "40-§20", "É vedada a existência de mais de um regime próprio de previdência social e de mais de um órgão ou entidade gestora em cada ente federativo, abrangidos todos os poderes, órgãos e entidades autárquicas e fundacionais, que serão responsáveis pelo seu financiamento, observados os critérios, os parâmetros e a natureza jurídica definidos na lei complementar de que trata o § 22.", "Aposentadoria", 295], ["Lei complementar federal", "Art. 40, § 22", "40-§22", "Vedada a instituição de novos regimes próprios de previdência social, lei complementar federal estabelecerá, para os que já existam, normas gerais de organização, de funcionamento e de responsabilidade em sua gestão, dispondo, entre outros aspectos, sobre:.....", "Aposentadoria", 297], ["Lei complementar do ente", "Art. 40, § 1º, III", "40-§1-III", "§ 1º O servidor abrangido por regime próprio de previdência social será aposentado: (...)\nIII – no âmbito da União, aos 62 (sessenta e dois) anos de idade, se mulher, e aos 65 (sessenta e cinco) anos de idade, se homem, e, no âmbito dos Estados, do DF e dos Municípios, na idade mínima estabelecida mediante emenda às respectivas Constituições e Leis Orgânicas, observados o tempo de contribuição e os demais requisitos estabelecidos em lei complementar do respectivo ente federativo.", "Aposentadoria", 272], ["Lei complementar do ente", "Art. 40, § 4º-A", "40-§4-A", "Poderão ser estabelecidos por lei complementar do respectivo ente federativo idade e tempo de contribuição diferenciados para aposentadoria de servidores com deficiência, previamente submetidos a avaliação biopsicossocial realizada por equipe multiprofissional e interdisciplinar.", "Aposentadoria", 276], ["Lei complementar do ente", "Art. 40, § 4º-B", "40-§4-B", "Poderão ser estabelecidos por lei complementar do respectivo ente federativo idade e tempo de contribuição diferenciados para aposentadoria de ocupantes do cargo de agente penitenciário, de agente socioeducativo ou de policial dos órgãos de que tratam o inciso IV do caput do art. 51, o inciso XIII do caput do art. 52 e os incisos I a IV do caput do art. 144.", "Aposentadoria", 277], ["Lei complementar do ente", "Art. 40, § 4º-C", "40-§4-C", "Poderão ser estabelecidos por lei complementar do respectivo ente federativo idade e tempo de contribuição diferenciados para aposentadoria de servidores cujas atividades sejam exercidas com efetiva exposição a agentes químicos, físicos e biológicos prejudiciais à saúde, ou associação desses agentes, vedada a caracterização por categoria profissional ou ocupação.", "Aposentadoria", 278], ["Lei complementar do ente", "Art. 40, § 5º", "40-§5", "Os ocupantes do cargo de professor terão idade mínima reduzida em 5 (cinco) anos em relação às idades decorrentes da aplicação do disposto no inciso III do § 1º, desde que comprovem tempo de efetivo exercício das funções de magistério na educação infantil e no ensino fundamental e médio fixado em lei complementar do respectivo ente federativo.", "Aposentadoria", 279], ["Lei específica", "Art. 37, VII", "37-VII", "o direito de greve será exercido nos termos e nos limites definidos em lei específica;", "Greve", 205], ["Lei específica", "Art. 37, X", "37-X", "a remuneração dos servidores públicos e o subsídio de que trata o § 4º do art. 39 somente poderão ser fixados ou alterados por lei específica, observada a iniciativa privativa em cada caso, assegurada revisão geral anual, sempre na mesma data e sem distinção de índices;", "Remuneração", 208], ["Lei específica", "Art. 37, XIX", "37-XIX", "somente por lei específica poderá ser criada autarquia e autorizada a instituição de empresa pública, de sociedade de economia mista e de fundação, cabendo à lei complementar, neste último caso, definir as áreas de sua atuação;", "", 220], ["Lei ordinária nacional", "Art. 37, § 11", "37-§11", "Não serão computadas, para efeito dos limites remuneratórios de que trata o inciso XI do caput deste artigo, as parcelas de caráter indenizatório expressamente previstas em lei ordinária, aprovada pelo Congresso Nacional, de caráter nacional, aplicada a todos os Poderes e órgãos constitucionalmente autônomos.", "Remuneração", 240], ["Lei de iniciativa do respectivo Poder Executivo", "Art. 40, § 14", "40-§14", "A União, os Estados, o Distrito Federal e os Municípios instituirão, por lei de iniciativa do respectivo Poder Executivo, regime de previdência complementar para servidores públicos ocupantes de cargo efetivo, observado o limite máximo dos benefícios do Regime Geral de Previdência Social para o valor das aposentadorias e das pensões em regime próprio de previdência social, ressalvado o disposto no § 16.", "Aposentadoria", 289], ["Lei da União, dos Estados, do DF e dos Municípios", "Art. 39, § 5º", "39-§5", "Lei da União, dos Estados, do Distrito Federal e dos Municípios poderá estabelecer a relação entre a maior e a menor remuneração dos servidores públicos, obedecido, em qualquer caso, o disposto no art. 37, XI.", "Remuneração", 263], ["Lei da União, dos Estados, do DF e dos Municípios", "Art. 39, § 7º", "39-§7", "Lei da União, dos Estados, do Distrito Federal e dos Municípios disciplinará a aplicação de recursos orçamentários provenientes da economia com despesas correntes em cada órgão, autarquia e fundação, para aplicação no desenvolvimento de programas de qualidade e produtividade, treinamento e desenvolvimento, modernização, reaparelhamento e racionalização do serviço público, inclusive sob a forma de adicional ou prêmio de produtividade.", "Outros", 265], ["Lei do ente federativo", "Art. 40, § 1º, I", "40-§1-I", "§ 1º O servidor abrangido por regime próprio de previdência social será aposentado:\nI – por incapacidade permanente para o trabalho, no cargo em que estiver investido, quando insuscetível de readaptação, hipótese em que será obrigatória a realização de avaliações periódicas para verificação da continuidade das condições que ensejaram a concessão da aposentadoria, na forma de lei do respectivo ente federativo;", "Aposentadoria", 270], ["Lei do ente federativo", "Art. 40, § 3º", "40-§3", "As regras para cálculo de proventos de aposentadoria serão disciplinadas em lei do respectivo ente federativo.", "Aposentadoria", 274], ["Lei do ente federativo", "Art. 40, § 7º", "40-§7", "Observado o disposto no § 2º do art. 201, quando se tratar da única fonte de renda formal auferida pelo dependente, o benefício de pensão por morte será concedido nos termos de lei do respectivo ente federativo, a qual tratará de forma diferenciada a hipótese de morte dos servidores de que trata o § 4º-B decorrente de agressão sofrida no exercício ou em razão da função.", "Aposentadoria", 282], ["Lei do ente federativo", "Art. 40, § 19", "40-§19", "Observados critérios a serem estabelecidos em lei do respectivo ente federativo, o servidor titular de cargo efetivo que tenha completado as exigências para a aposentadoria voluntária e que opte por permanecer em atividade poderá fazer jus a um abono de permanência equivalente, no máximo, ao valor da sua contribuição previdenciária, até completar a idade para aposentadoria compulsória.", "Aposentadoria", 294], ["Lei – vedação ao legislador", "Art. 5º, XXXV", "5-XXXV", "a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito;", "Direitos", 41], ["Lei – vedação ao legislador", "Art. 5º, XXXVI", "5-XXXVI", "a lei não prejudicará o direito adquirido, o ato jurídico perfeito e a coisa julgada;", "Direitos", 42], ["Lei – vedação ao legislador", "Art. 8º, I", "8-I", "a lei não poderá exigir autorização do Estado para a fundação de sindicato, ressalvado o registro no órgão competente, vedadas ao Poder Público a interferência e a intervenção na organização sindical;", "Direitos", 154], ["Lei – vedação ao legislador", "Art. 12, § 2º", "12-§2", "A lei não poderá estabelecer distinção entre brasileiros natos e naturalizados, salvo nos casos previstos nesta Constituição.", "Nacionalidade", 178], ["Lei – vedação ao legislador", "Art. 40, § 10", "40-§10", "A lei não poderá estabelecer qualquer forma de contagem de tempo de contribuição fictício.", "Aposentadoria", 285], ["Autorização legislativa", "Art. 37, XX", "37-XX", "depende de autorização legislativa, em cada caso, a criação de subsidiárias das entidades mencionadas no inciso anterior, assim como a participação de qualquer delas em empresa privada;", "Outros", 221], ["Emenda à Constituição Estadual / Lei Orgânica", "Art. 37, § 12", "37-§12", "Para os fins do disposto no inciso XI do caput deste artigo, fica facultado aos Estados e ao Distrito Federal fixar, em seu âmbito, mediante emenda às respectivas Constituições e Lei Orgânica, como limite único, o subsídio mensal dos Desembargadores do respectivo Tribunal de Justiça, limitado a noventa inteiros e vinte e cinco centésimos por cento do subsídio mensal dos Ministros do Supremo Tribunal Federal, não se aplicando o disposto neste parágrafo aos subsídios dos Deputados Estaduais e Distritais e dos Vereadores.", "Remuneração", 241], ["Emenda à Constituição Estadual / Lei Orgânica", "Art. 40, § 1º, III", "40-§1-III", "§ 1º O servidor abrangido por regime próprio de previdência social será aposentado:\n(...)\nIII – no âmbito da União, aos 62 (sessenta e dois) anos de idade, se mulher, e aos 65 (sessenta e cinco) anos de idade, se homem, e, no âmbito dos Estados, do Distrito Federal e dos Municípios, na idade mínima estabelecida mediante emenda às respectivas Constituições e Leis Orgânicas, observados o tempo de contribuição e os demais requisitos estabelecidos em lei complementar do respectivo ente federativo.", "Aposentadoria", 272]], "tipos": [["Lei complementar", "lc", "lei complementar", "Só quando a CF escreve “lei complementar”. Aprovação por maioria absoluta (art. 69)."], ["Lei complementar federal", "lc", "lei complementar federal|lei complementar de que trata o § 22", "Editada pela União: normas gerais dos regimes próprios de previdência que já existem."], ["Lei complementar do ente", "lc", "lei complementar do respectivo ente federativo", "Cada ente (União, Estados, DF e Municípios) edita a sua."], ["Lei específica", "lo", "lei específica", "Lei ordinária que trata só daquele assunto."], ["Lei ordinária nacional", "lo", "lei ordinária, aprovada pelo Congresso Nacional, de caráter nacional", "Única vez em que “lei ordinária” aparece escrita nos artigos do edital (EC 135/2024)."], ["Lei de iniciativa do respectivo Poder Executivo", "lo", "lei de iniciativa do respectivo Poder Executivo", "Lei de cada ente, com iniciativa do Poder Executivo."], ["Lei da União, dos Estados, do DF e dos Municípios", "lo", "Lei da União, dos Estados, do Distrito Federal e dos Municípios", "Cada ente edita a sua própria lei."], ["Lei do ente federativo", "lo", "lei do respectivo ente federativo", "Lei (ordinária) de cada ente — não confundir com a LC do ente."], ["Lei – vedação ao legislador", "ved", "a lei não (?:excluirá|prejudicará|poderá)", "O que nenhuma lei pode fazer."], ["Autorização legislativa", "out", "autorização legislativa", "Exigida em cada caso: criar subsidiárias e participar de empresa privada."], ["Emenda à Constituição Estadual / Lei Orgânica", "out", "emenda às respectivas Constituições e Leis? Orgânicas?", "Não é lei: Estado, DF e Município fixam por emenda à sua Constituição ou Lei Orgânica."]]};
+(function(){
+  const sec = document.getElementById("dc-leis"); if(!sec) return;
+  const TIPO = {}; TL.tipos.forEach(([n,f,re,nota], i)=>{ TIPO[n] = {f, re:new RegExp(re, "i"), nota, i}; });
+  const ROWS = TL.rows.map(([t,a,k,x,g,o], i)=>({t, a, k, x, g, o, i}));
+  const SEM = "Sem grupo";
+  const gName = r => r.g || SEM;
+  const cnt = (arr, f) => arr.reduce((m, r)=>{ const k = f(r); m[k] = (m[k]||0) + 1; return m; }, {});
+  const ALLG = cnt(ROWS, gName), ALLT = cnt(ROWS, r=>r.t);
+  const GRUPOS = Object.keys(ALLG).sort((a,b)=>{ const w = n => n===SEM ? 2 : n==="Outros" ? 1 : 0;
+    return w(a)-w(b) || ALLG[b]-ALLG[a] || a.localeCompare(b, "pt-BR"); });
+  const st = () => { const s = STORE._tl = STORE._tl || {}; if(s.by!=="grupo") s.by = "tipo";
+    if(s.t && !TIPO[s.t]) s.t = ""; if(s.g && !ALLG[s.g]) s.g = ""; return s; };
+  const save = () => { try{ saveAll(); }catch(e){} };
+  let Q = "";
+  const txt = r => { const h = esc(r.x), m = TIPO[r.t].re.exec(h);
+    const out = m ? h.slice(0, m.index) + '<b class="kw">' + m[0] + '</b>' + h.slice(m.index + m[0].length) : h;
+    return out.replace(/\n/g, "<br>"); };
+  const lsr = r => `<button type="button" class="lsr" data-r="${esc(r.k)}" title="Ler o ${esc(r.a)} na lei seca">${esc(r.a)}</button>`;
+  const tipoTag = t => `<span class="f f-${TIPO[t].f}">${esc(t)}</span>`;
+  const grupoTag = r => r.g ? `<span>${esc(r.g)}</span>` : `<span class="none">sem grupo</span>`;
+
+  // mapa: um cartão por tipo (clique = filtra a tabela)
+  const map = document.getElementById("tl-map");
+  map.innerHTML = TL.tipos.map(([n,f,,nota])=>`<button type="button" class="tl-tile f-${f}" data-t="${esc(n)}" aria-pressed="false" title="Filtrar a tabela: ${esc(n)}"><b>${esc(n)}</b><span class="tl-n">${ALLT[n]}</span><small>${esc(nota)}</small></button>`).join("");
+  map.querySelectorAll(".tl-tile").forEach(b=>b.onclick=()=>{ const s = st(); s.t = s.t===b.dataset.t ? "" : b.dataset.t; save(); draw();
+    if(s.t) document.getElementById("tl-tab").scrollIntoView({behavior:"smooth", block:"start"}); });
+
+  function match(r){
+    if(!Q) return true;
+    const m = /^(?:art(?:igo)?\.?\s*)?(\d+)\s*[º°o]?$/i.exec(Q.trim());
+    if(m) return r.k.split("-")[0]===m[1];
+    return fold(r.a + " " + r.x + " " + r.t + " " + r.g).includes(fold(Q.trim()));
+  }
+  function draw(){
+    const s = st();
+    // botões de agrupamento e filtros (contagem dentro da busca e do outro filtro)
+    document.querySelectorAll("#tl-by button").forEach(b=>{ b.classList.toggle("on", b.dataset.by===s.by); b.setAttribute("aria-pressed", String(b.dataset.by===s.by)); });
+    const base = ROWS.filter(match);
+    const gC = cnt(base.filter(r=>!s.t || r.t===s.t), gName), tC = cnt(base.filter(r=>!s.g || gName(r)===s.g), r=>r.t);
+    const nG = base.filter(r=>!s.t || r.t===s.t).length, nT = base.filter(r=>!s.g || gName(r)===s.g).length;
+    document.getElementById("tl-gr").innerHTML = `<button type="button" data-g="" class="${s.g ? "" : "on"}">Todos <span class="tl-c">${nG}</span></button>` +
+      GRUPOS.map(g=>`<button type="button" data-g="${esc(g)}" class="${s.g===g ? "on" : ""}">${esc(g)} <span class="tl-c">${gC[g]||0}</span></button>`).join("");
+    const tp = document.getElementById("tl-tp");
+    tp.innerHTML = `<option value="">Todos os tipos · ${nT}</option>` +
+      TL.tipos.map(([n])=>`<option value="${esc(n)}"${s.t===n ? " selected" : ""}>${esc(n)} · ${tC[n]||0}</option>`).join("");
+    tp.value = s.t || ""; tp.classList.toggle("on", !!s.t);
+    document.querySelectorAll("#tl-gr button").forEach(b=>b.onclick=()=>{ st().g = b.dataset.g; save(); draw(); });
+    map.querySelectorAll(".tl-tile").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.t===s.t)));
+
+    const rows = base.filter(r=>(!s.t || r.t===s.t) && (!s.g || gName(r)===s.g));
+    const byT = s.by==="tipo";
+    const h3 = byT ? "Grupo" : "Tipo de lei";
+    document.getElementById("tl-h3").textContent = h3;
+    const keys = byT ? TL.tipos.map(x=>x[0]) : GRUPOS;
+    const body = keys.map(k=>{
+      const its = rows.filter(r=>(byT ? r.t : gName(r))===k).sort((a,b)=> byT ? a.i-b.i : (a.o-b.o || TIPO[a.t].i-TIPO[b.t].i));
+      if(!its.length) return "";
+      const ks = [...new Set(its.map(r=>r.k))];
+      const head = `<tr class="tl-g"><th colspan="3"${byT ? ` class="f-${TIPO[k].f}"` : ""}><div class="tl-gw"><span class="tl-gn">${esc(k)}</span><span class="tl-gc">${its.length} ${its.length>1 ? "registros" : "registro"}</span>` +
+        `<button type="button" class="lsall" data-r="${esc(ks.join(" "))}" title="Ler na lei seca (${ks.length} ${ks.length>1 ? "dispositivos" : "dispositivo"})"><span class="lsk">Lei seca</span>${ks.length} ${ks.length>1 ? "dispositivos" : "dispositivo"}</button>` +
+        (byT ? `<span class="tl-gx">${esc(TIPO[k].nota)}</span>` : "") + `</div></th></tr>`;
+      return head + its.map(r=>`<tr><td class="tl-art" data-l="Art.">${lsr(r)}</td><td class="tl-x" data-l="Texto da lei">${txt(r)}</td><td class="tl-tag" data-l="${h3}">${byT ? grupoTag(r) : tipoTag(r.t)}</td></tr>`).join("");
+    }).join("");
+    document.getElementById("tl-body").innerHTML = body || `<tr class="tl-empty"><td colspan="3">Nenhum registro com esses filtros.</td></tr>`;
+    document.getElementById("tl-count").textContent = rows.length===ROWS.length ? `${ROWS.length} registros` : `${rows.length} de ${ROWS.length} registros`;
+    document.getElementById("tl-clear").disabled = !(s.t || s.g || Q);
+  }
+  document.querySelectorAll("#tl-by button").forEach(b=>b.onclick=()=>{ st().by = b.dataset.by; save(); draw(); });
+  document.getElementById("tl-tp").onchange = e=>{ st().t = e.target.value; save(); draw(); };
+  const q = document.getElementById("tl-q");
+  q.addEventListener("input", ()=>{ Q = q.value; draw(); });
+  document.getElementById("tl-clear").onclick = ()=>{ const s = st(); s.t = s.g = ""; Q = ""; q.value = ""; save(); draw(); };
+  document.getElementById("tl-table").classList.add("stk");
+  sec.querySelectorAll(".rem-idx a").forEach(a=>a.addEventListener("click", e=>{
+    const el = document.querySelector(a.getAttribute("href")); if(!el) return;
+    e.preventDefault(); el.scrollIntoView({behavior:"smooth", block:"start"}); }));
+  draw();
+})();
 </script>
 </body>
 </html>

@@ -462,6 +462,32 @@ table.pat{font-size:.86rem;min-width:760px}
 }
 #view-penas #pn-auto{scroll-margin-top:96px}
 #pn-f button[data-g="__auto__"]{margin-left:6px}
+
+/* ===== Estudo › Subsidiários / Violência ===== */
+body[data-view="subviol"] .wrap{max-width:1240px}
+#view-subviol .qs{scroll-margin-top:96px}
+#view-subviol .qs h2{margin-bottom:6px}
+#view-subviol .callout p{margin:3px 0 0}
+#view-subviol .goto{font:inherit;font-weight:700;color:var(--accent);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;white-space:nowrap}
+#sv-f button[data-g="__auto__"]{margin-left:6px}
+table.svt{font-size:.88rem;min-width:760px;table-layout:fixed}
+.svt col.c-k{width:96px}.svt col.c-art{width:84px}.svt col.c-nome{width:24%}.svt col.c-tr{width:31%}
+.svt td,.svt th{vertical-align:middle}
+.svt th.sv-art{text-align:center;background:var(--bg)}
+.svt td.svk-c{text-align:center}
+.svk{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:800;letter-spacing:.2px}
+.svk.ex{background:var(--brand-soft);color:var(--accent)}
+.svk.ta{background:var(--warn-soft);color:var(--ink)}
+.svk.vi{background:var(--bad-soft);color:var(--bad)}
+.svt .svp{display:block;margin-top:3px;color:var(--bad);font-weight:700;font-size:.92em}
+.svt .svg{display:block;margin-top:2px;color:var(--muted);font-size:.85em}
+.svt td.svq{font-size:.95em}
+.svt td.svn{font-size:.93em;color:var(--ink)}
+#view-subviol .sv-empty{margin:6px 0 0}
+#view-subviol .scroll[hidden]{display:none}
+#view-subviol #sv-auto{scroll-margin-top:96px}
+@media (max-width:560px){table.svt{min-width:720px}}
+@media print{body[data-view="subviol"] .wrap{max-width:none}#view-subviol .pegtools{display:none!important}.svt tr{break-inside:avoid}}
 </style>
 </head>
 <body data-view="questoes">
@@ -479,6 +505,7 @@ table.pat{font-size:.86rem;min-width:760px}
     <button class="tab" role="tab" data-v="lei" aria-selected="true">Lei Seca</button>
     <button class="tab" role="tab" data-v="dicas" aria-selected="false">Dicas &amp; Esquemas</button>
     <button class="tab" role="tab" data-v="penas" aria-selected="false">Penas</button>
+    <button class="tab" role="tab" data-v="subviol" aria-selected="false">Subsidiários / Violência</button>
   </nav>
 
   <section class="view" id="view-lei">
@@ -710,6 +737,45 @@ table.pat{font-size:.86rem;min-width:760px}
         <thead><tr><th>Nº</th><th>Assertiva</th><th>Gabarito</th><th>Por quê</th></tr></thead>
         <tbody id="at-body"></tbody></table></div>
       <p class="src">Assertivas elaboradas por IA a partir da Lei Seca TJSP 2026 (Código Penal) e das tabelas desta aba (2 - Aumento de Penas e 3 - Qualificadora), no formato do Autoteste do “Estudo Lei 13146 - TJSP V4”.</p>
+    </section>
+    <footer>Fundamentação elaborada a partir do Código Penal e do material de estudo NEAF (uso pessoal)</footer>
+  </section>
+
+  <section class="view" id="view-subviol">
+    <nav class="qnav" id="sv-nav" aria-label="Trilha de Estudo"><span class="lbl">Trilha de Estudo</span><a href="#sv-1" data-id="sv-1">1 - Subsidiários</a><a href="#sv-2" data-id="sv-2">2 - Além da pena da violência</a></nav>
+    <div class="pegtools dcf"><div class="pegf" id="sv-f" role="group" aria-label="Filtrar por grupo"><button type="button" data-g="__todos__">Todos</button><button type="button" data-g="Fé Pública">Fé Pública</button><button type="button" data-g="Func Publico x ADM Publica">Func Publico x ADM Publica</button><button type="button" data-g="Part. x Adm. Geral">Part. x Adm. Geral</button><button type="button" data-g="ADM JUSTIÇA">ADM JUSTIÇA</button><button type="button" data-g="__auto__" title="Autoteste — subsidiários e violência">Autoteste</button></div></div>
+    <p class="muted dcintro">Crimes subsidiários e crimes cuja pena se soma à da violência (planilha Penal tabela subsidiários remetidos e sem prejuízo).</p>
+
+    <section class="card qs" id="sv-1"><h2>1 - Subsidiários</h2>
+      <div class="callout ok"><span class="ct">Como reconhecer</span>
+        <p><b>Expresso:</b> a própria pena traz a cláusula “se o fato não constitui (elemento de) crime mais grave” — está no preceito secundário, não em parágrafo.</p>
+        <p><b>Atenção à redação:</b> arts. <b>307 e 308</b> → “<b>elemento de</b> crime mais grave”; arts. <b>314, 325 e 337</b> → “crime mais grave”.</p>
+        <p><b>Tácito:</b> sem cláusula no texto, mas só se aplica se não houver crime mais grave — art. <b>347</b> (fraude processual), segundo o NEAF.</p>
+      </div>
+      <div class="scroll"><table class="qt svt"><colgroup><col class="c-k"><col class="c-art"><col class="c-nome"><col class="c-tr"><col class="c-neaf"></colgroup><thead><tr><th>Tipo</th><th>Art.</th><th>Nome e pena</th><th>Trecho da lei / característica</th><th>Material NEAF (observação)</th></tr></thead><tbody><tr data-grupo="Fé Pública"><td class="svk-c"><span class="svk ex">Expresso</span></td><th class="sv-art"><button type="button" class="goto" data-art="307" title="Ver na Lei Seca">Art. 307</button></th><td><b>Falsa identidade</b><span class="svp">3 meses a 1 ano · Detenção ou multa</span><span class="svg">Fé Pública</span></td><td class="svq">“…se o fato não constitui elemento de crime mais grave”</td><td class="svn">Se a falsa identidade for meio para crime mais grave (ex.: estelionato), responde só por este.</td></tr><tr data-grupo="Fé Pública"><td class="svk-c"><span class="svk ex">Expresso</span></td><th class="sv-art"><button type="button" class="goto" data-art="308" title="Ver na Lei Seca">Art. 308</button></th><td><b>Uso de documento de identidade alheia</b><span class="svp">4 meses a 2 anos · Detenção e multa</span><span class="svg">Fé Pública</span></td><td class="svq">“…se o fato não constitui elemento de crime mais grave”</td><td class="svn">Delito expressamente subsidiário.</td></tr><tr data-grupo="Func Publico x ADM Publica"><td class="svk-c"><span class="svk ex">Expresso</span></td><th class="sv-art"><button type="button" class="goto" data-art="314" title="Ver na Lei Seca">Art. 314</button></th><td><b>Extravio, sonegação ou inutilização de livro ou documento</b><span class="svp">1 a 4 anos · Reclusão (sem multa)</span><span class="svg">Func Publico x ADM Publica</span></td><td class="svq">“…se o fato não constitui crime mais grave”</td><td class="svn">Crime subsidiário.</td></tr><tr data-grupo="Func Publico x ADM Publica"><td class="svk-c"><span class="svk ex">Expresso</span></td><th class="sv-art"><button type="button" class="goto" data-art="325" title="Ver na Lei Seca">Art. 325</button></th><td><b>Violação de sigilo funcional</b><span class="svp">6 meses a 2 anos · Detenção ou multa</span><span class="svg">Func Publico x ADM Publica</span></td><td class="svq">“…se o fato não constitui crime mais grave”</td><td class="svn">CESPE (ABIN): “A violação de sigilo funcional é subsidiária, só se caracterizando se a revelação não constituir crime mais grave”</td></tr><tr data-grupo="Part. x Adm. Geral"><td class="svk-c"><span class="svk ex">Expresso</span></td><th class="sv-art"><button type="button" class="goto" data-art="337" title="Ver na Lei Seca">Art. 337</button></th><td><b>Subtração ou inutilização de livro ou documento</b><span class="svp">2 a 5 anos · Reclusão (sem multa)</span><span class="svg">Part. x Adm. Geral</span></td><td class="svq">“…se o fato não constitui crime mais grave”</td><td class="svn">Se a finalidade for destruir documento público de que não podia dispor → art. 305 (supressão de documento), não o 337.</td></tr><tr data-grupo="ADM JUSTIÇA"><td class="svk-c"><span class="svk ta">Tácito</span></td><th class="sv-art"><button type="button" class="goto" data-art="347" title="Ver na Lei Seca">Art. 347</button></th><td><b>Fraude processual</b><span class="svp">3 meses a 2 anos · Detenção e multa</span><span class="svg">ADM JUSTIÇA</span></td><td class="svq">Sem cláusula no texto — subsidiariedade tácita ou implícita (NEAF)</td><td class="svn">Crime tacitamente subsidiário: se houver outro delito com pena mais elevada, a fraude processual fica absorvida.</td></tr></tbody></table></div><p class="muted sv-empty" hidden>Nenhum crime subsidiário neste grupo.</p>
+    </section>
+
+    <section class="card qs" id="sv-2"><h2>2 - Além da pena da violência</h2>
+      <div class="callout ok"><span class="ct">Como reconhecer</span>
+        <p>Só o art. <b>329, § 2º</b> usa “<b>sem prejuízo</b> das correspondentes à violência”; os arts. <b>322, 344 e 345</b> dizem “<b>além da pena</b> correspondente à violência”.</p>
+        <p><b>Efeito:</b> concurso material obrigatório (NEAF) — soma-se a pena do crime à do crime resultante da violência (lesão, homicídio…), que nunca é absorvido. Não é causa de aumento.</p>
+      </div>
+      <div class="scroll"><table class="qt svt"><colgroup><col class="c-k"><col class="c-art"><col class="c-nome"><col class="c-tr"><col class="c-neaf"></colgroup><thead><tr><th>Tipo</th><th>Art.</th><th>Nome e pena</th><th>Trecho da lei / característica</th><th>Material NEAF (observação)</th></tr></thead><tbody><tr data-grupo="Func Publico x ADM Publica"><td class="svk-c"><span class="svk vi">Violência</span></td><th class="sv-art"><button type="button" class="goto" data-art="322" title="Ver na Lei Seca">Art. 322</button></th><td><b>Violência arbitrária</b><span class="svp">6 meses a 3 anos · Detenção (sem multa) + pena da violência</span><span class="svg">Func Publico x ADM Publica</span></td><td class="svq">“…além da pena correspondente à violência”</td><td class="svn">Havendo abuso de autoridade com violência, o art. 322 atua como soldado de reserva e deixa de incidir quando o fato se enquadra na Lei 13.869/19. Há controvérsia sobre a revogação tácita do artigo.</td></tr><tr data-grupo="Part. x Adm. Geral"><td class="svk-c"><span class="svk vi">Violência</span></td><th class="sv-art"><button type="button" class="goto" data-art="329" title="Ver na Lei Seca">Art. 329</button></th><td><b>Resistência</b><span class="svp">2 meses a 2 anos · Detenção (sem multa); qualificada (§ 1º): 1 a 3 anos, Reclusão (sem multa) — + pena da violência</span><span class="svg">Part. x Adm. Geral</span></td><td class="svq">§ 2º “As penas deste artigo são aplicáveis sem prejuízo das correspondentes à violência” — único artigo do edital com a expressão “sem prejuízo”<br>§ 2º também alcança o § 1º (que é a qualificadora): “sem prejuízo das correspondentes à violência”</td><td class="svn">Concurso material obrigatório: responde pela resistência (simples ou qualificada) + o crime resultante da violência, que nunca é absorvido (lesão leve, grave, homicídio etc.)</td></tr><tr data-grupo="ADM JUSTIÇA"><td class="svk-c"><span class="svk vi">Violência</span></td><th class="sv-art"><button type="button" class="goto" data-art="344" title="Ver na Lei Seca">Art. 344</button></th><td><b>Coação no curso do processo</b><span class="svp">1 a 4 anos · Reclusão e multa + pena da violência</span><span class="svg">ADM JUSTIÇA</span></td><td class="svq">“…e multa, além da pena correspondente à violência”</td><td class="svn">Concurso material obrigatório: o próprio dispositivo ressalva a pena da violência.</td></tr><tr data-grupo="ADM JUSTIÇA"><td class="svk-c"><span class="svk vi">Violência</span></td><th class="sv-art"><button type="button" class="goto" data-art="345" title="Ver na Lei Seca">Art. 345</button></th><td><b>Exercício arbitrário das próprias razões</b><span class="svp">15 dias a 1 mês · Detenção ou multa + pena da violência</span><span class="svg">ADM JUSTIÇA</span></td><td class="svq">“…ou multa, além da pena correspondente à violência”</td><td class="svn">Concurso material obrigatório: soma da pena do art. 345 com a do crime da violência (lesão leve, grave, gravíssima, homicídio…). Sem violência, só se procede mediante queixa (parágrafo único)</td></tr></tbody></table></div><p class="muted sv-empty" hidden>Nenhum crime deste tipo neste grupo.</p>
+    </section>
+
+    <section class="card qs" id="sv-auto" hidden>
+      <h2>Autoteste — Subsidiários e Violência</h2>
+      <p class="muted">31 assertivas no estilo Certo ou Errado sobre os crimes <b>subsidiários</b> e os que somam a <b>pena da violência</b>. No <b>Modo treino</b>, marque Certo ou Errado em cada linha para ver o gabarito e o porquê; desligue o Modo treino para ver a tabela completa.</p>
+      <div class="pegtools attools">
+        <label class="switch"><input type="checkbox" id="sv-at-treino"> Modo treino</label>
+        <div class="pegf" id="sv-at-filtro"><button type="button" data-g="all">Todas</button><button type="button" data-g="sub">Subsidiários</button><button type="button" data-g="vio">Violência</button></div>
+        <span class="chip" id="sv-at-score"></span>
+        <button type="button" class="btn ghost sm" id="sv-at-reset" title="Apaga as suas respostas deste Autoteste">Refazer</button>
+      </div>
+      <div class="scroll"><table class="qt at" id="sv-at-tab">
+        <thead><tr><th>Nº</th><th>Assertiva</th><th>Gabarito</th><th>Por quê</th></tr></thead>
+        <tbody id="sv-at-body"></tbody></table></div>
+      <p class="src">Assertivas elaboradas por IA a partir da Lei Seca TJSP 2026 (Código Penal) e da planilha Penal tabela subsidiários remetidos e sem prejuízo, no formato do Autoteste da aba Penas.</p>
     </section>
     <footer>Fundamentação elaborada a partir do Código Penal e do material de estudo NEAF (uso pessoal)</footer>
   </section>
@@ -1535,6 +1601,67 @@ function initPenas(){
   applyPnFilter();
 }
 
+// ---------- Estudo › Subsidiários / Violência ----------
+const SVGROUPS = [...new Set([...document.querySelectorAll("#view-subviol tbody tr[data-grupo]")].map(t=>t.dataset.grupo))];
+function svGroup(){ const g = STORE._svg; return g==="__auto__" || g==="__todos__" || ["Fé Pública","Func Publico x ADM Publica","Part. x Adm. Geral","ADM JUSTIÇA"].includes(g) ? g : "__todos__"; }
+function applySvFilter(){
+  const g = svGroup(), auto = g==="__auto__";
+  document.querySelectorAll("#sv-f button").forEach(b=>{ const on = b.dataset.g===g; b.classList.toggle("on", on); b.setAttribute("aria-pressed", String(on)); });
+  ["sv-1","sv-2"].forEach(id=>{ document.getElementById(id).hidden = auto; });
+  $("#sv-auto").hidden = !auto;
+  document.querySelectorAll("#sv-nav a").forEach(a=>a.classList.toggle("off", auto));
+  ["sv-1","sv-2"].forEach(id=>{
+    const sec = document.getElementById(id); let n = 0;
+    sec.querySelectorAll("tbody tr[data-grupo]").forEach(tr=>{ const on = g==="__todos__" || auto || tr.dataset.grupo===g; tr.hidden = !on; if(on) n++; });
+    sec.querySelector(".scroll").hidden = n===0; sec.querySelector(".sv-empty").hidden = n!==0;
+  });
+  svSpy();
+}
+function svSpy(){
+  if(document.body.dataset.view!=="subviol") return;
+  const nav = $("#sv-nav");
+  const lim = nav.getBoundingClientRect().bottom + 64;
+  const secs = [...document.querySelectorAll("#view-subviol > .qs:not([hidden])")];
+  let cur = null; secs.forEach(s=>{ if(s.getBoundingClientRect().top <= lim) cur = s.id; });
+  if(cur && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = secs[secs.length-1].id;
+  nav.querySelectorAll("a").forEach(a=>a.classList.toggle("on", a.dataset.id===cur));
+}
+// Autoteste — [categoria, gabarito (C/E), assertiva, por quê (**negrito**), artigo para o atalho "Lei Seca ›"]
+const AUTO_SV = [["sub", "C", "A falsa identidade é crime expressamente subsidiário: sua pena só se aplica se o fato não constitui elemento de crime mais grave.", "Art. 307.", "307"], ["sub", "E", "Na falsa identidade, a cláusula de subsidiariedade está no parágrafo único do art. 307.", "O art. 307 **não tem parágrafo único**: a cláusula está **na própria pena** (preceito secundário).", "307"], ["sub", "C", "Se a falsa identidade for o meio para a prática de crime mais grave, como o estelionato, o agente responde apenas por este.", "Art. 307 — subsidiariedade expressa (material NEAF).", "307"], ["sub", "E", "A falsa identidade é punida com detenção, de 3 meses a 1 ano, e multa, se o fato não constitui elemento de crime mais grave.", "A multa é **alternativa**: detenção, de 3 meses a 1 ano, **ou** multa (art. 307).", "307"], ["sub", "E", "No art. 308 (uso, como próprio, de documento de identidade alheia), a subsidiariedade é tácita, pois a lei não menciona crime mais grave.", "É **expressa**: “se o fato não constitui elemento de crime mais grave” (art. 308).", "308"], ["sub", "C", "Os arts. 307 e 308 usam a mesma fórmula de subsidiariedade: “se o fato não constitui elemento de crime mais grave”.", "Arts. 307 e 308.", "308"], ["sub", "E", "O crime do art. 308 tem pena menor que a da falsa identidade.", "É **maior**: detenção, de **4 meses a 2 anos, e multa** (art. 308), contra detenção, de 3 meses a 1 ano, ou multa (art. 307).", "308"], ["sub", "C", "No extravio, sonegação ou inutilização de livro ou documento, a pena de reclusão, de 1 a 4 anos, só se aplica se o fato não constitui crime mais grave.", "Art. 314.", "314"], ["sub", "E", "O extravio, sonegação ou inutilização de livro ou documento é punido com reclusão, de 1 a 4 anos, e multa, se o fato não constitui crime mais grave.", "O art. 314 **não prevê multa**: reclusão, de 1 a 4 anos.", "314"], ["sub", "E", "Os arts. 314 e 337 usam a fórmula “se o fato não constitui elemento de crime mais grave”.", "Usam “se o fato não constitui **crime mais grave**”. A expressão “**elemento de** crime mais grave” é dos **arts. 307 e 308**.", "314"], ["sub", "C", "A violação de sigilo funcional é crime subsidiário: só se caracteriza se a revelação não constituir crime mais grave.", "Art. 325 (“…se o fato não constitui crime mais grave”). Cobrado pelo CESPE (ABIN).", "325"], ["sub", "E", "A violação de sigilo funcional só se caracteriza se a revelação constituir crime mais grave.", "É o contrário: só se caracteriza se o fato **não** constitui crime mais grave (art. 325).", "325"], ["sub", "C", "Na subtração ou inutilização de livro ou documento (art. 337), a pena de reclusão, de 2 a 5 anos, só se aplica se o fato não constitui crime mais grave.", "Art. 337.", "337"], ["sub", "E", "Quem destrói documento público de que não podia dispor, com a finalidade de suprimi-lo, responde sempre pelo art. 337.", "Com essa finalidade, o crime é o do **art. 305 (supressão de documento)**, não o 337 (material NEAF).", "337"], ["sub", "E", "Entre os crimes de extravio de livro ou documento (314), violação de sigilo funcional (325) e subtração ou inutilização de livro ou documento (337), apenas o primeiro é expressamente subsidiário.", "**Os três** trazem “se o fato não constitui crime mais grave” (arts. 314, 325 e 337).", "325"], ["sub", "C", "A fraude processual não traz cláusula expressa de subsidiariedade, mas é considerada tacitamente subsidiária.", "Art. 347 — subsidiariedade **tácita ou implícita** (material NEAF).", "347"], ["sub", "E", "A fraude processual é crime expressamente subsidiário, pois o art. 347 diz “se o fato não constitui crime mais grave”.", "O art. 347 **não tem essa cláusula**: a subsidiariedade é **tácita** (material NEAF).", "347"], ["sub", "C", "Se a fraude processual servir a outro delito com pena mais elevada, ela fica absorvida.", "Art. 347 — crime tacitamente subsidiário (material NEAF).", "347"], ["vio", "C", "Na resistência, as penas são aplicáveis sem prejuízo das correspondentes à violência.", "Art. 329, § 2º.", "329"], ["vio", "E", "Na resistência qualificada (o ato não se executa), a pena da violência fica absorvida pela pena de reclusão, de 1 a 3 anos.", "O § 2º vale para **todo o artigo**, inclusive a forma qualificada: a pena da violência **soma-se** e nunca é absorvida (art. 329, § 2º).", "329"], ["vio", "C", "Entre os artigos do edital, só a resistência usa a expressão “sem prejuízo das correspondentes à violência”; a violência arbitrária, a coação no curso do processo e o exercício arbitrário das próprias razões dizem “além da pena correspondente à violência”.", "Art. 329, § 2º x arts. 322, 344 e 345.", "329"], ["vio", "C", "Na resistência, há concurso material obrigatório: o agente responde pela resistência e pelo crime resultante da violência, que nunca é absorvido.", "Art. 329, § 2º (material NEAF).", "329"], ["vio", "C", "Na violência arbitrária, aplica-se a pena de detenção, de 6 meses a 3 anos, além da pena correspondente à violência.", "Art. 322.", "322"], ["vio", "E", "Na violência arbitrária, a pena de detenção, de 6 meses a 3 anos, absorve a pena correspondente à violência.", "A pena é aplicada **além da pena correspondente à violência** (art. 322).", "322"], ["vio", "C", "Segundo a doutrina citada pelo NEAF, havendo abuso de autoridade com violência, o art. 322 atua como soldado de reserva e deixa de incidir quando o fato se enquadra na Lei 13.869/19.", "Art. 322 (material NEAF). Há controvérsia sobre a revogação tácita do artigo.", "322"], ["vio", "C", "Na coação no curso do processo, aplica-se a pena de reclusão, de 1 a 4 anos, e multa, além da pena correspondente à violência.", "Art. 344 — concurso material obrigatório (material NEAF).", "344"], ["vio", "E", "Na coação no curso do processo, a violência empregada fica absorvida pela pena de reclusão, de 1 a 4 anos, e multa.", "O art. 344 ressalva: a pena é aplicada **além da pena correspondente à violência**.", "344"], ["vio", "E", "No exercício arbitrário das próprias razões, a pena de detenção, de 15 dias a 1 mês, ou multa, absorve a da lesão corporal causada pela violência.", "A pena é aplicada **além da pena correspondente à violência** — somam-se as penas (art. 345).", "345"], ["vio", "C", "No exercício arbitrário das próprias razões, se não há emprego de violência, somente se procede mediante queixa.", "Art. 345, parágrafo único.", "345"], ["vio", "E", "No exercício arbitrário das próprias razões, a ação penal é sempre privada, mediante queixa.", "Só é mediante queixa **se não há emprego de violência** (art. 345, parágrafo único).", "345"], ["vio", "E", "Na resistência, na violência arbitrária, na coação no curso do processo e no exercício arbitrário das próprias razões, o emprego de violência é causa de aumento de pena de um terço.", "Não é causa de aumento: a pena do crime é aplicada **além da (ou sem prejuízo da) pena correspondente à violência** — **somam-se** as penas (arts. 322, 329, § 2º, 344 e 345).", "329"]];
+function svAtStore(){ const s = STORE._autoSV = STORE._autoSV || {}; if(!s.ans) s.ans = {}; if(s.treino===undefined) s.treino = true; return s; }
+function renderSvAuto(){
+  const s = svAtStore(), g = s.g || "all";
+  const md = t => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+  const rows = AUTO_SV.map((a,i)=>({a, n:i+1})).filter(o=>g==="all" || o.a[0]===g);
+  $("#sv-at-body").innerHTML = rows.map(({a,n})=>{
+    const mine = s.ans[n], open = !s.treino || !!mine;
+    const gab = `<span class="atg ${a[1]==="C" ? "c" : "e"}">${a[1]==="C" ? "CERTO" : "ERRADO"}</span>`;
+    const you = mine ? `<span class="atmine ${mine===a[1] ? "ok" : "no"}">Você marcou ${mine==="C" ? "Certo" : "Errado"} ${mine===a[1] ? "✓" : "✗"}</span>` : "";
+    const btns = s.treino && !mine ? `<div class="atbtn"><button type="button" data-n="${n}" data-v="C">Certo</button><button type="button" data-n="${n}" data-v="E">Errado</button></div>` : "";
+    const go = LEIART[a[4]] ? `<button type="button" class="goto" data-art="${esc(a[4])}" title="Abrir o artigo na Lei Seca">Lei Seca ›</button>` : "";
+    return `<tr class="${open ? "open" : ""}" data-n="${n}"><td class="atn">${n}</td><td>${esc(a[2])}</td>` +
+      `<td class="atgab">${btns}<span class="atans">${gab}${you}</span></td><td class="atwhy"><span class="atans">${md(a[3])} ${go}</span></td></tr>`;
+  }).join("");
+  const done = rows.filter(o=>s.ans[o.n]).length, ok = rows.filter(o=>s.ans[o.n]===o.a[1]).length;
+  $("#sv-at-score").innerHTML = s.treino ? `Respondidas <b>${done}</b> de ${rows.length} · Acertos <b>${ok}</b>${done ? ` (${Math.round(100*ok/done)}%)` : ""}` : `${rows.length} assertivas`;
+  $("#sv-at-treino").checked = !!s.treino;
+  $("#sv-at-reset").hidden = !s.treino;
+  document.querySelectorAll("#sv-at-filtro button").forEach(b=>b.classList.toggle("on", b.dataset.g===g));
+  $("#sv-at-body").querySelectorAll(".atbtn button").forEach(b=>b.onclick=()=>{ svAtStore().ans[b.dataset.n] = b.dataset.v; saveAll(); renderSvAuto(); });
+}
+function initSv(){
+  $("#sv-at-treino").onchange = e=>{ svAtStore().treino = e.target.checked; saveAll(); renderSvAuto(); };
+  document.querySelectorAll("#sv-at-filtro button").forEach(b=>b.onclick=()=>{ svAtStore().g = b.dataset.g; saveAll(); renderSvAuto(); });
+  $("#sv-at-reset").onclick = ()=>{ svAtStore().ans = {}; saveAll(); renderSvAuto(); };
+  renderSvAuto();
+  $("#sv-nav").querySelectorAll("a").forEach(a=>a.onclick=e=>{ e.preventDefault(); if(svGroup()==="__auto__"){ STORE._svg = "__todos__"; saveAll(); applySvFilter(); } const el = document.getElementById(a.dataset.id); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); });
+  $("#sv-f").querySelectorAll("button").forEach(b=>b.onclick=()=>{ STORE._svg = b.dataset.g; saveAll(); applySvFilter(); });
+  $("#view-subviol").addEventListener("click", e=>{ const g = e.target.closest(".goto"); if(g && LEIART[g.dataset.art]) goLei(g.dataset.art); });
+  window.addEventListener("scroll", svSpy, {passive:true});
+  window.addEventListener("resize", svSpy, {passive:true});
+  applySvFilter();
+}
+
 function showView(v, anchor){
   STORE._top = v; if(v!=="questoes") STORE._teo = v; saveAll();
   document.body.dataset.view = v;
@@ -1545,21 +1672,21 @@ function showView(v, anchor){
   document.querySelectorAll(".view").forEach(s=>s.classList.toggle("active", s.id==="view-"+v));
   if(anchor){ const el=document.getElementById(anchor); if(el) setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),30); }
   else window.scrollTo({top:0});
-  dicasSpy(); penasSpy();
+  dicasSpy(); penasSpy(); svSpy();
 }
 
 (function initExtra(){
-  const teo = () => ["lei","dicas","penas"].includes(STORE._teo) ? STORE._teo : "lei";
+  const teo = () => ["lei","dicas","penas","subviol"].includes(STORE._teo) ? STORE._teo : "lei";
   document.querySelectorAll(".top").forEach(b=>b.onclick=()=>showView(b.dataset.v==="teoria" ? teo() : b.dataset.v));
   document.querySelectorAll("#teo-tabs .tab").forEach(b=>b.onclick=()=>showView(b.dataset.v));
   $("#lei-q").oninput = e=>{ LQ=e.target.value; renderLei(); };
   $("#lei-reset").onclick = ()=>{ STORE._lei={}; saveAll(); renderLei(); };
   $("#lei-toc").addEventListener("click", e=>{ const a = e.target.closest("a"); if(!a) return; e.preventDefault(); const el = document.getElementById(a.getAttribute("href").slice(1)); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); });
   window.addEventListener("scroll", dicasSpy, {passive:true});
-  renderLei(); renderDicas(); initAuto(); initPenas();
+  renderLei(); renderDicas(); initAuto(); initPenas(); initSv();
   const h = location.hash.slice(1);
-  const byHash = {lei:"lei", dicas:"dicas", penas:"penas", questoes:"questoes", teoria:teo(), estudo:teo()}[h];
-  showView(byHash || (["lei","dicas","penas","questoes"].includes(STORE._top) ? STORE._top : "questoes"));
+  const byHash = {lei:"lei", dicas:"dicas", penas:"penas", subviol:"subviol", subsidiarios:"subviol", questoes:"questoes", teoria:teo(), estudo:teo()}[h];
+  showView(byHash || (["lei","dicas","penas","subviol","questoes"].includes(STORE._top) ? STORE._top : "questoes"));
 })();
 
 </script>
