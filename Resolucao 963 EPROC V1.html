@@ -467,6 +467,91 @@ header #app-subtitle[hidden]{display:none}
   .qd{break-inside:auto}
 }
 
+
+/* ---- Teoria › Tabela Lei Seca ---- */
+.tbtools{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-top:14px;box-shadow:var(--shadow)}
+.tbintro{margin:0 0 10px;font-size:.88rem;color:var(--muted)}.tbintro b{color:var(--ink)}
+.tbrow{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.tbrow+.tbsel,.tbsel+.tbrow{margin-top:10px}
+.tb-nopr .tblbl,.tb-nopr #tb-pr,.tb-nopr .c-pr{display:none}
+.tbrow input[type=search]{flex:1 1 280px;font:inherit;padding:8px 12px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0}
+.tbrow button.btn:disabled{opacity:.45;cursor:default}
+.tbsel{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 12px}
+.tbsel label{display:block;min-width:0}
+.tbsel label>span,.tblbl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);margin:0 0 3px}
+.tblbl{margin:0}
+.tbsel select{width:100%;font:inherit;font-size:.88rem;padding:7px 8px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);text-overflow:ellipsis}
+.tbsel select:disabled{opacity:.5}
+.tbcount{margin-left:auto}
+#tb-pr button{display:inline-flex;align-items:center;gap:6px}
+.prd{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--muted)}
+.prd.p-a{background:var(--bad)}.prd.p-b{background:var(--accent)}.prd.p-c{background:var(--muted)}
+#tb-pr button.on .prd{box-shadow:0 0 0 2px #fff}
+table.qt.tbl{table-layout:fixed;margin-top:14px;background:var(--panel)}
+.tbl col.c-art{width:92px}.tbl col.c-par{width:96px}.tbl col.c-inc{width:74px}.tbl col.c-al{width:58px}.tbl col.c-pr{width:88px}
+.tbl thead th{position:sticky;top:0;z-index:3;font-size:.8rem;box-shadow:0 1px 0 var(--line)}
+.tbl td{font-size:.88rem;line-height:1.45}
+.tbl td.c-art,.tbl td.c-par,.tbl td.c-inc,.tbl td.c-al{font-weight:600;color:var(--brand)}
+.tbl td.c-inc,.tbl td.c-al{white-space:nowrap}
+.tbl td.c-pr,.tbl th.c-pr{text-align:center}
+.tbl .rp{visibility:hidden}
+.tbl tr.a1 td{border-top:2px solid var(--brand-soft)}
+.tbl td.c-art b{display:block;color:var(--brand)}
+.tbl button.goto{display:block;font:inherit;font-size:.74rem;font-weight:700;color:var(--accent);background:none;border:none;padding:0;margin:3px 0 0;cursor:pointer;text-decoration:underline;text-align:left}
+.tbl .tag.modtag{font-size:.68rem;margin-top:5px;padding:1px 5px;line-height:1.3}
+.tbl td.c-txt.rev{color:var(--muted);font-style:italic}
+.prb{display:inline-block;min-width:34px;font-size:.76rem;font-weight:800;border-radius:999px;padding:2px 8px;border:1px solid var(--line);background:none;color:var(--muted)}
+.prb.p-a{background:var(--bad);border-color:var(--bad);color:#fff}.prb.p-b{background:var(--brand-soft);border-color:var(--accent);color:var(--brand)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .prb.p-a{color:#0f1420}}
+.tbl tr.tbg td{border-left:none;border-right:none;padding:7px 10px;color:var(--brand);font-weight:700}
+.tbl tr.tbg td .gn{float:right;font-size:.74rem;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0;margin-left:10px}
+.tbl tr.lv-parte td,.tbl tr.lv-livro td,.tbl tr.lv-tit td{background:var(--brand);color:#fff;text-transform:uppercase;letter-spacing:.6px;font-size:.84rem;padding:9px 10px}
+.tbl tr.lv-parte td .gn,.tbl tr.lv-livro td .gn,.tbl tr.lv-tit td .gn{color:#fff;opacity:.85}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tbl tr.lv-parte td,:root:not([data-theme="light"]) .tbl tr.lv-livro td,:root:not([data-theme="light"]) .tbl tr.lv-tit td,:root:not([data-theme="light"]) .tbl tr.lv-tit td .gn{color:#0f1420}}
+.tbl tr.lv-livro td{background:var(--accent)}
+.tbl tr.lv-cap td{background:var(--brand-soft);font-size:.86rem}
+.tbl tr.lv-sec td{background:var(--bg);font-style:italic;font-size:.86rem}
+.tbl tr.lv-sub td{background:var(--bg);font-style:italic;font-weight:600;font-size:.82rem;color:var(--muted);padding-left:26px}
+.tbl tr.tbempty td{color:var(--muted);text-align:center;padding:18px}
+.tbl tr.tbr:hover td{background:var(--warn-soft)}
+@media (max-width:560px){
+  .tbtools{padding:12px}
+  #teo-tabs{gap:2px}#teo-tabs .tab{padding:8px 6px;font-size:.84rem}
+  .tbcount{margin-left:0}
+  .tbsel{grid-template-columns:1fr 1fr}
+  table.qt.tbl,.tbl tbody{display:block;border:none}
+  .tbl colgroup,.tbl thead{display:none}
+  .tbl tr{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;border:1px solid var(--line);border-top:none;padding:7px 10px;background:var(--panel)}
+  .tbl tr.a1{border-top:2px solid var(--brand-soft)}
+  .tbl td,.tbl tr.a1 td{display:block;border:none!important;padding:0;background:none}
+  .tbl tr td:empty,.tbl tr.a1 td:empty,.tbl tr td.c-art:has(> .rp:only-child){display:none}
+  .tbl td.c-txt{order:1}
+  .tbl .rp{visibility:visible;color:var(--muted);font-weight:500}
+  .tbl td.c-art b{display:inline}
+  .tbl td.c-art button.goto,.tbl td.c-art .tag.modtag{display:inline-block;margin:0 0 0 8px}
+  .tbl td.c-inc::before{content:"inc. ";font-weight:400;color:var(--muted)}
+  .tbl td.c-al::before{content:"al. ";font-weight:400;color:var(--muted)}
+  .tbl td.c-pr{margin-left:auto}
+  .tbl td.c-txt{flex:1 1 100%;font-size:.9rem}
+  .tbl tr.tbg{padding:0;border-top:none}
+  .tbl tr.tbg td{flex:1 1 100%;padding:8px 10px!important}
+  .tbl tr.tbg.lv-tit td{background:var(--brand)}
+  .tbl tr.tbg.lv-cap td{background:var(--brand-soft)}
+  .tbl tr.tbg.lv-sec td,.tbl tr.tbg.lv-sub td{background:var(--bg)}
+  .tbl tr.tbg.lv-sub td{padding-left:20px!important}
+}
+@media print{
+  .tbtools,.tbl button.goto,.tbl .tag.modtag{display:none!important}
+  .tbl thead th{position:static}
+  .tbl tr{break-inside:avoid}
+  .tbl tr.tbg{break-after:avoid}
+}
+
+/* ---- Quadros e tabelas: etiquetas de Prioridade (da Tabela Lei Seca) ---- */
+.prtags{display:inline-flex;flex-wrap:wrap;gap:3px;margin-left:6px;vertical-align:middle;white-space:nowrap}
+.prtags .prb{min-width:0;font-size:.68rem;line-height:1.45;padding:0 6px}
+h3 .prtags{margin-left:8px}
+h3 .prtags .prb{font-size:.72rem}
 </style>
 </head>
 <body data-view="lei">
@@ -482,6 +567,7 @@ header #app-subtitle[hidden]{display:none}
   </nav>
   <nav class="tabs" role="tablist" id="teo-tabs" aria-label="Teoria">
     <button class="tab" role="tab" data-v="lei" aria-selected="true">Lei Seca</button>
+    <button class="tab" role="tab" data-v="tabela" aria-selected="false">Tabela Lei Seca</button>
     <button class="tab" role="tab" data-v="dicas" aria-selected="false">Quadros e tabelas</button>
   </nav>
 
@@ -509,6 +595,25 @@ header #app-subtitle[hidden]{display:none}
       <p>(a) FERNANDO ANTONIO TORRES GARCIA, Presidente do Tribunal de Justiça.</p>
     </div>
     <footer><b>Teoria · Lei Seca:</b> texto integral transcrito de <em>LEI_SECA_TJSP26_RESOLUÇÃO_963_2025_sistema_eproc.pdf</em>.<span>O progresso de cada aba de questões é salvo automaticamente e só é apagado ao clicar em “Reiniciar estudo” com aquela aba ativa. Os artigos marcados como lidos também ficam salvos neste navegador.</span></footer>
+  </section>
+
+  <section class="view" id="view-tabela">
+    <div class="tbtools">
+      <p class="tbintro">A lei seca em tabela: um dispositivo por linha (<span id="tb-n"></span> linhas), na ordem da lei, com a coluna <b>Prioridade</b> da sua planilha. Filtre por Capítulo, por Prioridade ou pela busca.</p>
+      <div class="tbrow">
+        <input type="search" id="tb-q" placeholder="Buscar texto ou artigo (ex.: art. 74)" aria-label="Buscar na Tabela Lei Seca">
+        <label class="switch" title="Esconde as linhas revogadas, suprimidas ou renumeradas"><input type="checkbox" id="tb-rev"> Ocultar revogados</label>
+        <button class="btn ghost sm" id="tb-clear" title="Volta a mostrar todas as linhas">Limpar filtros</button>
+      </div>
+      <div class="tbsel" id="tb-sel"></div>
+      <div class="tbrow tbprow"><span class="tblbl">Prioridade</span><div class="pegf" id="tb-pr" role="group" aria-label="Filtrar por Prioridade"></div><span class="chip tbcount" id="tb-count" aria-live="polite"></span></div>
+    </div>
+    <table class="qt tbl" id="tb-table">
+      <colgroup><col class="c-art"><col class="c-par"><col class="c-inc"><col class="c-al"><col class="c-txt"><col class="c-pr"></colgroup>
+      <thead><tr><th class="c-art">Artigo</th><th class="c-par">Parágrafo</th><th class="c-inc">Inciso</th><th class="c-al">Alínea</th><th class="c-txt">Conteúdo</th><th class="c-pr">Prioridade</th></tr></thead>
+      <tbody id="tb-body"></tbody>
+    </table>
+    <footer>Tabela gerada da planilha “Tabela Lei Seca 63 EPROC” (aba Lei Seca), com o texto, a ordem e a coluna Prioridade da planilha. Cada artigo tem atalho para o texto corrido na aba Lei Seca. Uso pessoal para preparação ao concurso de Escrevente Técnico Judiciário TJSP.</footer>
   </section>
 
   <section class="view" id="view-dicas">
@@ -3556,6 +3661,9 @@ const LEI_DATA = {"head":{"kicker":"Tribunal de Justiça do Estado de São Paulo
 const SUBTITLE = {"neaf":"Banco de questões NEAF com gabarito oficial e fundamentação artigo por artigo, a partir da Lei Seca da Resolução.","ineditas":"200 questões inéditas, no estilo Certo/Errado, elaboradas por IA a partir da Lei Seca da Resolução, organizadas por capítulo."};
 const SUBTITLE_TH = {"leiseca":"Texto integral da Resolução TJSP nº 963/2025, organizado por capítulos como na Lei Seca. Marque os artigos lidos e use a busca para revisar.","quadros":"Esquemas, quadros comparativos e dicas do material NEAF, com quadros de possíveis pegadinhas da prova."};
 const FOOT = {"neaf":"<b>Questões NEAF:</b> gabarito oficial preservado do arquivo <em>Questoes_NEAF_Resolucao_963_EPROC_2026.docx</em> (banca NEAF); fundamentação elaborada a partir do texto integral da Resolução TJSP nº 963/2025 (Lei Seca).","ineditas":"<b>Questões Inéditas IA:</b> 200 questões Certo/Errado inéditas, elaboradas originalmente a partir da Lei Seca da Resolução TJSP nº 963/2025 (não extraídas de nenhum banco de questões existente).","lei":"<b>Teoria · Lei Seca:</b> texto integral transcrito de <em>LEI_SECA_TJSP26_RESOLUÇÃO_963_2025_sistema_eproc.pdf</em>.","quadros":"<b>Teoria · Quadros e tabelas:</b> esquemas e dicas a partir de <em>Aula NEAF Resolucao_963_EPROC.pdf</em> e da apostila NEAF <em>06_2-neaf-tjsp-leg_interna-resolucao-963-2025-2026</em>; as pegadinhas são frases de treino conferidas com o texto da Resolução.","persist":"O progresso de cada aba de questões é salvo automaticamente e só é apagado ao clicar em “Reiniciar estudo” com aquela aba ativa. Os artigos marcados como lidos também ficam salvos neste navegador."};
+
+// ======================= dados: Tabela Lei Seca (planilha "Tabela Lei Seca 63 EPROC.xlsx", aba Lei Seca; colunas até Prioridade) =======================
+const TAB_LEI = {"cols":["Parte","Livro","Título","Capítulo","Seção","Subseção","Artigo","Parágrafo","Inciso","Alínea","Conteúdo","Prioridade"],"g":[["","","","Capítulo - Das Disposições Gerais","",""],["","","","Capítulo - Da Governança do Sistema","",""],["","","","Capítulo - Da Implantação","",""],["","","","Capítulo - Dos Usuários","",""],["","","","Capítulo - Do Acesso","",""],["","","","Capítulo - Das Integrações","",""],["","","","Capítulo - Da Prática de Atos Processuais","",""],["","","","Capítulo - Da Consulta e do Sigilo","",""],["","","","Capítulo - Dos Processos em Segundo Grau","",""],["","","","Capítulo - Uso Inadequado do Sistema","",""],["","","","Capítulo - Disposições Finais e Transitórias","",""]],"r":[[0,"Art. 1º","","","","A presente Resolução dispõe sobre a governança e utilização do sistema eproc nas unidades do Poder Judiciário do Estado de São Paulo e dá outras providências.",9],[0,"Art. 2º","","","","São princípios para utilização, implementação, sustentação, desenvolvimento e evolução do sistema eproc no Tribunal de Justiça do Estado de São Paulo:",0],[0,"Art. 2º","","I","","aderência à versão nacional: o sistema será mantido em conformidade com a versão nacional, preservando o módulo base e prevenindo fragmentações que comprometam sua estabilidade, segurança e interoperabilidade;",0],[0,"Art. 2º","","II","","desenvolvimento colaborativo: serão priorizadas soluções que atendam às necessidades comuns da Justiça Estadual e Federal, favorecendo a sustentação e evolução do sistema de forma integrada e compartilhada;",0],[0,"Art. 2º","","III","","automação e simplificação: sempre que possível, as atividades serão automatizadas para aumentar a produtividade, precedidas pela revisão e eliminação de rotinas que não agreguem valor ao fluxo processual;",0],[0,"Art. 2º","","IV","","pragmatismo e efetividade: as definições de regras e evoluções seguirão a lógica do impacto amplo, priorizando soluções aplicáveis à maioria dos casos, sem foco em casos excepcionais ou preferências individuais;",0],[0,"Art. 2º","","V","","instrumentalidade e autonomia: a implementação e normatização devem favorecer a flexibilidade e autonomia, priorizando eficiência e alta produtividade, assegurada a rastreabilidade das ações dos usuários.",0],[0,"Art. 2º","Parágrafo único","","","O fomento e o zelo pela manutenção das diretrizes definidas neste artigo são de responsabilidade de todos os usuários do sistema eproc.",0],[1,"Art. 3º","","","","A governança do sistema eproc no âmbito do Tribunal de Justiça do Estado de São Paulo objetivará:",1],[1,"Art. 3º","","I","","Manter o funcionamento do sistema eproc de acordo com suas características, diretrizes e princípios próprios;",1],[1,"Art. 3º","","II","","Zelar pelo caráter colaborativo de gestão e evolução do sistema; e",1],[1,"Art. 3º","","III","","Adotar as estratégias necessárias para a sustentação e o desenvolvimento do sistema.",1],[1,"Art. 4º","","","","A governança será exercida pelos seguintes órgãos:",0],[1,"Art. 4º","","I","","Comitê Gestor do eproc - Cge;",0],[1,"Art. 4º","","II","","Núcleo de Gestão Negocial - NGN; e",0],[1,"Art. 4º","","III","","Núcleo de Gestão Técnica - NGT.",0],[1,"Art. 5º","","","","O CGe será o órgão coordenador da governança do sistema eproc e atuará como interlocutor das demandas locais a serem incorporadas à versão nacional.",0],[1,"Art. 5º","§ 1º","","","O CGe será composto por, no mínimo, um Juiz assessor da Presidência, um Juiz assessor da Vice-Presidência e um juiz Assessor da Corregedoria Geral da Justiça.",0],[1,"Art. 5º","§ 2º","","","A composição, as atribuições e o funcionamento do CGe serão regulados por Provimento do Conselho Superior da Magistratura.",0],[1,"Art. 6º","","","","Incumbirá ao NGN subsidiar o CGe com as informações necessárias sobre as demandas levadas à decisão daquele, pela ótica negocial do sistema eproc.",0],[1,"Art. 6º","§ 1º","","","O NGN será integrado por, no mínimo, um representante da Secretaria de Governança de Sistemas, da Secretaria de Primeira Instância, da Secretaria Judiciária, da Secretaria de Gestão de Pessoas e da Corregedoria.",0],[1,"Art. 6º","§ 2º","","","A composição, as atribuições e o funcionamento do NGN serão regulados pela Presidência em ato próprio.",0],[1,"Art. 7º","","","","Incumbirá ao NGT subsidiar o CGe com as informações necessárias sobre as demandas levadas à decisão daquele, pela ótica tecnológica do sistema eproc.",0],[1,"Art. 7º","§ 1º","","","O NGT será integrado por, no mínimo, dois servidores da Secretaria de Tecnologia de Informações e um da Secretaria de Governança de Sistemas.",0],[1,"Art. 7º","§ 2º","","","A composição, as atribuições e o funcionamento do NGT serão regulados pela Presidência por meio de ato próprio.",0],[1,"Art. 8º","","","","A interlocução com as entidades externas para as questões relacionadas ao sistema eproc será realizada por meio de Comitê Interinstitucional, criado pela Presidência especificamente para tal fim, mediante ato próprio.",0],[1,"Art. 8º","Parágrafo único","","","Os usuários externos poderão apresentar demandas relacionadas ao sistema eproc exclusivamente por meio do Comitê Interinstitucional, que exercerá o primeiro filtro de pertinência e relevância.",0],[2,"Art. 9º","","","","A implantação do sistema eproc e a migração de processos do sistema legado serão realizadas de forma gradativa, por competências, em unidades judiciárias previamente definidas, conforme cronograma divulgado pela Presidência.",1],[2,"Art. 10","","","","Implantado o sistema eproc em determinada competência de uma unidade judiciária, o ajuizamento de novos processos nessa competência será admitido exclusivamente por meio do eproc.",0],[2,"Art. 10","§ 1º","","","Os processos em tramitação no sistema eproc somente admitirão o protocolo de petições intermediárias, incidentes e recursos por meio do próprio sistema.",0],[2,"Art. 10","§ 2º","","","O cumprimento definitivo de sentença no sistema eproc será iniciado por petição inicial autônoma, observada a classe processual \"Cumprimento de Sentença\", que será vinculado ao principal, quando tramitar na mesma unidade.",0],[2,"Art. 11","","","","Os processos ajuizados antes da implantação do sistema eproc, bem como os recursos, incidentes e processos dependentes ou conexos, continuarão tramitando no sistema legado até o seu encerramento, ressalvada a hipótese de migração.",1],[2,"Art. 11","§ 1º","","","Os processos que tramitam no sistema legado somente admitirão o protocolo de petições intermediárias, incidentes e recursos pelo próprio sistema, salvo disposição em contrário regulamentada pela Presidência.",1],[2,"Art. 11","§ 2º","","","O cumprimento definitivo de sentença oriundo de processo que tramitou no sistema legado deverá ser iniciado nesse mesmo sistema, até que seja disponibilizada, no eproc, a funcionalidade específica para essa finalidade, conforme regulamentação própria.",1],[2,"Art. 12","","","","A migração de processos do sistema legado para o sistema eproc observará os procedimentos e regramentos estabelecidos em ato conjunto da Presidência e da Corregedoria.",1],[2,"Art. 13","","","","Ato próprio da Presidência regulamentará a remessa de autos entre unidades judiciais, nos casos de incompetência, em que os autos devam ser remetidos a outro juízo ou instância que não disponha de sistema compatível.",1],[2,"Art. 14","","","","A identificação do sistema processual correto e a prática do respectivo ato processual competem exclusivamente ao peticionante, sob pena de não produção dos respectivos efeitos jurídicos.",0],[3,"Art. 15","","","","São usuários do sistema eproc:",1],[3,"Art. 15","","I","","Internos: magistrados, servidores, estagiários, servidores cedidos por outros órgãos, voluntários e outros auxiliares autorizados pelo Tribunal de Justiça do Estado de São Paulo;",0],[3,"Art. 15","","II","","Externos: partes, advogados, procuradores, defensores públicos, membros do Ministério Público, policiais, peritos, tradutores, intérpretes, leiloeiros, administradores de recuperação judicial/falência e outros interessados ou intervenientes na relação jurídico-processual.",0],[3,"Art. 15","Parágrafo único","","","Os usuários terão acesso às funcionalidades do sistema eproc de acordo com o perfil que lhes for atribuído.",1],[3,"Art. 16","","","","O credenciamento dos usuários internos do sistema eproc será efetuado:",0],[3,"Art. 16","","I","","Pela Secretaria de Governança de Sistemas - SGS, quanto aos servidores com perfil de gestor do sistema;",0],[3,"Art. 16","","II","","Pela chefia que possua perfil de gestor do sistema, quanto aos demais usuários internos;",0],[3,"Art. 16","§ 1º","","","É dever do usuário interno com perfil de gestor do sistema ou de seu substituto gerenciar o acesso dos magistrados e demais usuários internos que lhe estejam subordinados, bem como interrompê-lo após o encerramento do vínculo com a unidade em até 24 (vinte e quatro) horas, sob pena de responsabilidade.",1],[3,"Art. 16","§ 2º","","","O usuário interno com perfil de gestor do sistema que for substituído na função deverá promover o credenciamento e habilitação do seu substituto nas funcionalidades inerentes à gerência do sistema eproc.",1],[3,"Art. 16","§ 3º","","","A atribuição de perfil no sistema tem a exclusiva finalidade de permitir o acesso ao conjunto de funcionalidades a ele inerentes e não equivale ao reconhecimento de cargo ou função para qualquer outra finalidade de fato ou direito.",1],[3,"Art. 17","","","","O credenciamento de usuários externos será oportunamente regulado pela Presidência em ato próprio, sem prejuízo do que consta nesta Resolução.",1],[3,"Art. 17","Parágrafo único","","","A desabilitação do acesso de usuário externo ao sistema será feita por solicitação deste, pelo gerente responsável pelo seu credenciamento ou por determinação de autoridade administrativa ou judicial competente.",1],[3,"Art. 18","","","","Os usuários do sistema eproc devem utilizá-lo de forma adequada, sem comprometer sua disponibilidade, desempenho ou segurança, observando as seguintes diretrizes gerais:",1],[3,"Art. 18","","I","","resguardar o sigilo de suas credenciais de acesso, bem como de processos e documentos classificados como sigilosos;",1],[3,"Art. 18","","II","","garantir que os dispositivos utilizados atendam aos requisitos técnicos do sistema, incluindo conexão na rede mundial de computadores estável e funcional;",1],[3,"Art. 18","","III","","utilizar corretamente as funcionalidades do sistema, sem adulterar dados, manipular registros processuais ou comprometer a integridade das informações;",1],[3,"Art. 18","","IV","","responsabilizar-se pelo uso adequado de registros audiovisuais para fins exclusivamente processuais, vedada a divulgação indevida de seu conteúdo;",1],[3,"Art. 18","","V","","abster-se de práticas que causem sobrecarga ao sistema, incluindo o uso não autorizado, por usuários externos, de robôs de consulta;",1],[3,"Art. 18","","VI","","comunicar imediatamente eventuais falhas ou vulnerabilidades identificadas, contribuindo para a segurança e continuidade do sistema.",1],[3,"Art. 18","Parágrafo único","","","O descumprimento deste artigo sujeita o usuário às sanções administrativas, civis, criminais e processuais aplicáveis, inclusive aquelas previstas no art. 37 e seguintes desta Resolução.",0],[4,"Art. 19","","","","O sistema eproc será acessado por meio da rede mundial de computadores, no endereço eletrônico do Tribunal de Justiça do Estado de São Paulo.",1],[4,"Art. 19","Parágrafo único","","","Os documentos e atos praticados pelos usuários serão assinados e certificados com a utilização de assinatura digital, baseada em certificado digital, ou de assinatura eletrônica, com uso de login e senha fornecidos no credenciamento do usuário, nos termos das alíneas \"a\" e \"b\" do inciso III do §2º do art. 1º da Lei n. 11.419, de 19 de dezembro de 2006.",1],[4,"Art. 20","","","","O acesso ao sistema eproc para consulta ou movimentação processual será disponibilizado ininterruptamente, ressalvadas as hipóteses de indisponibilidade.",2],[4,"Art. 20","Parágrafo único","","","Considera-se indisponibilidade a interrupção de acesso ao sistema decorrente de falha ou manutenção nos equipamentos e programas do Tribunal de Justiça do Estado de São Paulo, certificada pelo administrador do sistema eproc.",2],[4,"Art. 21","","","","Os prazos que se vencerem no dia de indisponibilidade do sistema serão prorrogados para o dia útil seguinte à retomada do funcionamento, quando:",1],[4,"Art. 21","","I","","a indisponibilidade for superior a 60 (sessenta) minutos, ininterruptos ou não, e ocorrer entre 12h00min e 23h00min;",0],[4,"Art. 21","","II","","a indisponibilidade ocorrer por qualquer período entre 23h01min e 00h00min.",0],[4,"Art. 21","§ 1º","","","A indisponibilidade ocorrida entre 00h01min e 11h59min dos dias de expediente forense e a ocorrida em feriados e finais de semana, por qualquer período, não produzirão o efeito do caput deste artigo.",0],[4,"Art. 21","§ 2º","","","Quando tecnicamente possível, a ocorrência de indisponibilidade será certificada pelo administrador do sistema eproc, que providenciará o lançamento de evento em cada processo cujo prazo foi prorrogado.",1],[4,"Art. 21","§ 3º","","","Não se aplica a regra prevista no caput deste artigo se a impossibilidade de acesso ao sistema decorrer de falha nos equipamentos ou programas dos usuários ou em suas conexões à rede mundial de computadores, ressalvada decisão judicial em contrário.",2],[5,"Art. 22","","","","Os Órgãos e instituições públicas poderão submeter à análise do Tribunal pedido de integração do eproc com sistemas próprios de gestão de processos judiciais eletrônicos, por meio do MNI (Modelo Nacional de Interoperabilidade) ou outro padrão técnico que venha a ser adotado.",1],[5,"Art. 23","","","","O sistema eproc também será utilizado como meio eletrônico de tramitação de comunicação de atos processuais e transmissão de peças processuais, sempre que possível.",1],[5,"Art. 23","§ 1º","","","A pesquisa de informações e a inclusão ou exclusão de dados em cadastros, entre outras providências semelhantes, cujo cumprimento se realize via acesso a sistemas de terceiros, ocorrerão via integração destes ao sistema judicial.",1],[5,"Art. 23","§ 2º","","","É vedada, para o cumprimento referido no §1º, a disponibilização de portais que demandem das unidades a digitação de dados ou outra atividade manual similar, salvo nos casos de absoluta impossibilidade técnica de integração, determinação do Conselho Nacional de Justiça e imposição legal ou regulamentar.",1],[5,"Art. 23","§ 3º","","","Sempre que o uso de portais for admitido nos termos do §2º, sua manutenção será anualmente revisada para, se houver viabilidade técnica, providenciar sua substituição por integração direta ao sistema judicial.",1],[5,"Art. 23","§ 4º","","","Cabe à Presidência a celebração de convênio, termo de cooperação ou outro instrumento similar, para o acesso, envio e obtenção de informações em sistemas de terceiros, quando necessário, observado o disposto neste artigo.",1],[6,"Art. 24","","","","Caberá ao peticionante:",1],[6,"Art. 24","","I","","preencher corretamente os campos obrigatórios do formulário eletrônico;",1],[6,"Art. 24","","II","","qualificar corretamente todas as partes e seus representantes indicadas na petição, com as informações que dispuser, especialmente CPF ou CNPJ, nos termos do art. 15 da Lei nº 11.419/2006;",1],[6,"Art. 24","","III","","classificar corretamente a petição de acordo com a classe, o assunto e o tipo processuais disponibilizados na tabela do sistema;",1],[6,"Art. 24","","IV","","carregar, sob pena de rejeição, as peças essenciais da respectiva classe e documentos complementares:",1],[6,"Art. 24","","IV","a","em conformidade com as especificações técnicas regulamentadas em Portaria da Presidência do Tribunal de Justiça do Estado de São Paulo;",1],[6,"Art. 24","","IV","b","em formato legível e ajustado ao padrão de visualização, evitando zoom excessivo ou distorções;",1],[6,"Art. 24","","IV","c","na ordem em que deverão aparecer no processo;",1],[6,"Art. 24","","IV","d","nomeados de acordo com a listagem disponibilizada;",1],[6,"Art. 24","","IV","e","livres de vírus ou ameaças que possam comprometer a integridade do sistema;",1],[6,"Art. 24","","V","","Disponibilizar arquivos de áudio e vídeo testados previamente, garantindo sua qualidade e acessibilidade;",1],[6,"Art. 24","","VI","","Revisar todas as informações antes do envio da petição ou documentos anexos, assumindo a responsabilidade por eventuais erros.",1],[6,"Art. 24","§ 1º","","","Nos casos em que a petição ou quaisquer outros documentos devam ser firmados por mais de um signatário, o interessado anexará, junto à sua assinatura eletrônica, o arquivo com o texto do documento e um termo assinado por todos os que necessitam intervir, esclarecendo o fato.",1],[6,"Art. 24","§ 2º","","","O descumprimento do disposto neste artigo poderá ensejar a aplicação das sanções previstas no art. 18, parágrafo único, sem prejuízo de eventuais consequências processuais.",1],[6,"Art. 25","","","","As petições iniciais, incidentes, cartas, mandados, recursos e demais atos serão distribuídos automaticamente pelo sistema.",1],[6,"Art. 25","§ 1º","","","A análise dos casos normativos de prevenção e outros filtros que não sejam realizados automaticamente pelo sistema observará o disposto em atos próprios.",1],[6,"Art. 25","§ 2º","","","Se necessário, a redistribuição em primeiro grau será feita diretamente no sistema pelo juízo que a determinar.",1],[6,"Art. 26","","","","Considera-se realizado o ato processual no dia e hora do seu envio ao sistema eproc.",2],[6,"Art. 26","§ 1º","","","Quando o ato for praticado para atender prazo processual, será considerado tempestivo aquele transmitido integralmente até as 24 (vinte e quatro) horas do seu último dia.",2],[6,"Art. 26","§ 2º","","","O eproc considerará o horário oficial de Brasília - DF.",2],[6,"Art. 26","§ 3º","","","Não serão considerados para efeito de tempestividade o horário inicial da conexão do usuário à rede mundial de computadores, o horário inicial do acesso do usuário ao eproc ou os horários registrados pelos equipamentos do remetente.",2],[6,"Art. 26","§ 4º","","","Nas petições intermediárias, será considerada como comprovante a impressão da tela do processo em que conste a juntada do documento.",1],[6,"Art. 27","","","","Toda movimentação gerada no sistema eproc será registrada com a indicação da data e horário de sua realização e a identificação do usuário que lhe deu causa.",1],[6,"Art. 27","§ 1º","","","É de exclusiva responsabilidade do usuário identificado a movimentação processual registrada no sistema.",1],[6,"Art. 27","§ 2º","","","As anulações e retificações de eventos realizados por usuários internos deverão ser registradas no histórico do processo.",1],[6,"Art. 27","§ 3º","","","Os documentos não pertinentes ao processo ou a ele indevidamente anexados poderão ser desentranhados por determinação judicial.",1],[6,"Art. 28","","","","Os eventos registrados na movimentação ou registros do processo no sistema eproc equivalem à certificação da prática do ato processual para todos os fins de direito.",1],[6,"Art. 28","§ 1º","","","Os eventos de abertura de conclusão, encaminhamento à publicação, publicação, disponibilização em diário eletrônico, distribuição de recurso, publicação de pauta e de trânsito em julgado, dentre outros realizados pelo sistema, não serão objeto de certificação manual pelas unidades judiciais, salvo eventual interrupção na funcionalidade de geração automática dos respectivos eventos e apenas durante tal período.",1],[6,"Art. 28","§ 2º","","","É dispensado o envio por meio de mensagens eletrônicas de eventos realizados pelo sistema.",1],[6,"Art. 29","","","","O recolhimento da taxa judiciária e demais despesas observará as regras parametrizadas do sistema e será disciplinado em atos próprios.",2],[7,"Art. 30","","","","A consulta aos dados e documentos dos processos judiciais por meio da rede mundial de computadores observará o disposto na Resolução nº 121 de 05 de outubro de 2010 do Conselho Nacional de Justiça e regulamentação pertinente.",1],[7,"Art. 31","","","","A emissão de certidões de distribuição será disciplinada por ato conjunto da Presidência e Corregedoria.",0],[7,"Art. 31","Parágrafo único","","","Havendo necessidade das partes de documento comprobatório de qualquer evento do processo eletrônico, deverá fazer uso da funcionalidade \"certidão narratória\", que terá a mesma validade de certidão de objeto e pé para todos os fins de direito.",0],[7,"Art. 32","","","","Os processos e os documentos no eproc que não sejam públicos poderão ser classificados segundo níveis de sigilo, conforme padronização do sistema.",1],[7,"Art. 32","Parágrafo único","","","A indicação sigilo de processo ou documento poderá ser feita de ofício ou no momento do peticionamento, conforme a funcionalidade liberada para o respectivo perfil, sujeito a posterior ratificação pelo juízo.",0],[8,"Art. 33","","","","As apelações interpostas em processos eletrônicos que tramitam no sistema eproc serão processadas nos próprios autos, devendo o juízo de origem proceder à remessa eletrônica ao tribunal competente, depois do trâmite regular e providenciadas as necessárias alterações nos registros.",0],[8,"Art. 34","","","","Os agravos de instrumento tirados de processos que tramitam pelo sistema eproc serão interpostos no sistema de primeiro grau, por intermédio do link apropriado, que os enviará automaticamente ao sistema de segundo grau do tribunal competente, onde serão processados em autos apartados com nova numeração.",0],[8,"Art. 34","§ 1º","","","A parte agravante juntará apenas a petição inicial do agravo de instrumento com as suas razões, devendo indicar precisamente a decisão agravada, preferentemente por referência ao evento que a gerou, dispensada a juntada de quaisquer peças existentes no processo de primeiro grau.",0],[8,"Art. 34","§ 2º","","","A parte agravante deverá demonstrar nas razões de agravo a tempestividade do recurso mediante a indicação do evento que gerou sua intimação.",0],[8,"Art. 34","§ 3º","","","O sistema lançará automaticamente registro no processo de primeiro grau, que servirá como comprovação da interposição do agravo.",0],[8,"Art. 34","§ 4º","","","Caso o agravante não seja parte do processo na origem, o agravo deverá ser interposto diretamente no sistema do tribunal competente, fazendo referência ao número do processo de primeiro grau.",0],[8,"Art. 35","","","","Nos processos criminais, os recursos em sentido estrito que são julgados em segundo grau de jurisdição deverão tramitar em autos próprios, cabendo ao interessado providenciar sua distribuição por dependência ao processo originário.",1],[8,"Art. 36","","","","Sem prejuízo do disposto neste Capítulo, a Presidência poderá, mediante ato próprio, regulamentar o processamento de feitos no Tribunal no sistema eproc, observadas as peculiaridades das diferentes matérias, notadamente da jurisdição criminal.",1],[8,"Art. 36","Parágrafo único","","","Aplica-se, no que couber, o disposto neste Capítulo aos recursos interpostos e ações autônomas no Colégio Recursal.",1],[9,"Art. 37","","","","Compreende uso inadequado do sistema toda atividade que evidencie ataque cibernético, violação de dados ou uso desproporcional dos ativos computacionais, causando sobrecarga na sua infraestrutura ou redução significativa de sua disponibilidade, com prejuízo às partes e à atividade jurisdicional.",1],[9,"Art. 37","Parágrafo único","","","Identificada utilização inadequada do sistema por qualquer usuário, proceder-se-á ao bloqueio preventivo do usuário, temporário e total.",0],[9,"Art. 38","","","","Na hipótese do parágrafo único do artigo 37, a Secretaria de Tecnologia da Informação - STI deverá entrar em contato com o usuário bloqueado pelo e-mail fornecido no cadastro para que este, se for o caso, possa solicitar sua eventual reativação no sistema.",1],[9,"Art. 38","Parágrafo único","","","Caso o usuário bloqueado seja advogado, procurador ou membro da Defensoria Pública ou do Ministério Público, deverá ser dirigida comunicação à respectiva Seccional da Ordem dos Advogados do Brasil ou à correspondente corregedoria, conforme o caso.",1],[9,"Art. 39","","","","A Presidência do Tribunal de Justiça, mediante ato próprio, definirá procedimentos pelos quais se evite o comprometimento do desempenho do sistema eproc em razão de ferramentas de consulta automatizadas.",2],[9,"Art. 39","Parágrafo único","","","A Presidência poderá avaliar, em ato próprio, a conveniência e oportunidade de cobrança pelo acesso massificado a dados existentes no sistema eproc, por meio de API, nos termos da Recomendação CNJ nº 74/2020, desde que não configure uso inadequado do sistema.",1],[10,"Art. 40","","","","A tramitação dos processos eletrônicos no Sistema de Automação da Justiça - SAJ permanece regulamentada pela Resolução nº 551, de 08 de setembro de 2011, deste Órgão Especial.",1],[10,"Art. 40","Parágrafo único","","","Até a edição de normas específicas para o eproc, as unidades poderão utilizar os manuais e informativos do sistema como referência para sua operacionalização.",1],[10,"Art. 41","","","","Em caso de indisponibilidade absoluta do sistema eproc, devidamente certificada, e para o fim de evitar perecimento de direito ou ofensa à liberdade de locomoção, a petição poderá ser protocolizada em meio físico para distribuição manual, com posterior digitalização e inserção no sistema pelo juízo a que for distribuída.",0],[10,"Art. 42","","","","Esta Resolução entra em vigor na data de sua publicação.",9],[10,"Art. 43","","","","Revogam-se as disposições em contrário.",9]]};
 </script>
 <script>
 // ---------- índice da lei (para a fundamentação) e leitor de referências "Art. 10, §1º", "Art. 9º e 10, caput" ----------
@@ -4276,12 +4384,159 @@ function dicasSpy(){
 // subtítulo do cabeçalho conforme a aba (textos da página original)
 function updateSubtitle(){
   const v = document.body.dataset.view, el = $("#app-subtitle");
-  const t = v==="lei" ? SUBTITLE_TH.leiseca : v==="dicas" ? SUBTITLE_TH.quadros : (tabData().sub || "");
+  const t = v==="lei" ? SUBTITLE_TH.leiseca : v==="dicas" ? SUBTITLE_TH.quadros : v==="tabela" ? "" : (tabData().sub || "");
   el.textContent = t; el.hidden = !t;
 }
 function updateToTop(){ $("#to-top").hidden = !(document.body.dataset.view!=="questoes" && window.scrollY > 700); }
 
+// ---------- Teoria › Tabela Lei Seca (dados em TAB_LEI; vazia = "Aba ainda sem conteúdo.") ----------
+const TB_LV = ["parte","livro","tit","cap","sec","sub"];
+const TB_LBL = {parte:"Parte", livro:"Livro", tit:"Título", cap:"Capítulo", sec:"Seção", sub:"Subseção"};
+const TB_ALL = {parte:"Todas", livro:"Todos", tit:"Todos", cap:"Todos", sec:"Todas", sub:"Todas"};
+const TB_ROWS = TAB_LEI.r.map((r,i)=>{ const g = TAB_LEI.g[r[0]];
+  return {i, parte:g[0], livro:g[1], tit:g[2], cap:g[3], sec:g[4], sub:g[5], art:r[1], num:artKey(r[1]), par:r[2], inc:r[3], al:r[4],
+    txt:String(r[5]).replace(/^:\s*/,""), pr:(r[6]===null || r[6]===undefined) ? "" : r[6]}; });
+const tbCmp = (a,b) => (typeof a==="number" && typeof b==="number") ? a-b : String(a).localeCompare(String(b), "pt-BR", {numeric:true});
+const TB_PR = [...new Set(TB_ROWS.map(x=>x.pr).filter(p=>p!==""))].sort(tbCmp);   // valores da coluna Prioridade (crescente)
+const TB_NOPR = TB_ROWS.some(x=>x.pr==="");                                        // linhas sem prioridade
+const TB_LVS = TB_LV.filter(k=>TB_ROWS.some(x=>x[k]));                             // níveis vazios (ex.: Parte, Livro) ficam ocultos
+const tbName = (k, v) => (k==="tit" && /^[IVXL]+\s*-/.test(v)) ? "Título " + v : v;
+const tbRank = p => { const i = TB_PR.indexOf(p); return i===0 ? "p-a" : (i===TB_PR.length-1 && i>0) ? "p-c" : "p-b"; };
+const tbKey = p => p==="" ? "none" : String(TB_PR.indexOf(p));
+const tbFmt = n => n.toLocaleString("pt-BR");
+const tbIsRev = t => /^\((Revogad[oa]|Suprimid[oa]|Renumerad[oa]|VETADO)\b[^()]*\)?[.;:]?$/i.test(String(t).trim());
+function tbHl(s, t){ const f = esc(s); if(!t) return f; const ff = fold(f); let out = "", i = 0, j;
+  while((j = ff.indexOf(t, i)) >= 0){ out += f.slice(i, j) + '<mark class="sh">' + f.slice(j, j + t.length) + '</mark>'; i = j + t.length; } return out + f.slice(i); }
+const TB_LEINUM = new Set(ARTS.map(a=>String(a.num)));   // artigos que existem na aba Lei Seca (LEI_DATA desta página)
+const TB_UPD = (typeof UPD_OF!=="undefined") ? UPD_OF : {};   // opcional: artigo -> id do cartão de atualização em Dicas
+const TB_UPD_TXT = "Atualizado ›";                             // ex.: "Atualizado 2026 ›" quando as atualizações têm ano
+let TBQ = "";   // busca (não é salva)
+function tbStore(){ const s = STORE._tb = STORE._tb || {}; if(!Array.isArray(s.pr)) s.pr = [];
+  s.pr = s.pr.filter(k=>k==="none" ? TB_NOPR : TB_PR[+k]!==undefined); return s; }
+function tbUpTo(x, s, n){ return TB_LVS.slice(0, n).every(k=>!s[k] || x[k]===s[k]); }
+function tbQuery(q){
+  const m = /^art(?:igo)?\.?\s*(\d+)\s*[º°o]?\s*(?:-\s*([a-z]))?\s*$/i.exec(q.trim());
+  return m ? {art: m[1] + (m[2] ? "-" + m[2].toUpperCase() : "")} : {t: fold(q.trim())};
+}
+function tbOpts(k, s){ const n = TB_LVS.indexOf(k), out = []; TB_ROWS.forEach(x=>{ if(x[k] && tbUpTo(x, s, n) && !out.includes(x[k])) out.push(x[k]); }); return out; }
+function drawTbSel(){
+  const s = tbStore();
+  $("#tb-sel").innerHTML = TB_LVS.map(k=>{
+    const o = tbOpts(k, s); if(s[k] && !o.includes(s[k])) s[k] = "";
+    return `<label><span>${TB_LBL[k]}</span><select data-k="${k}" ${o.length ? "" : "disabled"} title="${esc(s[k] ? tbName(k, s[k]) : TB_LBL[k] + ": " + TB_ALL[k].toLowerCase())}">
+      <option value="">${o.length ? TB_ALL[k] : "—"}</option>${o.map(v=>`<option value="${esc(v)}"${v===s[k] ? " selected" : ""}>${esc(tbName(k, v))}</option>`).join("")}</select></label>`;
+  }).join("");
+  $("#tb-sel").querySelectorAll("select").forEach(el=>el.onchange=()=>{
+    const s = tbStore(), k = el.dataset.k; s[k] = el.value;
+    TB_LVS.slice(TB_LVS.indexOf(k)+1).forEach(d=>{ s[d] = ""; });     // filtro encadeado: limpa os níveis abaixo
+    saveAll(); drawTbSel(); drawTabela();
+  });
+}
+function drawTabela(){
+  const s = tbStore(), q = tbQuery(TBQ);
+  const base = TB_ROWS.filter(x=>tbUpTo(x, s, TB_LVS.length) && (!s.rev || !tbIsRev(x.txt)) &&
+    (q.art ? x.num===q.art : (!q.t || fold(x.art + " " + x.txt).includes(q.t))));
+  const rows = base.filter(x=>!s.pr.length || s.pr.includes(tbKey(x.pr)));
+  // botões de Prioridade (contagem dentro dos demais filtros; podem ser combinados)
+  const cnt = {}; base.forEach(x=>{ const k = tbKey(x.pr); cnt[k] = (cnt[k]||0) + 1; });
+  $("#tb-pr").innerHTML = `<button data-p="all" class="${s.pr.length ? "" : "on"}">Todas · ${tbFmt(base.length)}</button>` +
+    TB_PR.map((p,i)=>`<button data-p="${i}" class="${s.pr.includes(String(i)) ? "on" : ""}" title="Linhas com Prioridade ${esc(p)}"><i class="prd ${tbRank(p)}"></i>${esc(p)} · ${tbFmt(cnt[i]||0)}</button>`).join("") +
+    (TB_NOPR ? `<button data-p="none" class="${s.pr.includes("none") ? "on" : ""}" title="Linhas sem prioridade na planilha">Sem prioridade · ${tbFmt(cnt.none||0)}</button>` : "");
+  $("#tb-pr").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+    const s = tbStore(), k = b.dataset.p;
+    if(k==="all") s.pr = [];
+    else { s.pr = s.pr.includes(k) ? s.pr.filter(v=>v!==k) : s.pr.concat(k); if(s.pr.length===TB_PR.length + (TB_NOPR ? 1 : 0)) s.pr = []; }
+    saveAll(); drawTabela();
+  });
+  // nº de artigos por faixa (dentro do filtro)
+  const gc = {};
+  rows.forEach(x=>TB_LVS.forEach((k,j)=>{ if(!x[k]) return; const key = TB_LVS.slice(0, j+1).map(d=>x[d]).join("|"); (gc[key] = gc[key] || new Set()).add(x.num); }));
+  $("#tb-count").innerHTML = `<b>${tbFmt(rows.length)}</b> de ${tbFmt(TB_ROWS.length)} linhas · <b>${tbFmt(new Set(rows.map(x=>x.num)).size)}</b> artigo(s)`;
+  let html = "", pa = null;
+  rows.forEach(x=>{
+    const ch = pa===null ? 0 : TB_LVS.findIndex(k=>x[k]!==pa[k]);
+    if(ch>=0) TB_LVS.slice(ch).forEach((k,jj)=>{ if(!x[k]) return;
+      const key = TB_LVS.slice(0, ch+jj+1).map(d=>x[d]).join("|");
+      html += `<tr class="tbg lv-${k}"><td colspan="6"><span class="gt">${esc(tbName(k, x[k]))}</span><span class="gn">${gc[key].size} art.</span></td></tr>`; });
+    const a1 = !pa || pa.num!==x.num || ch>=0;                          // 1ª linha do artigo
+    const rp = (f, same) => same ? `<span class="rp">${esc(x[f])}</span>` : esc(x[f]);
+    const sPar = !a1 && !!x.par && x.par===pa.par, sInc = !a1 && !!x.inc && x.inc===pa.inc && x.par===pa.par;
+    const upd = a1 && TB_UPD[x.num] ? `<a class="tag modtag updlink" href="#dc-${esc(TB_UPD[x.num])}" data-q="dc-${esc(TB_UPD[x.num])}" title="Artigo alterado — ver o cartão da atualização em Dicas">${TB_UPD_TXT}</a>` : "";
+    const go = a1 && TB_LEINUM.has(x.num) ? `<button type="button" class="goto" data-art="${esc(x.num)}" title="Abrir o ${esc(x.art)} na Lei Seca">Lei Seca ›</button>` : "";
+    html += `<tr class="tbr${a1 ? " a1" : ""}" data-i="${x.i}"><td class="c-art">${a1 ? `<b>${esc(x.art)}</b>${go}${upd}` : `<span class="rp">${esc(x.art)}</span>`}</td>` +
+      `<td class="c-par">${x.par ? rp("par", sPar) : ""}</td><td class="c-inc">${x.inc ? rp("inc", sInc) : ""}</td><td class="c-al">${esc(x.al)}</td>` +
+      `<td class="c-txt${tbIsRev(x.txt) ? " rev" : ""}">${tbHl(x.txt, q.t || "")}</td>` +
+      `<td class="c-pr">${x.pr==="" ? "" : `<span class="prb ${tbRank(x.pr)}" title="Prioridade ${esc(x.pr)}">${esc(x.pr)}</span>`}</td></tr>`;
+    pa = x;
+  });
+  $("#tb-body").innerHTML = html || `<tr class="tbempty"><td colspan="6">Nenhuma linha encontrada com estes filtros.</td></tr>`;
+  $("#tb-body").querySelectorAll(".goto").forEach(b=>b.onclick=()=>goLei(b.dataset.art));
+  $("#tb-body").querySelectorAll("a.updlink").forEach(a=>a.onclick=e=>{ e.preventDefault(); showView("dicas", a.dataset.q); });
+  $("#tb-rev").checked = !!s.rev;
+  $("#tb-clear").disabled = !(TB_LVS.some(k=>s[k]) || s.pr.length || s.rev || TBQ.trim());
+}
+
+// ---------- Quadros e tabelas: etiquetas de Prioridade (valores da coluna Prioridade da Tabela Lei Seca) ----------
+// Cada citação de artigo (span.ar) e cada título com artigo (h3 e título de quadro-destaque) recebe as prioridades de todos os dispositivos citados.
+// Artigo citado sem parágrafo/inciso = artigo inteiro; faixa "3º–8º" ou "4º a 8º" = todos os artigos da faixa.
+function prRefs(txt){
+  const s = String(txt).replace(/\bArts?\.\s*/gi, "").replace(/p\.\s*[úu]\.?|par[áa]grafo\s+[úu]nico/gi, " PU ").replace(/[º°]/g, "");
+  const re = /(\d+)\s*(?:[–—-]|\s+a\s+)\s*(\d+)|§\s*(\d+)|\b(PU)\b|(\d+)|\b([IVX]+)\b/g;
+  const out = []; let art = null, par = null, last = null, m;
+  const drop = r => { const i = out.indexOf(r); if(i >= 0) out.splice(i, 1); };
+  while((m = re.exec(s))){
+    if(m[1]){ for(let n = +m[1]; n <= +m[2]; n++) out.push({art:String(n)}); art = m[2]; par = null; last = null; }
+    else if(m[3] || m[4]){ if(!art) continue; par = m[3] ? "§ " + m[3] + "º" : "Parágrafo único";
+      if(last && last.art===art && !last.par && !last.inc) drop(last);
+      last = {art, par}; out.push(last); }
+    else if(m[5]){ art = m[5]; par = null; last = {art}; out.push(last); }
+    else if(m[6]){ if(!art) continue;
+      if(last && last.art===art && !last.inc && (last.par||null)===par) drop(last);
+      last = {art, par, inc:m[6]}; out.push(last); }
+  }
+  return out;
+}
+function prOfRefs(refs){
+  const set = new Set();
+  TB_ROWS.forEach(x=>{ if(x.pr==="") return;
+    if(refs.some(r=>x.num===r.art && (r.inc ? (x.par===(r.par||"") && x.inc===r.inc) : (!r.par || x.par===r.par)))) set.add(x.pr); });
+  return [...set].sort(tbCmp);
+}
+function prTagsHtml(vals){
+  if(!vals.length) return "";
+  const t = "Prioridade na Tabela Lei Seca: " + vals.join(", ");
+  return `<span class="prtags" title="${esc(t)}" aria-label="${esc(t)}">` + vals.map(v=>`<span class="prb ${tbRank(v)}">${esc(v)}</span>`).join("") + `</span>`;
+}
+function initPrTags(){
+  if(!TB_PR.length) return;   // Tabela sem prioridades: nada a etiquetar
+  document.querySelectorAll("#dicas-body span.ar").forEach(el=>{
+    el.insertAdjacentHTML("afterend", prTagsHtml(prOfRefs(prRefs(el.textContent)))); });
+  document.querySelectorAll("#dicas-body h3").forEach(h=>{
+    const m = /\((Arts?\.[^)]*)\)/.exec(h.textContent); if(!m) return;
+    h.insertAdjacentHTML("beforeend", prTagsHtml(prOfRefs(prRefs(m[1])))); });
+  document.querySelectorAll("#dicas-body .callout > .ct").forEach(c=>{   // títulos de quadros-destaque, ex.: "Conceito (Art. 20)"
+    const m = /Arts?\.[^)]*/.exec(c.textContent); if(!m) return;
+    c.insertAdjacentHTML("beforeend", prTagsHtml(prOfRefs(prRefs(m[0])))); });
+}
+function initTabela(){
+  const v = $("#view-tabela");
+  if(!TB_ROWS.length){   // regras 3 e 8: aba criada sem conteúdo
+    v.querySelectorAll(".tbtools,#tb-table").forEach(e=>e.remove());
+    v.querySelector("footer").textContent = "";
+    v.insertAdjacentHTML("afterbegin", `<div class="card empty"><p>Aba ainda sem conteúdo.</p></div>`);
+    return;
+  }
+  v.classList.toggle("tb-nopr", !TB_PR.length);   // planilha sem nenhuma prioridade: esconde coluna e botões
+  $("#tb-n").textContent = tbFmt(TB_ROWS.length);
+  $("#tb-q").oninput = e=>{ TBQ = e.target.value; drawTabela(); };
+  $("#tb-rev").onchange = e=>{ tbStore().rev = e.target.checked; saveAll(); drawTabela(); };
+  $("#tb-clear").onclick = ()=>{ STORE._tb = {}; TBQ = ""; $("#tb-q").value = ""; saveAll(); drawTbSel(); drawTabela(); };
+  drawTbSel(); drawTabela();
+}
+
+const VIEW_Y = {};
 function showView(v, anchor){
+  const from = document.body.dataset.view; if(from) VIEW_Y[from] = window.scrollY;
   STORE._top = v; if(v!=="questoes") STORE._teo = v; saveAll();
   document.body.dataset.view = v;
   const g = v==="questoes" ? "questoes" : "teoria";
@@ -4289,14 +4544,15 @@ function showView(v, anchor){
   $("#teo-tabs").hidden = g!=="teoria";
   document.querySelectorAll("#teo-tabs .tab").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.v===v)));
   document.querySelectorAll(".view").forEach(s=>s.classList.toggle("active", s.id==="view-"+v));
+  updateSubtitle();
   if(anchor){ const el=document.getElementById(anchor); if(el) setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),30); }
-  else window.scrollTo({top:0});
+  else window.scrollTo({top: (v==="tabela" && from!=="tabela" && VIEW_Y.tabela) || 0});
   updateSubtitle(); updateToTop();
   dicasSpy();
 }
 
 (function initExtra(){
-  document.querySelectorAll(".top").forEach(b=>b.onclick=()=>showView(b.dataset.v==="teoria" ? (["lei","dicas"].includes(STORE._teo) ? STORE._teo : "lei") : b.dataset.v));
+  document.querySelectorAll(".top").forEach(b=>b.onclick=()=>showView(b.dataset.v==="teoria" ? (["lei","tabela","dicas"].includes(STORE._teo) ? STORE._teo : "lei") : b.dataset.v));
   document.querySelectorAll("#teo-tabs .tab").forEach(b=>b.onclick=()=>showView(b.dataset.v));
   // busca: filtra os artigos; "art. 21" vai direto ao artigo (atalho da página original)
   let jumpT = null;
@@ -4322,10 +4578,10 @@ function showView(v, anchor){
     const el = document.getElementById(a.getAttribute("href").slice(1)); if(el){ el.scrollIntoView({behavior:"smooth",block:"start"}); if(el.classList.contains("art")) flashEl(el); } });
   $("#to-top").onclick = ()=>window.scrollTo({top:0, behavior:"smooth"});
   window.addEventListener("scroll", ()=>{ dicasSpy(); updateToTop(); }, {passive:true});
-  renderLei(); initDicas();
+  renderLei(); initDicas(); initTabela(); initPrTags();
   const h = location.hash.slice(1);
-  const byHash = {lei:"lei", dicas:"dicas", questoes:"questoes", teoria:(["lei","dicas"].includes(STORE._teo) ? STORE._teo : "lei")}[h];
-  showView(byHash || (["lei","dicas","questoes"].includes(STORE._top) ? STORE._top : "lei"));
+  const byHash = {lei:"lei", tabela:"tabela", dicas:"dicas", questoes:"questoes", teoria:(["lei","tabela","dicas"].includes(STORE._teo) ? STORE._teo : "lei")}[h];
+  showView(byHash || (["lei","tabela","dicas","questoes"].includes(STORE._top) ? STORE._top : "lei"));
 })();
 
 </script>
