@@ -884,6 +884,36 @@
     .savebar-sub{ display: none; }
     .savebar-status{ flex-basis: 100%; }
   }
+
+  /* ---------- 00 · Todos os Vídeos (reúne os vídeos já adicionados nas matérias) ---------- */
+  .nav-list > li.nav-li-all{ padding-bottom: 6px; margin-bottom: 6px; border-bottom: 1px solid var(--line); }
+  body.view-videos:not(.is-editing) .edit-toggle{ display: none; }
+  .vid-group{ background: var(--surface); border: 1px solid var(--line); border-radius: 14px; min-width: 0; overflow: clip; }
+  .vid-group-head{
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+    padding: 16px 20px; border-bottom: 1px solid var(--line); min-width: 0;
+  }
+  .vid-group-num{ flex: none; font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .vid-group-name{
+    font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+    flex: 1 1 auto; min-width: 0; overflow-wrap: break-word;
+  }
+  .vid-goto{
+    flex: none; display: inline-flex; align-items: center; gap: 3px; background: none; border: none;
+    padding: 4px 0 4px 4px; font: inherit; font-size: 0.8rem; font-weight: 600; color: var(--accent); cursor: pointer;
+  }
+  .vid-goto:hover{ color: var(--accent-ink); text-decoration: underline; }
+  .vid-group .item-list{ padding: 2px 20px 4px; }
+  .vid-tema{
+    display: block; margin-top: 3px; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.02em; color: var(--ink-faint); overflow-wrap: break-word;
+  }
+  .vid-none{ font-size: 0.85rem; color: var(--ink-faint); line-height: 1.5; padding: 0 4px; }
+  .vid-none strong{ color: var(--ink-soft); font-weight: 600; }
+  @media (max-width: 520px){
+    .vid-group-head{ padding: 14px 16px; }
+    .vid-group .item-list{ padding: 2px 16px 4px; }
+  }
 </style>
 <template id="app-shell"><div class="app">
   <div class="scrim" id="scrim"></div>
@@ -1631,6 +1661,16 @@
        "src": "Videos/CPC/CPC Peticao inicial - Estudo do conteudo - video voz 2.mp4"
       }
      ]
+    },
+    {
+     "name": "Conciliação e Resposta",
+     "items": [
+      {
+       "type": "video",
+       "title": "CPC Resposta do Réu e Conciliação",
+       "src": "Videos/CPC/CPC Resposta do Reu - Mapa mental - video voz 2.mp4"
+      }
+     ]
     }
    ]
   },
@@ -1902,8 +1942,19 @@
    "note": "Estatuto dos Funcionários Públicos Civis do Estado de São Paulo — Lei nº 10.261/1968",
    "temas": [
     {
-     "name": "Tema 1",
-     "items": []
+     "name": "Prazos",
+     "items": [
+      {
+       "type": "video",
+       "title": "Prazos Parte 1 (Arts. 12 a 174)",
+       "src": "Videos/Lei 10.261/Prazos Parte 1 (Arts. 12 a 174) - video voz 2.mp4"
+      },
+      {
+       "type": "video",
+       "title": "Prazos Parte 2 (Arts. 240 a 323)",
+       "src": "Videos/Lei 10.261/Prazos Parte 2 (Arts. 240 a 323) - video voz 3.mp4"
+      }
+     ]
     },
     {
      "name": "Tema 2",
@@ -2192,6 +2243,16 @@
   var renaming = null;   // { tema, value }
   var host = { mode: "detecting", artifact: null, downloads: null };
 
+  /* 00 · Todos os Vídeos — tela que reúne, separados por matéria, os vídeos já adicionados nas matérias.
+     Não é uma matéria: não entra no JSON e não tem edição própria (o vídeo é adicionado dentro da matéria
+     e aparece aqui sozinho). Fica sempre em primeiro no menu. */
+  var VIDEOS_VIEW = {
+    id: 'todos-os-videos', num: '00', name: 'Todos os Vídeos', temas: [],
+    note: 'Os vídeos adicionados nas matérias, reunidos aqui por matéria. Para incluir um vídeo, adicione-o dentro da matéria (Editar → + Vídeo) — ele aparece nesta lista sozinho.'
+  };
+  var openVideos = new Map();   // id da matéria → Set dos itens de vídeo abertos nesta tela
+  var videoRefs = [];           // data-vref → { sid, item }
+
   var sidebar = $("sidebar"), scrim = $("scrim"), navList = $("navList");
   var menuToggle = $("menuToggle"), sidebarClose = $("sidebarClose");
   var topbar = $("topbar"), topbarTitle = $("topbarTitle"), topbarIndex = $("topbarIndex");
@@ -2466,6 +2527,7 @@
   function render(){
     var subject = currentSubject;
     if (!subject) return;
+    if (subject === VIDEOS_VIEW){ renderVideos(); updateSavebar(); return; }
     temasEl.innerHTML = '';
     subject.temas.forEach(function(tema, ti){
       var details = document.createElement('details');
@@ -2497,6 +2559,73 @@
     updateSavebar();
   }
 
+  /* ---------- 00 · Todos os Vídeos ---------- */
+  var GOTO_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function videoFileName(p){
+    var parts = String(p || '').split(/[\/\\]/);
+    return parts[parts.length - 1] || 'Vídeo';
+  }
+  function collectVideos(){
+    return SUBJECTS.map(function(s){
+      var vids = [];
+      s.temas.forEach(function(t){
+        (t.items || []).forEach(function(it){
+          if (it && it.type === 'video' && it.src) vids.push({ tema: t, item: it });
+        });
+      });
+      return { subject: s, videos: vids };
+    });
+  }
+  function renderVideos(){
+    var groups = collectVideos();
+    var withVids = groups.filter(function(g){ return g.videos.length > 0; });
+    var without = groups.filter(function(g){ return g.videos.length === 0; });
+    var total = withVids.reduce(function(n, g){ return n + g.videos.length; }, 0);
+    crumbIndex.textContent = total
+      ? plural(total, 'vídeo', 'vídeos') + ' · ' + plural(withVids.length, 'matéria', 'matérias')
+      : 'Nenhum vídeo ainda';
+    videoRefs = [];
+    var h = '';
+    if (!withVids.length){
+      h = '<div class="tema-empty">' + ITEM_ICONS.video +
+        '<div class="tema-empty-text"><strong>Nenhum vídeo adicionado ainda</strong>' +
+        'Os vídeos que você adicionar dentro das matérias (Editar → + Vídeo) aparecem aqui, separados por matéria.</div></div>';
+    }
+    withVids.forEach(function(g){
+      var s = g.subject;
+      var open = openVideos.get(s.id);
+      h += '<section class="vid-group" aria-label="' + esc(s.name) + '">' +
+        '<div class="vid-group-head">' +
+          '<span class="vid-group-num">' + esc(s.num) + '</span>' +
+          '<h2 class="vid-group-name">' + esc(s.name) + '</h2>' +
+          '<span class="tema-row-count">' + plural(g.videos.length, 'vídeo', 'vídeos') + '</span>' +
+          '<button type="button" class="vid-goto" data-goto="' + esc(s.id) + '">Abrir matéria' + GOTO_SVG + '</button>' +
+        '</div>' +
+        '<ul class="item-list">' + g.videos.map(function(v){
+          var it = v.item, ref = videoRefs.length;
+          videoRefs.push({ sid: s.id, item: it });
+          return '<li>' +
+            '<details class="item-acc vid-acc" data-vref="' + ref + '"' + (open && open.has(it) ? ' open' : '') + '>' +
+              '<summary class="item-row">' +
+                '<span class="item-row-icon">' + ITEM_ICONS.video + '</span>' +
+                '<span class="item-row-title">' + esc(it.title || videoFileName(it.src)) +
+                  '<span class="vid-tema">' + esc(v.tema.name || 'Tema sem nome') + '</span>' +
+                '</span>' +
+                CHEV_SVG +
+              '</summary>' +
+              '<div class="item-row-body">' + videoItemMarkup(it) + '</div>' +
+            '</details>' +
+          '</li>';
+        }).join('') + '</ul>' +
+      '</section>';
+    });
+    if (withVids.length && without.length){
+      h += '<p class="vid-none"><strong>Sem vídeos ainda:</strong> ' +
+        esc(without.map(function(g){ return g.subject.name; }).join(', ')) + '.</p>';
+    }
+    temasEl.innerHTML = h;
+  }
+
   function temaFromEl(el){
     var d = el.closest ? el.closest('details.tema-acc') : null;
     return d && temasEl.contains(d) ? currentSubject.temas[+d.dataset.ti] : null;
@@ -2510,6 +2639,19 @@
   temasEl.addEventListener('toggle', function(e){
     var d = e.target;
     if (!d || d.tagName !== 'DETAILS' || !temasEl.contains(d)) return;
+    if (d.classList.contains('vid-acc')){
+      var ref = videoRefs[+d.dataset.vref];
+      if (ref){
+        var set = openVideos.get(ref.sid);
+        if (!set){ set = new Set(); openVideos.set(ref.sid, set); }
+        if (d.open) set.add(ref.item); else set.delete(ref.item);
+      }
+      if (!d.open){
+        var playing = d.querySelector('video');
+        if (playing && !playing.paused) playing.pause();
+      }
+      return;
+    }
     if (d.classList.contains('tema-acc')){
       var t = currentSubject.temas[+d.dataset.ti];
       if (t){ if (d.open) openTemas.add(t); else openTemas.delete(t); }
@@ -2522,8 +2664,9 @@
   /* ---------- seleção de matéria ---------- */
   function buildNav(){
     var frag = document.createDocumentFragment();
-    SUBJECTS.forEach(function(s){
+    [VIDEOS_VIEW].concat(SUBJECTS).forEach(function(s){
       var li = document.createElement('li');
+      if (s === VIDEOS_VIEW) li.className = 'nav-li-all';
       var b = document.createElement('button');
       b.className = 'nav-item';
       b.type = 'button';
@@ -2536,13 +2679,19 @@
     navList.appendChild(frag);
   }
 
+  function findView(id){
+    if (id === VIDEOS_VIEW.id) return VIDEOS_VIEW;
+    return SUBJECTS.filter(function(s){ return s.id === id; })[0] || null;
+  }
+
   function selectSubject(id){
-    var subject = SUBJECTS.filter(function(s){ return s.id === id; })[0] || SUBJECTS[0];
+    var subject = findView(id) || SUBJECTS[0];
     if (subject !== currentSubject){
       if (editing && !commitEditor(true)) cancelEditor(true);
       if (renaming) commitRename();
     }
     currentSubject = subject;
+    document.body.classList.toggle('view-videos', subject === VIDEOS_VIEW);
     Array.prototype.forEach.call(navList.querySelectorAll('.nav-item'), function(b){
       if (b.dataset.id === subject.id) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
     });
@@ -3502,6 +3651,12 @@
       openLightbox(img.src, img.alt, caption ? caption.textContent : '');
       return;
     }
+    var go = e.target.closest('[data-goto]');
+    if (go && temasEl.contains(go)){
+      selectSubject(go.dataset.goto);
+      window.scrollTo(0, 0);
+      return;
+    }
     var b = e.target.closest('[data-act]');
     if (!b || !temasEl.contains(b) || b.disabled) return;
     var fn = actions[b.dataset.act];
@@ -4045,10 +4200,10 @@
   /* ---------- início ---------- */
   function initialSubjectId(){
     var fromHash = location.hash ? location.hash.slice(1) : '';
-    if (SUBJECTS.some(function(s){ return s.id === fromHash; })) return fromHash;
+    if (findView(fromHash)) return fromHash;
     try {
       var stored = localStorage.getItem(STORAGE_KEY);
-      if (stored && SUBJECTS.some(function(s){ return s.id === stored; })) return stored;
+      if (stored && findView(stored)) return stored;
     } catch (e) {}
     return SUBJECTS[0].id;
   }
