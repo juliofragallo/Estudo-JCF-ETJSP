@@ -307,6 +307,13 @@ header .hmeta b{color:var(--ink);font-weight:600}
 /* questões: modo (estudo / estatísticas) e estatísticas */
 .qmrow{flex-basis:100%}
 .toolbar.statsmode .qonly{display:none!important}
+/* questões: seletor de Prioridade (aba Todas) */
+.qprow{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.qprow[hidden]{display:none}
+.qprhint{font-size:.78rem;color:var(--muted)}
+#q-pr .prd{margin-right:5px}
+#q-pr button.on .prd{box-shadow:0 0 0 2px #fff}
+.qhead .prb{align-self:center;min-width:0}
 .stats-card h2{margin:0 0 6px;font-size:1.15rem;color:var(--brand)}
 .stats-card .intro{margin:0 0 8px;color:var(--muted);font-size:.92rem}
 .stats-card .tot{margin:0 0 10px;font-weight:600}
@@ -492,6 +499,7 @@ table.qt.tbl{table-layout:fixed;margin-top:14px;background:var(--panel)}
   <nav class="tabs" role="tablist" id="tabs"></nav>
   <div class="toolbar" id="toolbar">
     <div class="qmrow" id="qmrow"><div class="seg" id="qmode" role="group" aria-label="Modo de estudo"><button type="button" data-m="estudo">Estudo Aleatório</button><button type="button" data-m="stats">Estatísticas</button></div></div>
+    <div class="qprow" id="qprow" hidden><span class="tblbl">Prioridade</span><div class="pegf" id="q-pr" role="group" aria-label="Filtrar questões por Prioridade"></div><span class="qprhint">da base legal da resposta, conforme a Tabela Lei Seca</span></div>
     <div class="opts qonly">
       <label class="switch" title="Mostra só a alternativa correta e uma errada, sorteada"><input type="checkbox" id="quick"> Estudo Rápido</label>
       <div class="timerctl">
@@ -699,6 +707,33 @@ const todasQs = Q_TODAS.map((q,i)=>{
   window.__dupNorm = norm;
 })();
 
+// ---------- Prioridade das questões (aba Todas): a da Tabela Lei Seca para o dispositivo da base legal da resposta ----------
+// A questão recebe a prioridade da linha da tabela do dispositivo citado na base legal (artigo citado só pelo número = caput).
+// Se a base cita mais de um dispositivo, vale o de maior importância (menor número). Dispositivo sem linha própria na tabela
+// usa a mais importante das suas subdivisões. Base legal fora da tabela (fora do recorte do edital) = "Sem prioridade".
+const qprCmp = (a,b) => (typeof a==="number" && typeof b==="number") ? a-b : String(a).localeCompare(String(b), "pt-BR", {numeric:true});
+const QPR_ROWS = [];   // {a: artigo ("6"), s: subdivisão ("", "-§4", "-§4-I"), p: prioridade}
+((typeof TAB_LEI!=="undefined" && TAB_LEI.r) || []).forEach(r=>{
+  const p = r[6]; if(p===null || p===undefined || p==="") return;
+  const pk = r[2] ? parKey(r[2]) : null;
+  QPR_ROWS.push({a: artKey(r[1]), s: (pk ? "-"+pk : "") + (r[3] ? "-"+r[3] : "") + (r[4] ? "-"+r[4] : ""), p});
+});
+const QPR_ALL = [...new Set(QPR_ROWS.map(x=>x.p))].sort(qprCmp);   // níveis da tabela (mesmas cores da Tabela Lei Seca)
+function qprOfRef(k){
+  const e = LAWIDX[k]; if(!e) return "";
+  const s = k.slice(e.art.length), rows = QPR_ROWS.filter(x=>x.a===e.art);
+  const ex = rows.filter(x=>x.s===s), use = ex.length ? ex : rows.filter(x=>x.s.startsWith(s+"-"));
+  const v = use.map(x=>x.p).sort(qprCmp); return v.length ? v[0] : "";
+}
+function qprOf(art){ const v = parseRefs(art, LAWIDX).map(qprOfRef).filter(p=>p!=="").sort(qprCmp); return v.length ? v[0] : ""; }
+todasQs.forEach(q=>{ q.pr = qprOf(q.art); });
+const QPR = [...new Set(todasQs.map(q=>q.pr).filter(p=>p!==""))].sort(qprCmp);   // prioridades presentes nas questões
+const QPR_NONE = todasQs.some(q=>q.pr==="");
+const qprKey = p => p==="" ? "none" : String(p);
+const qprRank = p => { const i = QPR_ALL.indexOf(p); return i===0 ? "p-a" : (i===QPR_ALL.length-1 && i>0) ? "p-c" : "p-b"; };
+const qprTag = q => q.pr==="" ? `<span class="tag x" title="Base legal fora da Tabela Lei Seca (fora do recorte do edital)">Sem prioridade</span>`
+  : `<span class="prb ${qprRank(q.pr)}" title="Prioridade da base legal da resposta na Tabela Lei Seca">Prioridade ${esc(q.pr)}</span>`;
+
 const STATS_INTRO = "Contagem de quantas questões têm, como base legal da resposta correta, cada artigo das Normas de Serviço da Corregedoria Geral da Justiça (NSCGJ, Tomo I). Quando a questão se apoia em mais de um artigo (ex.: \"arts. 27 e 27-A\"), cada artigo é contabilizado. Clique em uma barra para ver as questões correspondentes.";
 const DISC_V = "Questões do arquivo “Questoes Q concursos 2021 a 2026 1 a 70.docx” (Qconcursos): provas VUNESP do TJ-SP de 2023 e 2024 (Escrevente Técnico Judiciário e Oficial de Justiça) e o Simulado 2 Qconcursos (questões 34 a 38). As 42 questões sobre o Tomo II (serviços extrajudiciais), que não caem no concurso de Escrevente, foram retiradas, como no arquivo; a numeração original foi mantida. Gabaritos mantidos como no arquivo; quando algum parece discutível, isso é avisado na própria questão. Fundamentação conferida com a lei seca e com o Tomo I completo da pasta.";
 const STATS_INTRO_V = "Contagem de quantas questões têm, como base legal da resposta correta, cada artigo das NSCGJ (Tomo I). Quando a questão se apoia em mais de um artigo, cada um é contabilizado; artigos do Tomo I fora do recorte do edital aparecem com essa indicação. Clique em uma barra para ver as questões correspondentes.";
@@ -712,7 +747,7 @@ const DATA = {tabs:[
     eyebrow:"NEAF Concursos · NSCGJ Tomo I", head:"Simulados NEAF — Normas da Corregedoria",
     sub:`${Q_NEAF.length} questões · Capítulos II, III e XI · gabarito + fundamentação por alternativa, com o texto da lei seca`,
     disc:DISC_N, statsTitle:"Artigos mais cobrados — NEAF"},
-  {id:"todas", title:"Todas as Questões", hide:true, raw:Q_TODAS, questions:todasQs,
+  {id:"todas", title:"Todas as Questões", hide:true, prio:true, raw:Q_TODAS, questions:todasQs,
     head:"Normas da Corregedoria — Todas as Questões",
     sub:`${Q_TODAS.length} questões (${Q_VUNESP.length} VUNESP + ${Q_NEAF.length} NEAF Concursos) · gabarito + fundamentação por alternativa`,
     disc:DISC_N, extra:"Questões que se repetem entre os arquivos vêm identificadas. O registro de respostas desta aba é separado do das outras abas. As questões VUNESP vêm primeiro (nº 1 a " + Q_VUNESP.length + "; o número original no arquivo aparece no rótulo de repetição e na aba VUNESP), seguidas das NEAF.",
@@ -758,7 +793,36 @@ function renderTabs(){
 
 // questões visíveis da aba (as ocultas ficam de fora)
 function hidMap(){ const s = st(TAB); if(!s.hidden) s.hidden = {}; return s.hidden; }
-function visQs(){ const T = tabData(); if(!T.hide) return T.questions; const h = hidMap(); return T.questions.filter(q=>!h[q.id]); }
+function visQs(){ const T = tabData(), h = T.hide ? hidMap() : {}; return T.questions.filter(q=>!h[q.id] && prPass(q)); }
+// seletor de Prioridade (só nas abas com prio): seleção salva por aba; vazia = todas
+function prSel(){ const s = st(TAB); if(!Array.isArray(s.pr)) s.pr = [];
+  s.pr = s.pr.filter(k=>k==="none" ? QPR_NONE : QPR.some(p=>String(p)===k)); return s.pr; }
+function prPass(q){ if(!tabData().prio) return true; const sel = prSel(); return !sel.length || sel.includes(qprKey(q.pr)); }
+function drawQPr(){
+  const T = tabData(), s = st(TAB), sel = prSel(), h = T.hide ? hidMap() : {};
+  const base = T.questions.filter(q=>!h[q.id]);   // contagem: questões não ocultas da aba
+  const cnt = {}, done = {};
+  base.forEach(q=>{ const k = qprKey(q.pr); cnt[k] = (cnt[k]||0) + 1; if(s.answered[q.id]) done[k] = (done[k]||0) + 1; });
+  const tip = (k, what) => `${cnt[k]||0} questão(ões) ${what} · ${done[k]||0} respondida(s)`;
+  const btn = (k, inner, title) => { const on = k==="all" ? !sel.length : sel.includes(k);
+    return `<button type="button" data-p="${k}" class="${on ? "on" : ""}" aria-pressed="${on}" title="${esc(title)}">${inner}</button>`; };
+  $("#q-pr").innerHTML = btn("all", `Todas · ${base.length}`, `Todas as ${base.length} questões da aba`) +
+    QPR.map(p=>{ const k = qprKey(p); return btn(k, `<i class="prd ${qprRank(p)}"></i>${esc(p)} · ${cnt[k]||0}`, tip(k, "com Prioridade " + p)); }).join("") +
+    (QPR_NONE ? btn("none", `Sem prioridade · ${cnt.none||0}`, tip("none", "com base legal fora da Tabela Lei Seca (fora do recorte do edital)")) : "");
+  $("#q-pr").querySelectorAll("button").forEach(b=>b.onclick=()=>setQPr(b.dataset.p));
+}
+function setQPr(k){   // os botões podem ser combinados; "Todas" limpa a seleção
+  const s = st(TAB); let sel = prSel();
+  if(k==="all") sel = [];
+  else { sel = sel.includes(k) ? sel.filter(v=>v!==k) : sel.concat(k); if(sel.length === QPR.length + (QPR_NONE ? 1 : 0)) sel = []; }
+  s.pr = sel; saveAll();
+  const q = s.cur ? qById(s.cur) : null;
+  if(isStats()){ render(); return; }
+  if(!q || !prPass(q)){   // questão atual fora da prioridade escolhida: sorteia outra dentro dela
+    stopTimer(); s.cur = null; s.active = null; s.wrong = null; saveAll(); selected = null; render(); startTimer(); return;
+  }
+  stats();
+}
 function hiddenQs(){ const T = tabData(); if(!T.hide) return []; const h = hidMap(); return T.questions.filter(q=>h[q.id]).sort((a,b)=>a.n-b.n); }
 
 function renderHideList(){
@@ -806,6 +870,7 @@ function stats(){
   $("#s-hid").setAttribute("aria-expanded", String(!$("#hidelist").hidden));
   // modo Estudo Aleatório / Estatísticas (só nas abas que têm estatísticas)
   $("#qmrow").hidden = !T.statsTitle;
+  $("#qprow").hidden = !T.prio; if(T.prio) drawQPr();
   $("#qmode").querySelectorAll("button").forEach(b=>{ const on = b.dataset.m === (isStats() ? "stats" : "estudo"); b.classList.toggle("on", on); b.setAttribute("aria-pressed", String(on)); });
   $("#toolbar").classList.toggle("statsmode", isStats());
   renderTimerCtl();
@@ -842,6 +907,12 @@ function render(){
   if(!q) q = pickNext();
   if(!q){
     const vis = visQs(), n = vis.length, ok = vis.filter(x=>(s.answered[x.id]||{}).ok).length;
+    const fil = !!tabData().prio && prSel().length > 0;
+    if(!n && fil){ main.innerHTML = `<div class="card empty"><h2>Nenhuma questão disponível na prioridade selecionada</h2>
+      <p>Escolha outra prioridade acima${hiddenQs().length ? `, ou clique em <b>Ocultas</b> para restaurar questões` : ""}.</p></div>`; return; }
+    if(n && fil){ main.innerHTML = `<div class="card empty"><h2>Você respondeu todas as ${n} questões da prioridade selecionada</h2>
+      <p>Acertos: <b>${ok}</b> de ${n} (${Math.round(100*ok/n)}%).</p>
+      <p>Escolha outra prioridade acima, ou clique em <b>Reiniciar estudo</b> para apagar o registro e começar de novo.</p></div>`; return; }
     if(!n){ main.innerHTML = `<div class="card empty"><h2>Todas as questões desta aba estão ocultas</h2>
       <p>Clique em <b>Ocultas</b>, acima, para restaurar as que quiser rever.</p></div>`; return; }
     main.innerHTML = `<div class="card empty"><h2>Você respondeu todas as ${n} questões desta aba</h2>
@@ -856,7 +927,7 @@ function render(){
   const stem = q.stem.map(p=>`<p class="${/^(?:I|II|III|IV|V|VI|VII|VIII|IX|X)\s*[-–.)]\s/.test(p)?"item":""}">${esc(p)}</p>`).join("");
   const meta = (q.meta||[]).map(m=>`<div>${esc(m)}</div>`).join("");
   main.innerHTML = `<article class="card" aria-live="polite">
-    <div class="qhead"><span class="qnum">Questão ${q.n}</span>${q.from?`<span class="tag s">${esc(q.from)}</span>`:""}<span class="qorig">${esc(q.orig)}</span></div>
+    <div class="qhead"><span class="qnum">Questão ${q.n}</span>${q.from?`<span class="tag s">${esc(q.from)}</span>`:""}${tabData().prio ? qprTag(q) : ""}<span class="qorig">${esc(q.orig)}</span></div>
     ${meta?`<div class="meta">${meta}</div>`:""}
     ${q.rep ? (q.rep.length?`<div class="dupnote">Questão repetida — também aparece em: ${esc(q.rep.join("; "))}.</div>`:"")
             : (q.dup?`<div class="dupnote">Esta questão se repete no arquivo (igual à questão ${esc(q.dup)}).</div>`:"")}
@@ -973,14 +1044,17 @@ function computeStats(DATA){
   return stats;
 }
 function renderStatsView(){
-  const T = tabData(), s = st(TAB), stats = computeStats(T.raw);
+  const T = tabData(), s = st(TAB);
+  const byNum = new Map(T.questions.map(q=>[q.n, q]));
+  const fil = !!T.prio && prSel().length > 0;
+  const raw = fil ? T.raw.filter(r=>{ const q = byNum.get(r.num); return !q || prPass(q); }) : T.raw;
+  const stats = computeStats(raw);
   const max = stats[0] ? stats[0].count : 1;
   const totalCitations = stats.reduce((a,x) => a + x.count, 0);
   const open = s.statsOpen || {};
-  const byNum = new Map(T.questions.map(q=>[q.n, q]));
   $("#main").innerHTML = `<section class="card stats-card"><h2>${esc(T.statsTitle)}</h2>
     <p class="intro">${esc(T.statsIntro || STATS_INTRO)}</p>
-    <p class="tot">${esc(stats.length + ' dispositivos distintos identificados, em ' + totalCitations + ' citações ao longo das ' + T.raw.length + ' questões.')}</p>
+    <p class="tot">${esc(stats.length + ' dispositivos distintos identificados, em ' + totalCitations + ' citações ao longo das ' + raw.length + ' questões' + (fil ? ' da prioridade selecionada' : '') + '.')}</p>
     <div id="statsList">${stats.map(x=>{
       const pct = Math.max(6, Math.round((x.count / max) * 100));
       const chips = x.questions.map(n=>{ const q = byNum.get(n), a = q && s.answered[q.id];
@@ -1092,7 +1166,7 @@ $("#reset").onclick = ()=>{ const n = Object.keys(st(TAB).answered).length;
   $("#confirm-msg").textContent = `Apagar o registro de ${n} questão(ões) respondida(s) na aba "${tabData().title}"? As questões ocultas continuam ocultas.`;
   $("#confirm").classList.add("show"); };
 $("#confirm-no").onclick = ()=>$("#confirm").classList.remove("show");
-$("#confirm-yes").onclick = ()=>{ stopTimer(); const o=st(TAB); STORE[TAB]={answered:{},cur:null,wrong:null,quick:o.quick,active:null,mode:o.mode}; if(o.hidden) STORE[TAB].hidden=o.hidden; saveAll(); render(); };
+$("#confirm-yes").onclick = ()=>{ stopTimer(); const o=st(TAB); STORE[TAB]={answered:{},cur:null,wrong:null,quick:o.quick,active:null,mode:o.mode}; if(o.hidden) STORE[TAB].hidden=o.hidden; if(o.pr) STORE[TAB].pr=o.pr; saveAll(); render(); };
 $("#qmode").querySelectorAll("button").forEach(b=>b.onclick=()=>{ const s=st(TAB); const m = b.dataset.m; if((s.mode||"estudo")===m) return; stopTimer(); s.mode = m; saveAll(); selected=null; render(); });
 $("#main").addEventListener("click", e=>{ const g = e.target.closest(".goto"); if(g) goLei(g.dataset.art); });
 render();
